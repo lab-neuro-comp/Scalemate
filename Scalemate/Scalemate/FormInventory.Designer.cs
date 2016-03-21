@@ -43,12 +43,14 @@ namespace BeckInventory
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(368, 177);
+            this.tableLayoutPanel1.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.Anchor = AnchorStyles.None;
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -56,9 +58,12 @@ namespace BeckInventory
             this.flowLayoutPanel1.Controls.Add(this.labelQuestion);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.buttonContinue);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(371, 244);
+            this.flowLayoutPanel1.Anchor = AnchorStyles.None;
+            this.flowLayoutPanel1.Dock = DockStyle.Fill;
+            this.flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // labelQuestion
@@ -95,7 +100,7 @@ namespace BeckInventory
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-
+            this.WindowState = FormWindowState.Maximized;
         }
 
         #endregion
