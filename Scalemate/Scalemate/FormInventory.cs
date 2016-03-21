@@ -6,9 +6,9 @@ namespace BeckInventory
 {
     public partial class FormInventory : Form
     {
-        private Form Mother { get; set; }
-        private string Test { get; set; }
-        private string Patient { get; set; }
+        public Form Mother { get; set; }
+        public string Test { get; set; }
+        public string Patient { get; set; }
         private int NoQuestions { get; set; }
         private int CurrentQuestion { get; set; }
         private Queue<string> Questions { get; set; }
@@ -18,21 +18,6 @@ namespace BeckInventory
         public FormInventory()
         {
             InitializeComponent();
-        }
-
-        public void SetMother(Form mother)
-        {
-            Mother = mother;
-        }
-
-        public void SetTest(string test)
-        {
-            Test = test;
-        }
-
-        public void SetPatient(string patient)
-        {
-            Patient = patient;
         }
 
         public void Start()
@@ -87,11 +72,11 @@ namespace BeckInventory
         private void ShowResults()
         {
             var form = new FormResult();
-            form.SetMother(Mother);
-            form.SetTest(Test);
-            form.SetPatient(Patient);
-            form.SetAnswers(Answers);
-            form.SetScore(Score);
+            form.Mother = Mother;
+            form.Test = Test;
+            form.Patient = Patient;
+            form.Answers = Answers;
+            form.CalculateScore(Score);
             form.Show();
             this.Close();
         }

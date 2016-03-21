@@ -6,37 +6,17 @@ namespace BeckInventory
 {
     public partial class FormResult : Form
     {
-        public Form Mother { get; private set; }
-        private string Test { get; set; }
-        private string Patient { get; set; }
-        private int[] Answers { get; set; }
+        public Form Mother { get; set; }
+        public string Test { get; set; }
+        public string Patient { get; set; }
+        public int[] Answers { get; set; }
 
         public FormResult()
         {
             InitializeComponent();
         }
 
-        public void SetMother(Form mother)
-        {
-            Mother = mother;
-        }
-
-        public void SetTest(string test)
-        {
-            Test = test;   
-        }
-
-        public void SetPatient(string patient)
-        {
-            Patient = patient;
-        }
-
-        public void SetAnswers(int[] answers)
-        {
-            Answers = answers;
-        }
-
-        public void SetScore(int score)
+        public void CalculateScore(int score)
         {
             DataParser DP;
             DataAcessLayer DAL = new DataAcessLayer();

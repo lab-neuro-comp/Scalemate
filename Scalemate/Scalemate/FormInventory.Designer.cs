@@ -91,6 +91,7 @@ namespace BeckInventory
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormInventory";
             this.Text = "Escala";
+            this.Icon = new System.Drawing.Icon(@"assets\icon.ico");
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

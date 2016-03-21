@@ -80,6 +80,7 @@ namespace BeckInventory
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 120);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = new System.Drawing.Icon(@"assets\icon.ico");
             this.Name = "FormResult";
             this.Text = "Resultado";
             this.tableLayoutPanel1.ResumeLayout(false);

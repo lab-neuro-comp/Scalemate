@@ -35,9 +35,9 @@ namespace BeckInventory
         private void buttonStart_Click(object sender, EventArgs e)
         {
             FormInventory form = new FormInventory();
-            form.SetMother(this);
-            form.SetPatient(textPatient.Text);
-            form.SetTest(Tests[listKind.SelectedIndex]);
+            form.Mother = this;
+            form.Patient = textPatient.Text;
+            form.Test = Tests[listKind.SelectedIndex];
             form.Show();
             form.Start();
         }
