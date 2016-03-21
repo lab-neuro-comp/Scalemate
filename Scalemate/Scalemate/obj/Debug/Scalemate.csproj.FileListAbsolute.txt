@@ -1,0 +1,11 @@
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.exe.config
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.csprojResolveAssemblyReference.cache
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.Properties.Resources.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.csproj.GenerateResource.Cache
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.exe
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.pdb
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormInventory.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormResult.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.exe
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.pdb
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\BeckInventory.Form1.resources
