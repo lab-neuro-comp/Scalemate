@@ -1,3 +1,4 @@
 ﻿depression Depressão
 depression-en Depression
+anxiety Ansiedade
 anxiety-en Anxiety
