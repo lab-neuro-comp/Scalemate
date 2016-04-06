@@ -1,0 +1,3 @@
+0 10 Canhoto
+10 20 Ambidextro
+20 500 Destro

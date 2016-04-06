@@ -34,12 +34,13 @@ namespace BeckInventory
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInventory));
+            this.flowLayoutPanel1 = new FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelQuestion = new System.Windows.Forms.Label();
             this.buttonContinue = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            
             // 
             // tableLayoutPanel1
             // 
@@ -51,7 +52,7 @@ namespace BeckInventory
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Anchor = AnchorStyles.None;
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
@@ -61,11 +62,16 @@ namespace BeckInventory
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Anchor = AnchorStyles.None;
-            this.flowLayoutPanel1.Dock = DockStyle.Fill;
+            //this.flowLayoutPanel1.Dock = DockStyle.Fill;
             this.flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
+            // Let's try this the hard way
+            this.flowLayoutPanel1.Width = this.Width;
+            this.flowLayoutPanel1.Height = this.Height;
+            this.flowLayoutPanel1.Left = (this.ClientSize.Width - this.flowLayoutPanel1.Width) / 2;
+            this.flowLayoutPanel1.Top = (this.ClientSize.Height - this.flowLayoutPanel1.Height) / 2;
+
             // labelQuestion
             // 
             this.labelQuestion.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -74,7 +80,7 @@ namespace BeckInventory
             this.labelQuestion.Location = new System.Drawing.Point(3, 0);
             this.labelQuestion.Name = "labelQuestion";
             this.labelQuestion.Size = new System.Drawing.Size(73, 20);
-            this.labelQuestion.TabIndex = 2;
+            this.labelQuestion.TabIndex = 1;
             this.labelQuestion.Text = "Question";
             this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -83,16 +89,17 @@ namespace BeckInventory
             this.buttonContinue.Location = new System.Drawing.Point(3, 206);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(75, 23);
-            this.buttonContinue.TabIndex = 1;
+            this.buttonContinue.TabIndex = 0;
             this.buttonContinue.Text = "Continuar";
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
+
             // 
             // FormInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 277);
+            //this.ClientSize = new System.Drawing.Size(401, 277);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormInventory";
             this.Text = "Escala";
@@ -104,6 +111,8 @@ namespace BeckInventory
         }
 
         #endregion
+
+        #region My own code
 
         private string[] Rest(string[] array)
         {
@@ -145,9 +154,12 @@ namespace BeckInventory
             Radios[0].Checked = true;
         }
 
+        #endregion
+
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttonContinue;
         private Label labelQuestion;
     }
 }
+
