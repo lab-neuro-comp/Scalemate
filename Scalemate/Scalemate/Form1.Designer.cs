@@ -54,9 +54,9 @@
             // 
             this.listKind.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listKind.FormattingEnabled = true;
-            this.listKind.Location = new System.Drawing.Point(82, 77);
+            this.listKind.Location = new System.Drawing.Point(62, 80);
             this.listKind.Name = "listKind";
-            this.listKind.Size = new System.Drawing.Size(120, 43);
+            this.listKind.Size = new System.Drawing.Size(160, 43);
             this.listKind.TabIndex = 2;
             // 
             // buttonStart
