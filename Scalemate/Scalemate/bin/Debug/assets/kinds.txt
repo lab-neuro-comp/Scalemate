@@ -3,3 +3,4 @@ depression-en Depression
 anxiety Ansiedade
 anxiety-en Anxiety
 edinburgh Inventário de Edinburgh
+edinburgh-en Edinburgh's Inventory
