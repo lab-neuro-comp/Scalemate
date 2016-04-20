@@ -109,7 +109,7 @@ namespace BeckInventory
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormInventory";
             this.Text = "Scalemate";
-            this.Icon = new System.Drawing.Icon(@"assets\icon.ico");
+            this.Icon = new System.Drawing.Icon(@"assets\Logo.ico");
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

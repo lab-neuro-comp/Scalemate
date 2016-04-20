@@ -106,7 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 186);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = new System.Drawing.Icon(@"assets\Logo.ico");
             this.Name = "Form1";
             this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
