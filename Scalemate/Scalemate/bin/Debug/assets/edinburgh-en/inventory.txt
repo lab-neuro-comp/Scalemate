@@ -17,7 +17,8 @@ Usually left
 No preference
 Usually right
 Always right
-Using scissorsAlways left
+Using scissors
+Always left
 Usually left
 No preference
 Usually right

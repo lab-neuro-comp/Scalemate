@@ -53,6 +53,8 @@ namespace BeckInventory
             this.tableLayoutPanel1.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Anchor = AnchorStyles.None;
             this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Width = this.Width;
+            this.tableLayoutPanel1.Height = 3 * this.Height / 4;
             // 
             // flowLayoutPanel1
             // 
@@ -76,7 +78,11 @@ namespace BeckInventory
             // 
             this.labelQuestion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 
+                                                              12F, 
+                                                              System.Drawing.FontStyle.Regular, 
+                                                              System.Drawing.GraphicsUnit.Point, 
+                                                              ((byte)(0)));
             this.labelQuestion.Location = new System.Drawing.Point(3, 0);
             this.labelQuestion.Name = "labelQuestion";
             this.labelQuestion.Size = new System.Drawing.Size(73, 20);
@@ -88,7 +94,7 @@ namespace BeckInventory
             // 
             this.buttonContinue.Location = new System.Drawing.Point(3, 206);
             this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(75, 23);
+            this.buttonContinue.Size = new System.Drawing.Size(75, 25);
             this.buttonContinue.TabIndex = 0;
             this.buttonContinue.Text = "Continuar";
             this.buttonContinue.UseVisualStyleBackColor = true;
@@ -102,7 +108,7 @@ namespace BeckInventory
             //this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormInventory";
-            this.Text = "Escala";
+            this.Text = "Scalemate";
             this.Icon = new System.Drawing.Icon(@"assets\icon.ico");
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
