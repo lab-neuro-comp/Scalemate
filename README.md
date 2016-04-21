@@ -17,4 +17,4 @@ Results folder
 Credits
 -------
 
-Scalemate was written by [Cris Silva Jr.](crisjr.eng.br) in the Laboratory of Neurosciences and Behavior at University of Brasília, and it was released under the MIT License.
+Scalemate was written by [Cris Silva Jr.](http://crisjr.eng.br) in the Laboratory of Neurosciences and Behavior at University of Brasília, and it was released under the [MIT License](https://opensource.org/licenses/MIT).
