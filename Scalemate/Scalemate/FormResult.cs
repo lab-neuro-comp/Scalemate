@@ -39,13 +39,7 @@ namespace Scalemate
             }
 
             /* Write answers */
-            string[] parts =
-            {
-                string.Format("Teste: {0}", Test),
-                string.Format("Paciente: {0}", Patient),
-                string.Format("Pontuação: {0} ponto(s)", score),
-                string.Format("Resultado: {0}", result)
-            };
+            string[] parts = {Test, Patient, string.Format("{0}", score), result };
             DAL.Save(DAL.GenerateResultsPath(Patient, Test), GenerateCSV(parts));
         }
 
@@ -73,7 +67,7 @@ namespace Scalemate
 
         private string GenerateCSV(string[] stuff)
         {
-            return stuff.Aggregate("", (box, it) => box + it + ",") +
+            return stuff.Aggregate("", (box, it) => box + it + "\t") +
                    Answers.Aggregate("\r\n", (box, it) => box + it + "\r\n");
         }
     }
