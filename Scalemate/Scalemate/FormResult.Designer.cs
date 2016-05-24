@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BeckInventory
+namespace Scalemate
 {
     partial class FormResult
     {

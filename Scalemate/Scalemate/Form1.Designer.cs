@@ -1,4 +1,4 @@
-﻿namespace BeckInventory
+﻿namespace Scalemate
 {
     partial class Form1
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.labelTitle = new System.Windows.Forms.Label();
             this.listKind = new System.Windows.Forms.ListBox();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -97,7 +96,7 @@
             this.textPatient.Name = "textPatient";
             this.textPatient.Size = new System.Drawing.Size(120, 20);
             this.textPatient.TabIndex = 3;
-            this.textPatient.Text = "Paciente";
+            this.textPatient.Text = "Nome";
             this.textPatient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
@@ -106,7 +105,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 186);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = new System.Drawing.Icon(@"assets\Logo.ico");
             this.Name = "Form1";
             this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);

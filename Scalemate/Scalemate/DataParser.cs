@@ -1,4 +1,4 @@
-﻿namespace BeckInventory
+﻿namespace Scalemate
 {
     class DataParser
     {

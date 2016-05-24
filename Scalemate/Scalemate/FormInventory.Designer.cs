@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BeckInventory
+namespace Scalemate
 {
     partial class FormInventory
     {
@@ -71,8 +73,8 @@ namespace BeckInventory
             // Let's try this the hard way
             this.flowLayoutPanel1.Width = this.Width;
             this.flowLayoutPanel1.Height = this.Height;
-            this.flowLayoutPanel1.Left = (this.ClientSize.Width - this.flowLayoutPanel1.Width) / 2;
-            this.flowLayoutPanel1.Top = (this.ClientSize.Height - this.flowLayoutPanel1.Height) / 2;
+            this.flowLayoutPanel1.Left = (this.ClientSize.Width - this.flowLayoutPanel1.Width) / 4;
+            this.flowLayoutPanel1.Top = (this.ClientSize.Height - this.flowLayoutPanel1.Height) / 4;
 
             // labelQuestion
             // 
@@ -158,6 +160,28 @@ namespace BeckInventory
             }
 
             Radios[0].Checked = true;
+        }
+
+        public async Task<bool> Instruct()
+        {
+            FormInstructions instructions = new FormInstructions();
+            DataAcessLayer DAL = new DataAcessLayer();
+            string instructionsPath = DAL.GetInstructionsPath(Test);
+
+            if (DAL.FileExists(instructionsPath))
+            {
+                instructions.SetInstructions(DAL.Load(instructionsPath)
+                                                .Aggregate((acc, it) => acc + " " + it));
+                instructions.Show();
+                while (!instructions.Ended)
+                {
+                    await Task.Delay(10);
+                }
+            }
+            
+            this.Show();
+            instructions.Close();
+            return true;
         }
 
         #endregion

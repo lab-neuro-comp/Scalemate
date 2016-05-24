@@ -8,4 +8,5 @@ C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.F
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormResult.resources
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.exe
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.pdb
-C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\BeckInventory.Form1.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormInstructions.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.Form1.resources

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace BeckInventory
+namespace Scalemate
 {
     public partial class FormInventory : Form
     {

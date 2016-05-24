@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace BeckInventory
+namespace Scalemate
 {
     class DataAcessLayer
     {
@@ -41,11 +41,21 @@ namespace BeckInventory
             return string.Format("assets\\{0}\\results.txt", test);
         }
 
+        public string GetInstructionsPath(string test)
+        {
+            return string.Format("assets\\{0}\\instructions.txt", test);
+        }
+
         public string GenerateResultsPath(string patient, string test)
         {
             return string.Format("results\\{0}_{1}.csv", patient.Split(' ')
                                                                 .Aggregate((acc, x) => acc + x),
                                                          test);
+        }
+
+        public bool FileExists(string path)
+        {
+            return File.Exists(path);
         }
     }
 }

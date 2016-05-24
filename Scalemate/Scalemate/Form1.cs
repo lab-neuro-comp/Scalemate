@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BeckInventory
+namespace Scalemate
 {
     public partial class Form1 : Form
     {
@@ -32,13 +32,13 @@ namespace BeckInventory
             listKind.SetSelected(0, true);
         }
 
-        private void buttonStart_Click(object sender, EventArgs e)
+        private async void buttonStart_Click(object sender, EventArgs e)
         {
             FormInventory form = new FormInventory();
             form.Mother = this;
             form.Patient = textPatient.Text;
             form.Test = Tests[listKind.SelectedIndex];
-            form.Show();
+            await form.Instruct();
             form.Start();
         }
     }
