@@ -42,7 +42,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelTitle.Location = new System.Drawing.Point(157, 6);
+            this.labelTitle.Location = new System.Drawing.Point(125, 4);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(85, 20);
             this.labelTitle.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.listKind.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listKind.FormattingEnabled = true;
-            this.listKind.Location = new System.Drawing.Point(93, 119);
+            this.listKind.Location = new System.Drawing.Point(60, 104);
             this.listKind.Name = "listKind";
             this.listKind.Size = new System.Drawing.Size(214, 82);
             this.listKind.TabIndex = 2;
@@ -61,7 +61,7 @@
             // buttonStart
             // 
             this.buttonStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonStart.Location = new System.Drawing.Point(148, 261);
+            this.buttonStart.Location = new System.Drawing.Point(116, 236);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(103, 23);
             this.buttonStart.TabIndex = 1;
@@ -86,13 +86,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 321);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(335, 292);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // textPatient
             // 
             this.textPatient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textPatient.Location = new System.Drawing.Point(140, 54);
+            this.textPatient.Location = new System.Drawing.Point(107, 48);
             this.textPatient.Name = "textPatient";
             this.textPatient.Size = new System.Drawing.Size(120, 20);
             this.textPatient.TabIndex = 3;
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 321);
+            this.ClientSize = new System.Drawing.Size(335, 292);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Scalemate";

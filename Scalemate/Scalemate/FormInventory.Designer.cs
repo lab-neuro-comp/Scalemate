@@ -42,7 +42,33 @@ namespace Scalemate
             this.buttonContinue = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            
+
+            // labelQuestion
+            // 
+            this.labelQuestion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelQuestion.AutoSize = true;
+            this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif",
+                                                              12F,
+                                                              System.Drawing.FontStyle.Regular,
+                                                              System.Drawing.GraphicsUnit.Point,
+                                                              ((byte)(0)));
+            this.labelQuestion.Location = new System.Drawing.Point(3, 0);
+            this.labelQuestion.Name = "labelQuestion";
+            this.labelQuestion.Size = new System.Drawing.Size(this.Width / 2, this.Height / 4);
+            this.labelQuestion.Text = "Question";
+            this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            // 
+            // buttonContinue
+            // 
+            //this.buttonContinue.Location = new System.Drawing.Point(3, 206);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(75, 25);
+            this.buttonContinue.TabIndex = NoQuestions + 1;
+            this.buttonContinue.Text = "Continuar";
+            this.buttonContinue.UseVisualStyleBackColor = true;
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
+
             // 
             // tableLayoutPanel1
             // 
@@ -54,9 +80,9 @@ namespace Scalemate
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Anchor = AnchorStyles.None;
-            this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Width = this.Width;
-            this.tableLayoutPanel1.Height = 3 * this.Height / 4;
+            this.tableLayoutPanel1.Height = this.Height / 2; // if this guy and the question label are too big, the button disappear
+
             // 
             // flowLayoutPanel1
             // 
@@ -69,38 +95,12 @@ namespace Scalemate
             //this.flowLayoutPanel1.Dock = DockStyle.Fill;
             this.flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            this.flowLayoutPanel1.TabIndex = 1;
             // Let's try this the hard way
             this.flowLayoutPanel1.Width = this.Width;
             this.flowLayoutPanel1.Height = this.Height;
-            this.flowLayoutPanel1.Left = (this.ClientSize.Width - this.flowLayoutPanel1.Width) / 4;
-            this.flowLayoutPanel1.Top = (this.ClientSize.Height - this.flowLayoutPanel1.Height) / 4;
 
-            // labelQuestion
-            // 
-            this.labelQuestion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 
-                                                              12F, 
-                                                              System.Drawing.FontStyle.Regular, 
-                                                              System.Drawing.GraphicsUnit.Point, 
-                                                              ((byte)(0)));
-            this.labelQuestion.Location = new System.Drawing.Point(3, 0);
-            this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(73, 20);
-            this.labelQuestion.TabIndex = 1;
-            this.labelQuestion.Text = "Question";
-            this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonContinue
-            // 
-            this.buttonContinue.Location = new System.Drawing.Point(3, 206);
-            this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(75, 25);
-            this.buttonContinue.TabIndex = 0;
-            this.buttonContinue.Text = "Continuar";
-            this.buttonContinue.UseVisualStyleBackColor = true;
-            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
+            //this.flowLayoutPanel1.Left = (this.ClientSize.Width - this.flowLayoutPanel1.Width);
+            //this.flowLayoutPanel1.Top = (this.ClientSize.Height - this.flowLayoutPanel1.Height);
 
             // 
             // FormInventory
@@ -149,6 +149,7 @@ namespace Scalemate
                 radio.Anchor = AnchorStyles.None;
                 radio.AutoSize = true;
                 radio.UseVisualStyleBackColor = true;
+                radio.TabIndex = i + 1;
                 label.Anchor = AnchorStyles.Left;
                 label.AutoSize = true;
 
@@ -171,7 +172,7 @@ namespace Scalemate
             if (DAL.FileExists(instructionsPath))
             {
                 instructions.SetInstructions(DAL.Load(instructionsPath)
-                                                .Aggregate((acc, it) => acc + " " + it));
+                                                .Aggregate((acc, it) => acc + "\n" + it));
                 instructions.Show();
                 while (!instructions.Ended)
                 {
