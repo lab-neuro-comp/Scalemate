@@ -54,7 +54,7 @@ namespace Scalemate
                                                               ((byte)(0)));
             this.labelQuestion.Location = new System.Drawing.Point(3, 0);
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(this.Width / 2, this.Height / 4);
+            this.labelQuestion.Size = new System.Drawing.Size(3 * this.Width / 4, this.Height / 3);
             this.labelQuestion.Text = "Question";
             this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
@@ -66,6 +66,7 @@ namespace Scalemate
             this.buttonContinue.Size = new System.Drawing.Size(75, 25);
             this.buttonContinue.TabIndex = NoQuestions + 1;
             this.buttonContinue.Text = "Continuar";
+            this.buttonContinue.AutoSize = true;
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
 

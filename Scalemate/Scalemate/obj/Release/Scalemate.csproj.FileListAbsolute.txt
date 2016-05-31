@@ -1,0 +1,12 @@
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Release\Scalemate.exe.config
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Release\Scalemate.exe
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Release\Scalemate.pdb
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.csprojResolveAssemblyReference.cache
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.Form1.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.FormInstructions.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.FormInventory.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.FormResult.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.Properties.Resources.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.csproj.GenerateResource.Cache
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.exe
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.pdb
