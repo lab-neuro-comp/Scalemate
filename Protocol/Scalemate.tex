@@ -13,14 +13,14 @@
 \begin{abstract}
 Let's talk about this psychological tests platform, written by me. I wrote it
 using C\#, trying to show that every test can be implemented using a queue
-and a simple sum system. Of course, that is not the real abstract. 
+and a simple sum system. Of course, that is not the real abstract.
 \end{abstract}
 
 Should there be keywords? Like, queue, free software?
 
 \section{Introduction}
 
-The Scalemate platform was conceived based on the idea that most of the psychological tests can be written in the form of a queue, as understood by computer scientists. That is, each item of that queue can represent a group of question and answers. As each item is answered, the queue can move and the next items appear to the subject until there are no more questions left. 
+The Scalemate platform was conceived based on the idea that most of the psychological tests can be written in the form of a queue, as understood by computer scientists. That is, each item of that queue can represent a group of question and answers. As each item is answered, the queue can move and the next items appear to the subject until there are no more questions left.
 
 Not every psychological test can be done this way: many of them follow complex algorithms that can not be simply implemented with a simple queue, but for those that can be done this way, the Scalemate platform is available for use. It was designed for a simple user interaction, so that everyone, even those that are not used to computers, can make use of it and expand it with their own tests.
 
@@ -30,7 +30,7 @@ Maybe I could compare it to other test platforms? We could read more about it be
 
 Developed for Microsoft Windows using the C\# programming language and available for free under the MIT license, Scalemate can be downloaded from GitHub, and everyone is invited to contribute to it. It was written with the Windows Forms technology from Microsoft Visual Studio.
 
-The download consists of a compressed folder which, once extracted, contains an executable, made to run on computers running Microsoft Windows 7 onwards with at least 512MB of RAM memory, and two folders: \textit{assets} and \textit{results}. 
+The download consists of a compressed folder which, once extracted, contains an executable, made to run on computers running Microsoft Windows 7 onwards with at least 512MB of RAM memory, and two folders: \textit{assets} and \textit{results}.
 
 The \textit{assets} folder is the place to store the tests per se. There is a file called "kinds.txt" to list every test that must be shown in the program. Each line of this file must follow the following organization:
 \begin{itemize}
@@ -43,7 +43,7 @@ For each test, there must be three files inside its folder:
 
 \begin{itemize}
 \item A "inventory.txt" file containing the questions and answers for the test. The first line in this file must be the number N of possible answers in the test. The following lines must be organized in groups of N+1 lines: the first one is the question that will appear on the top of the test screen, while the following N lines are the possible answers. They must be placed according to their respective scoring: the first answer is worth 0 points, the second answer, 1 point; the third answer, 2 points; and so forth.
-\item A "resuults.txt" file which will describe how to score this test. Each line must contain three itens: the first one is a number, representing the lowerbound of this specific result; the second item is another another, defining the upperbound; and the rest of the line is the result to be written in the test result. These must separated by the space character. Scalemate will score an answers sheet by summing the subject's points and checking if their score is equal or greater the lowerbound and less than the upperbound. When that is the case, the platform will consider that the correct result. When designing a test, the researcher must be sure that there is no overlapping between each result boundary and that every possible score is contained in this folder.
+\item A "results.txt" file which will describe how to score this test. Each line must contain three itens: the first one is a number, representing the lowerbound of this specific result; the second item is another another, defining the upperbound; and the rest of the line is the result to be written in the test result. These must separated by the space character. Scalemate will score an answers sheet by summing the subject's points and checking if their score is equal or greater the lowerbound and less than the upperbound. When that is the case, the platform will consider that the correct result. When designing a test, the researcher must be sure that there is no overlapping between each result boundary and that every possible score is contained in this folder.
 \item A "instructions.txt" file with a text to appear before the test actually begins to instruct the subject on how to proceed or to give whatever information the researcher considers important or useful for that procedure. It can be omitted, so the test will begin right in the first question.
 \end{itemize}
 
