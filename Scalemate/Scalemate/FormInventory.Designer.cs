@@ -13,6 +13,7 @@ namespace Scalemate
         private System.ComponentModel.IContainer components = null;
         private RadioButton[] Radios { get; set; }
         private Label[] Labels { get; set; }
+        private TableLayoutPanel Table { get; set; }
 
         /// <summary>
         /// Clean up any resources being used.
@@ -36,16 +37,16 @@ namespace Scalemate
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInventory));
-            this.flowLayoutPanel1 = new FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelQuestion = new System.Windows.Forms.Label();
             this.buttonContinue = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.Table = new TableLayoutPanel();
+            Table.SuspendLayout();
             this.SuspendLayout();
 
             // labelQuestion
             // 
-            this.labelQuestion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelQuestion.Dock = DockStyle.Fill;
             this.labelQuestion.AutoSize = true;
             this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif",
                                                               12F,
@@ -62,6 +63,7 @@ namespace Scalemate
             // buttonContinue
             // 
             //this.buttonContinue.Location = new System.Drawing.Point(3, 206);
+            this.buttonContinue.Anchor = AnchorStyles.None;
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(75, 25);
             this.buttonContinue.TabIndex = NoQuestions + 1;
@@ -80,28 +82,21 @@ namespace Scalemate
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Dock = DockStyle.Fill;
-            this.tableLayoutPanel1.Anchor = AnchorStyles.None;
-            this.tableLayoutPanel1.Width = this.Width;
-            this.tableLayoutPanel1.Height = this.Height / 2; // if this guy and the question label are too big, the button disappear
 
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.labelQuestion);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
-            this.flowLayoutPanel1.Controls.Add(this.buttonContinue);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Anchor = AnchorStyles.None;
-            //this.flowLayoutPanel1.Dock = DockStyle.Fill;
-            this.flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            // Let's try this the hard way
-            this.flowLayoutPanel1.Width = this.Width;
-            this.flowLayoutPanel1.Height = this.Height;
-
-            //this.flowLayoutPanel1.Left = (this.ClientSize.Width - this.flowLayoutPanel1.Width);
-            //this.flowLayoutPanel1.Top = (this.ClientSize.Height - this.flowLayoutPanel1.Height);
+            //
+            // Table
+            //
+            Table.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Table.Dock = DockStyle.Fill;
+            Table.ColumnCount = 1;
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            Table.RowCount = 3;
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            Table.Controls.Add(labelQuestion, 0, 0);
+            Table.Controls.Add(tableLayoutPanel1, 0, 1);
+            Table.Controls.Add(buttonContinue, 0, 2);
 
             // 
             // FormInventory
@@ -109,12 +104,12 @@ namespace Scalemate
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             //this.ClientSize = new System.Drawing.Size(600, 600);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(Table);
             this.Name = "FormInventory";
             this.Text = "Scalemate";
             this.Icon = new System.Drawing.Icon(@"assets\Logo.ico");
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            Table.ResumeLayout(false);
+            Table.PerformLayout();
             this.ResumeLayout(false);
             this.WindowState = FormWindowState.Maximized;
         }
@@ -189,7 +184,6 @@ namespace Scalemate
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttonContinue;
         private Label labelQuestion;
     }
