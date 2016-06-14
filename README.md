@@ -1,6 +1,6 @@
 [![Scalemate](Identity/Banner.png)](https://yadi.sk/d/3sm8awtCqsoTX)
 
-Scalemate is a psychological scales platform for Microsoft Windows. Any test composed of written of questions and answers can be implemented here.
+Scalemate is a psychological scales engine for Microsoft Windows. Any test composed of written of questions and answers can be implemented here.
 
 Test structure
 --------------
