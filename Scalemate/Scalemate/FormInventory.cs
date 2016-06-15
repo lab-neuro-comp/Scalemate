@@ -37,9 +37,9 @@ namespace Scalemate
         private void SetQuestions()
         {
             labelQuestion.Text = Questions.Dequeue();
-            foreach (var label in Labels)
+            foreach (var radio in Radios)
             {
-                label.Text = Questions.Dequeue();
+                radio.Text = Questions.Dequeue();
             }
         }
 

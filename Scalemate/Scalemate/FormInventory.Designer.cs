@@ -12,7 +12,6 @@ namespace Scalemate
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         private RadioButton[] Radios { get; set; }
-        private Label[] Labels { get; set; }
         private TableLayoutPanel Table { get; set; }
 
         /// <summary>
@@ -76,9 +75,8 @@ namespace Scalemate
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -135,24 +133,18 @@ namespace Scalemate
         {
             tableLayoutPanel1.RowCount = NoQuestions;
             Radios = new RadioButton[NoQuestions];
-            Labels = new Label[NoQuestions];
 
             for (int i = 0; i < NoQuestions; i++)
             {
                 RadioButton radio = new RadioButton();
-                Label label = new Label();
 
                 radio.Anchor = AnchorStyles.None;
                 radio.AutoSize = true;
                 radio.UseVisualStyleBackColor = true;
                 radio.TabIndex = i + 1;
-                label.Anchor = AnchorStyles.Left;
-                label.AutoSize = true;
 
                 Radios[i] = radio;
-                Labels[i] = label;
                 tableLayoutPanel1.Controls.Add(Radios[i], 0, i);
-                tableLayoutPanel1.Controls.Add(Labels[i], 1, i);
                 tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / NoQuestions));
             }
 
