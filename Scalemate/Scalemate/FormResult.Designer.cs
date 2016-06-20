@@ -20,6 +20,7 @@ namespace Scalemate
                 components.Dispose();
             }
             base.Dispose(disposing);
+            Mother.Show();
         }
 
         #region Windows Form Designer generated code

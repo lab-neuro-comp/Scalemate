@@ -25,6 +25,10 @@ namespace Scalemate
                 components.Dispose();
             }
             base.Dispose(disposing);
+            if (Questions.Count > 0)
+            {
+                Mother.Show();
+            }
         }
 
         #region Windows Form Designer generated code
