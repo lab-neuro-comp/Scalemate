@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Scalemate
 {
@@ -37,10 +38,7 @@ namespace Scalemate
         private void SetQuestions()
         {
             labelQuestion.Text = Questions.Dequeue();
-            foreach (var radio in Radios)
-            {
-                radio.Text = Questions.Dequeue();
-            }
+            Radios.ToList().ForEach(radio => radio.Text = Questions.Dequeue());
         }
 
         private void buttonContinue_Click(object sender, EventArgs e)
