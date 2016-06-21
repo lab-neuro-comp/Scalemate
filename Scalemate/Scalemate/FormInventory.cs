@@ -15,10 +15,12 @@ namespace Scalemate
         private Queue<string> Questions { get; set; }
         private int[] Answers { get; set; }
         private int Score { get; set; }
+        private bool ReverseScore { get; set; }
 
         public FormInventory()
         {
             InitializeComponent();
+            ReverseScore = false;
         }
 
         public void Start()
@@ -39,6 +41,16 @@ namespace Scalemate
         {
             labelQuestion.Text = Questions.Dequeue();
             Radios.ToList().ForEach(radio => radio.Text = Questions.Dequeue());
+
+            if (labelQuestion.Text[0] == '*')
+            {
+                labelQuestion.Text = labelQuestion.Text.Substring(1);
+                ReverseScore = true;
+            }
+            else
+            {
+                ReverseScore = false;
+            }
         }
 
         private void buttonContinue_Click(object sender, EventArgs e)
@@ -63,6 +75,7 @@ namespace Scalemate
                     result++;
             }
 
+            result = (ReverseScore) ? Radios.Length - (1 + result) : result;
             Answers[CurrentQuestion++] = result;
             return result;
         }

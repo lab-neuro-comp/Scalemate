@@ -4,5 +4,6 @@ anxiety Ansiedade
 anxiety-en Anxiety
 edinburgh Inventário de Edinburgh
 edinburgh-en Edinburgh's Inventory
-pcl-m PCL
+pcl-m PCL-M
 stroopemocao Stroop Emocional
+procast Procastinator Student
