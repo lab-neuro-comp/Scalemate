@@ -31,9 +31,10 @@ namespace Scalemate
             Questions = new Queue<string>(Rest(raw));
             Answers = new int[Questions.Count/(NoQuestions+1)];
             Score = CurrentQuestion = 0;
-
+            
             CreateRows();
             SetQuestions();
+            this.Show();
             Mother.Hide();
         }
 

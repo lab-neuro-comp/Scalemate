@@ -10,3 +10,4 @@ C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.csproj.GenerateResource.Cache
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.exe
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.pdb
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.FormData.resources

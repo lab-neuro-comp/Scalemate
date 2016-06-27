@@ -38,6 +38,7 @@ namespace Scalemate
             form.Mother = this;
             form.Patient = textPatient.Text;
             form.Test = Tests[listKind.SelectedIndex];
+            await form.CollectInformation();
             await form.Instruct();
             form.Start();
         }

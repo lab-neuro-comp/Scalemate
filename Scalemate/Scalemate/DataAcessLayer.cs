@@ -46,6 +46,11 @@ namespace Scalemate
             return string.Format("assets\\{0}\\instructions.txt", test);
         }
 
+        public string GetInformationPath(string test)
+        {
+            return string.Format("assets\\{0}\\information.txt", test);
+        }
+
         public string GenerateResultsPath(string patient, string test)
         {
             return string.Format("results\\{0}_{1}.csv", patient.Split(' ')

@@ -160,9 +160,11 @@ namespace Scalemate
             FormInstructions instructions = new FormInstructions();
             DataAcessLayer DAL = new DataAcessLayer();
             string instructionsPath = DAL.GetInstructionsPath(Test);
+            bool areThereInstructions = false;
 
             if (DAL.FileExists(instructionsPath))
             {
+                areThereInstructions = true;
                 instructions.SetInstructions(DAL.Load(instructionsPath)
                                                 .Aggregate((acc, it) => acc + "\n" + it));
                 instructions.Show();
@@ -171,10 +173,29 @@ namespace Scalemate
                     await Task.Delay(10);
                 }
             }
-            
-            this.Show();
+
             instructions.Close();
-            return true;
+            return areThereInstructions;
+        }
+
+        public async Task<bool> CollectInformation()
+        {
+            var form = new FormData();
+            var DAL = new DataAcessLayer();
+            var informationPath = DAL.GetInformationPath(Test);
+            var isThereInformation = false;
+
+            if (DAL.FileExists(informationPath))
+            {
+                isThereInformation = true;
+                form.SetQuestions(DAL.Load(informationPath));
+                form.Show();
+                while (!form.Ended)
+                    await Task.Delay(10);
+            }
+
+            form.Close();
+            return isThereInformation;
         }
 
         #endregion
