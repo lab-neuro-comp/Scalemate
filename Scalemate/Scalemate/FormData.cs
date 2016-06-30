@@ -8,6 +8,7 @@ namespace Scalemate
     public partial class FormData : Form
     {
         public bool Ended { get; set; }
+        public string[] Survey { get; private set; }
 
         public FormData()
         {
@@ -25,8 +26,7 @@ namespace Scalemate
             if (everythingAnswered)
             {
                 Ended = true;
-                // save data
-                // TODO: Save collected information
+                Survey = answers.ToArray<string>();
             }
             else
             {

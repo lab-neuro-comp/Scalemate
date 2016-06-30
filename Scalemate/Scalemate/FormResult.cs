@@ -10,6 +10,7 @@ namespace Scalemate
         public string Test { get; set; }
         public string Patient { get; set; }
         public int[] Answers { get; set; }
+        public string[] Survey { get; set; } = null;
 
         public FormResult()
         {
@@ -66,8 +67,21 @@ namespace Scalemate
 
         private string GenerateCSV(string[] stuff)
         {
-            return stuff.Aggregate("", (box, it) => box + it + "\t") +
-                   Answers.Aggregate("\r\n", (box, it) => box + it + "\r\n");
+            string outlet = "";
+
+            if (Survey == null)
+            {
+                outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
+                         Answers.Aggregate("\r\n", (box, it) => box + it + "\r\n");
+            }
+            else
+            {
+                outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
+                         Survey.Aggregate("\r\n", (box, it) => box + it + "\r\n") +
+                         Answers.Aggregate("", (box, it) => box + it + "\r\n");
+            }
+
+            return outlet;
         }
     }
 }

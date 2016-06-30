@@ -16,11 +16,13 @@ namespace Scalemate
         private int[] Answers { get; set; }
         private int Score { get; set; }
         private bool ReverseScore { get; set; }
+        public string[] Survey { get; set; }
 
         public FormInventory()
         {
             InitializeComponent();
             ReverseScore = false;
+            Survey = null;
         }
 
         public void Start()
@@ -88,6 +90,7 @@ namespace Scalemate
             form.Test = Test;
             form.Patient = Patient;
             form.Answers = Answers;
+            form.Survey = Survey;
             form.CalculateScore(Score);
             form.Show();
             this.Close();

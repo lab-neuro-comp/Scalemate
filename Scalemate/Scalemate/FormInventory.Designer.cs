@@ -24,10 +24,17 @@ namespace Scalemate
             {
                 components.Dispose();
             }
-            base.Dispose(disposing);
-            if (Questions.Count > 0)
+            try
             {
-                Mother.Show();
+                base.Dispose(disposing);
+                if (Questions.Count > 0)
+                {
+                    Mother.Show();
+                }
+            }
+            catch (NullReferenceException any)
+            {
+
             }
         }
 
@@ -192,6 +199,7 @@ namespace Scalemate
                 form.Show();
                 while (!form.Ended)
                     await Task.Delay(10);
+                this.Survey = form.Survey;
             }
 
             form.Close();

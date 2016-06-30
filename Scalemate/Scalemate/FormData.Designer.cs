@@ -120,10 +120,11 @@
             {
                 Questions[i] = new System.Windows.Forms.Label();
                 Questions[i].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                Questions[i].Dock = System.Windows.Forms.DockStyle.Fill;
+                Questions[i].Dock = System.Windows.Forms.DockStyle.Top;
                 Questions[i].Text = questions[i];
                 Answers[i] = new System.Windows.Forms.TextBox();
                 Answers[i].Anchor = System.Windows.Forms.AnchorStyles.None;
+                Answers[i].Dock = System.Windows.Forms.DockStyle.Fill;
                 tableQAs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, proportion));
                 tableQAs.Controls.Add(Questions[i], 0, i);
                 tableQAs.Controls.Add(Answers[i], 1, i);
