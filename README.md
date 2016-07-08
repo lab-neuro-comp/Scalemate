@@ -5,15 +5,25 @@ Scalemate is a psychological scales engine for Microsoft Windows. Any test compo
 Test structure
 --------------
 
-A test if composed of a folder containing two files: `inventory.txt` and `results.txt`.
+A test if composed of a folder containing two files: `inventory.txt` and `results.txt`. There can also be two other optional files: `instructions.txt` and `information.txt`.
 
-### Inventory File
+### Inventory File ###
 
 The first line of the inventory file is the number of possible answers in each question. The following lines must contain the question (or an empty line if there is no question) and the possible answers. Note there must be as many answers as indicated in this file's header.
 
-### Results file
+If needed, a `*` can be added before the question to reverse its score.
+
+### Results file ###
 
 The results file describe how to score a test. The answers in an inventory file are worth their index minus 1. That is, the first answer is worth 0 points; the second answer is worth 1 point; the third answer is worth 2 points; and so on. The app will store the answers given by the user, and then it will sum their values, and give a result based on this results' file. Each line will contain a floor value, a ceiling value and the result corresponding to this gap. If the score is equal to or bigger then the floor, or if the score is smaller than the ceiling value, then Scalemate will write the diagnosis related to these values.
+ 
+### Instructions file ###
+
+The presence of an `instructions.txt` in the test folder will add a window before the test with the text written in this file. Its purpose is to give instructions to the subject.
+
+### Information file ###
+
+In case some information from the subject is required for that test, this `information.txt` will add another window before the test execution with the questions added in this file. Each line will consist of a question that must answered by the user, whose input will appear in the results file.
 
 Results folder
 --------------
