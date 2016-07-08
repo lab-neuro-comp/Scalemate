@@ -1,0 +1,2 @@
+0 50 Procrastinador
+50 500 Não é procrastinador

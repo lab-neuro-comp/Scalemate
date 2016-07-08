@@ -6,4 +6,5 @@ edinburgh Inventário de Edinburgh
 edinburgh-en Edinburgh's Inventory
 pcl-m PCL-M
 stroopemocao Stroop Emocional
-procast Procastinator Student
+procast-student Procastinator Student
+procast-student-pt Procastinador Estudantil
