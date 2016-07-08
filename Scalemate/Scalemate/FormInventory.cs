@@ -45,12 +45,19 @@ namespace Scalemate
             labelQuestion.Text = Questions.Dequeue();
             Radios.ToList().ForEach(radio => radio.Text = Questions.Dequeue());
 
-            if (labelQuestion.Text[0] == '*')
+            try
             {
-                labelQuestion.Text = labelQuestion.Text.Substring(1);
-                ReverseScore = true;
+                if (labelQuestion.Text[0] == '*')
+                {
+                    labelQuestion.Text = labelQuestion.Text.Substring(1);
+                    ReverseScore = true;
+                }
+                else
+                {
+                    ReverseScore = false;
+                }
             }
-            else
+            catch (IndexOutOfRangeException e)
             {
                 ReverseScore = false;
             }

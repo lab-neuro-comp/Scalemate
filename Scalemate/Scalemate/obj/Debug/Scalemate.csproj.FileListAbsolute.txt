@@ -10,3 +10,4 @@ C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.e
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.pdb
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormInstructions.resources
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.Form1.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormData.resources
