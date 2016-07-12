@@ -23,6 +23,7 @@ namespace Scalemate.View
         public FormResult()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
         }
 
         public void CalculateScore(int score)

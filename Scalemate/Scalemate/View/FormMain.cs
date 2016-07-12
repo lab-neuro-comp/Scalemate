@@ -7,15 +7,13 @@ namespace Scalemate.View
     public partial class FormMain : Form
     {
         public string[] Tests { get; private set; }
-        private Tester Mate { get; set; }
 
         public FormMain()
         {
             InitializeComponent();
-            Mate = new Tester();
 
             /// SET TESTS
-            var lines = Mate.LoadKinds();
+            var lines = Tester.LoadKinds();
             Tests = new string[lines.Length];
             int i = 0;
 
@@ -36,14 +34,13 @@ namespace Scalemate.View
 
         private async void buttonStart_Click(object sender, EventArgs e)
         {
-            FormInventory form = new FormInventory(Mate);
+            FormInventory form = new FormInventory(new Tester());
             form.Mother = this;
 
             form.Mate.SetTest(Tests[listKind.SelectedIndex]);
             form.Mate.SetPatient(textPatient.Text);
             await form.CollectInformation();
             await form.Instruct();
-
             form.Start();
         }
     }

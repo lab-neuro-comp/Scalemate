@@ -25,6 +25,8 @@ namespace Scalemate.View
                 components.Dispose();
             }
             base.Dispose(disposing);
+
+            if (Questions.Count > 0) Mother.Show();
         }
 
         #region Windows Form Designer generated code
@@ -121,14 +123,12 @@ namespace Scalemate.View
         public async Task<bool> Instruct()
         {
             FormInstructions instructions = new FormInstructions();
-            string instructionsPath = Mate.GetInstructionsPath(Mate.Test);
-            bool areThereInstructions = false;
+            bool areThereInstructions = Mate.AreThereInstructions();
 
-            if (DataAccessLayer.FileExists(instructionsPath))
+            if (areThereInstructions)
             {
                 areThereInstructions = true;
-                instructions.SetInstructions(DataAccessLayer.Load(instructionsPath)
-                                                            .Aggregate((acc, it) => acc + "\n" + it));
+                instructions.SetInstructions(Mate.LoadInstructions());
                 instructions.Show();
                 while (!instructions.Ended)
                 {
@@ -143,14 +143,12 @@ namespace Scalemate.View
         public async Task<bool> CollectInformation()
         {
             var form = new FormData();
-            var DAL = new DataAccessLayer();
-            var informationPath = DataAccessLayer.GetInformationPath(Mate.Test);
-            var isThereInformation = false;
+            var isThereInformation = Mate.IsThereSurvey();
 
-            if (DataAccessLayer.FileExists(informationPath))
+            if (isThereInformation)
             {
                 isThereInformation = true;
-                form.SetQuestions(DataAccessLayer.Load(informationPath));
+                form.SetQuestions(Mate.LoadSurvey());
                 form.Show();
                 while (!form.Ended)
                     await Task.Delay(10);
@@ -181,9 +179,11 @@ namespace Scalemate.View
 
         private void CreateRows()
         {
-            tableLayoutPanel1.RowCount = NoQuestions;
+            Table.RowCount = NoQuestions;
             Radios = new RadioButton[NoQuestions];
 
+            Table.RowStyles.Clear();
+            Table.RowCount = NoQuestions;
             for (int i = 0; i < NoQuestions; i++)
             {
                 RadioButton radio = new RadioButton();
@@ -194,13 +194,12 @@ namespace Scalemate.View
                 radio.TabIndex = i + 1;
 
                 Radios[i] = radio;
-                tableLayoutPanel1.Controls.Add(Radios[i], 0, i);
-                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / NoQuestions));
+                Table.Controls.Add(Radios[i], 0, i);
+                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / NoQuestions));
             }
 
             Radios[0].Checked = true;
         }
-
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

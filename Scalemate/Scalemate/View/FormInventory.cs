@@ -30,6 +30,7 @@ namespace Scalemate.View
         public void Start()
         {
             string[] raw = DataAccessLayer.Load(DataAccessLayer.GetInventoryPath(Mate.Test));
+            WindowState = FormWindowState.Maximized;
             NoQuestions = int.Parse(raw[0]);
             Questions = new Queue<string>(Rest(raw));
             Answers = new int[Questions.Count / (NoQuestions + 1)];
@@ -93,15 +94,14 @@ namespace Scalemate.View
 
         private void ShowResults()
         {
-            //var form = new FormResult();
-            //form.Mother = Mother;
-            //form.Test = Mate.Test;
-            //form.Patient = Mate.Patient;
-            //form.Answers = Answers;
-            //form.Survey = Survey;
-            //form.CalculateScore(Score);
-            //form.Show();
-            Mother.Show();
+            var form = new FormResult();
+            form.Mother = Mother;
+            form.Test = Mate.Test;
+            form.Patient = Mate.Patient;
+            form.Answers = Answers;
+            form.Survey = Survey;
+            form.CalculateScore(Score);
+            form.Show();
             this.Close();
         }
     }

@@ -19,14 +19,9 @@ namespace Scalemate.Controller
         }
 
         /* To Model */
-        public string[] LoadKinds()
+        public static string[] LoadKinds()
         {
             return DataAccessLayer.Load(@"assets\kinds.txt");
-        }
-
-        public string GetInstructionsPath(string test)
-        {
-            return DataAccessLayer.GetInstructionsPath(test);
         }
 
         /* To View */
@@ -42,6 +37,29 @@ namespace Scalemate.Controller
             if (Patient == null)
                 Patient = it;
             return Patient;
+        }
+
+        // Instructions
+        public bool AreThereInstructions()
+        {
+            return DataAccessLayer.FileExists(DataAccessLayer.GetInstructionsPath(Test));
+        }
+
+        public string LoadInstructions()
+        {
+            return DataAccessLayer.Load(DataAccessLayer.GetInstructionsPath(Test))
+                                  .Aggregate((box, it) => box + "\n" + it);
+        }
+
+        // Information survey
+        public bool IsThereSurvey()
+        {
+            return DataAccessLayer.FileExists(DataAccessLayer.GetInformationPath(Test));
+        }
+
+        public string[] LoadSurvey()
+        {
+            return DataAccessLayer.Load(DataAccessLayer.GetInformationPath(Test));
         }
     }
 }
