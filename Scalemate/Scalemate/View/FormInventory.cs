@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using Scalemate.Controller;
+using Scalemate.Model;
 
-namespace Scalemate
+namespace Scalemate.View
 {
     public partial class FormInventory : Form
     {
         public Form Mother { get; set; }
-        public string Test { get; set; }
-        public string Patient { get; set; }
+        public Tester Mate { get; private set; }
         private int NoQuestions { get; set; }
         private int CurrentQuestion { get; set; }
         private Queue<string> Questions { get; set; }
@@ -18,8 +19,9 @@ namespace Scalemate
         private bool ReverseScore { get; set; }
         public string[] Survey { get; set; }
 
-        public FormInventory()
+        public FormInventory(Tester mate)
         {
+            Mate = mate;
             InitializeComponent();
             ReverseScore = false;
             Survey = null;
@@ -27,13 +29,12 @@ namespace Scalemate
 
         public void Start()
         {
-            DataAcessLayer DAL = new DataAcessLayer();
-            string[] raw = DAL.Load(DAL.GetInventoryPath(Test));
+            string[] raw = DataAccessLayer.Load(DataAccessLayer.GetInventoryPath(Mate.Test));
             NoQuestions = int.Parse(raw[0]);
             Questions = new Queue<string>(Rest(raw));
-            Answers = new int[Questions.Count/(NoQuestions+1)];
+            Answers = new int[Questions.Count / (NoQuestions + 1)];
             Score = CurrentQuestion = 0;
-            
+
             CreateRows();
             SetQuestions();
             this.Show();
@@ -92,14 +93,15 @@ namespace Scalemate
 
         private void ShowResults()
         {
-            var form = new FormResult();
-            form.Mother = Mother;
-            form.Test = Test;
-            form.Patient = Patient;
-            form.Answers = Answers;
-            form.Survey = Survey;
-            form.CalculateScore(Score);
-            form.Show();
+            //var form = new FormResult();
+            //form.Mother = Mother;
+            //form.Test = Mate.Test;
+            //form.Patient = Mate.Patient;
+            //form.Answers = Answers;
+            //form.Survey = Survey;
+            //form.CalculateScore(Score);
+            //form.Show();
+            Mother.Show();
             this.Close();
         }
     }

@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Windows.Forms;
+using Scalemate.Controller;
 
-namespace Scalemate
+namespace Scalemate.View
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
         public string[] Tests { get; private set; }
+        private Tester Mate { get; set; }
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
+            Mate = new Tester();
 
             /// SET TESTS
-            DataAcessLayer DAL = new DataAcessLayer();
-            var lines = DAL.Load(@"assets\kinds.txt");
+            var lines = Mate.LoadKinds();
             Tests = new string[lines.Length];
             int i = 0;
 
@@ -34,12 +36,14 @@ namespace Scalemate
 
         private async void buttonStart_Click(object sender, EventArgs e)
         {
-            FormInventory form = new FormInventory();
+            FormInventory form = new FormInventory(Mate);
             form.Mother = this;
-            form.Patient = textPatient.Text;
-            form.Test = Tests[listKind.SelectedIndex];
+
+            form.Mate.SetTest(Tests[listKind.SelectedIndex]);
+            form.Mate.SetPatient(textPatient.Text);
             await form.CollectInformation();
             await form.Instruct();
+
             form.Start();
         }
     }

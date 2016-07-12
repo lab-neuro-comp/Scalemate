@@ -1,4 +1,4 @@
-﻿namespace Scalemate
+﻿namespace Scalemate.Model
 {
     class DataParser
     {

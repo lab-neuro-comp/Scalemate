@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Scalemate.Model;
+using Scalemate.Controller;
 
-namespace Scalemate
+namespace Scalemate.View
 {
     public partial class FormResult : Form
     {
@@ -20,8 +28,7 @@ namespace Scalemate
         public void CalculateScore(int score)
         {
             DataParser DP;
-            DataAcessLayer DAL = new DataAcessLayer();
-            string[] results = DAL.Load(DAL.GetResultsPath(Test));
+            string[] results = DataAccessLayer.Load(DataAccessLayer.GetResultsPath(Test));
             string result = "";
 
             /* Obtain result */
@@ -40,8 +47,8 @@ namespace Scalemate
             }
 
             /* Write answers */
-            string[] parts = {Test, Patient, string.Format("{0}", score), result };
-            DAL.Save(DAL.GenerateResultsPath(Patient, Test), GenerateCSV(parts));
+            string[] parts = { Test, Patient, string.Format("{0}", score), result };
+            DataAccessLayer.Save(DataAccessLayer.GenerateResultsPath(Patient, Test), GenerateCSV(parts));
         }
 
         private void buttonFinish_Click(object sender, EventArgs e)
@@ -59,9 +66,9 @@ namespace Scalemate
                 outlet[index++] = part;
             }
             index = 1;
-            outlet[outlet.Length-1] = Answers.Aggregate("Respostas:\r\n", 
+            outlet[outlet.Length - 1] = Answers.Aggregate("Respostas:\r\n",
                 (acc, x) => string.Format("{0}  {1}. {2}\r\n", acc, index++, x));
-            
+
             return outlet.Aggregate("", (acc, x) => string.Format("{0}{1}\r\n", acc, x));
         }
 

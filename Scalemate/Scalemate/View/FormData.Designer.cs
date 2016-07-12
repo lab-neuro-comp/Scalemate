@@ -1,4 +1,4 @@
-﻿namespace Scalemate
+﻿namespace Scalemate.View
 {
     partial class FormData
     {

@@ -2,16 +2,11 @@
 using System.IO;
 using System.Linq;
 
-namespace Scalemate
+namespace Scalemate.Model
 {
-    class DataAcessLayer
+    class DataAccessLayer
     {
-        public DataAcessLayer()
-        {
-
-        }
-
-        public string[] Load(string path)
+        static public string[] Load(string path)
         {
             List<string> data = new List<string>();
 
@@ -26,39 +21,39 @@ namespace Scalemate
             return data.ToArray<string>();
         }
 
-        public void Save(string where, string what)
+        static public void Save(string where, string what)
         {
             File.WriteAllText(where, what);
         }
 
-        public string GetInventoryPath(string test)
+        static public string GetInventoryPath(string test)
         {
             return string.Format("assets\\{0}\\inventory.txt", test);
         }
 
-        public string GetResultsPath(string test)
+        static public string GetResultsPath(string test)
         {
             return string.Format("assets\\{0}\\results.txt", test);
         }
 
-        public string GetInstructionsPath(string test)
+        static public string GetInstructionsPath(string test)
         {
             return string.Format("assets\\{0}\\instructions.txt", test);
         }
 
-        public string GetInformationPath(string test)
+        static public string GetInformationPath(string test)
         {
             return string.Format("assets\\{0}\\information.txt", test);
         }
 
-        public string GenerateResultsPath(string patient, string test)
+        static public string GenerateResultsPath(string patient, string test)
         {
             return string.Format("results\\{0}_{1}.csv", patient.Split(' ')
                                                                 .Aggregate((acc, x) => acc + x),
                                                          test);
         }
 
-        public bool FileExists(string path)
+        static public bool FileExists(string path)
         {
             return File.Exists(path);
         }

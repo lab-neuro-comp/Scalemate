@@ -1,6 +1,6 @@
-﻿namespace Scalemate
+﻿namespace Scalemate.View
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.

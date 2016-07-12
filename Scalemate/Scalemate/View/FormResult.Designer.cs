@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scalemate
+namespace Scalemate.View
 {
     partial class FormResult
     {
@@ -31,7 +31,6 @@ namespace Scalemate
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResult));
             this.labelScore = new System.Windows.Forms.Label();
             this.buttonFinish = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -42,7 +41,7 @@ namespace Scalemate
             // 
             this.labelScore.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelScore.AutoSize = true;
-            this.labelScore.Location = new System.Drawing.Point(49, 17);
+            this.labelScore.Location = new System.Drawing.Point(61, 23);
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(161, 13);
             this.labelScore.TabIndex = 0;
@@ -52,7 +51,7 @@ namespace Scalemate
             // buttonFinish
             // 
             this.buttonFinish.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonFinish.Location = new System.Drawing.Point(92, 60);
+            this.buttonFinish.Location = new System.Drawing.Point(104, 78);
             this.buttonFinish.Name = "buttonFinish";
             this.buttonFinish.Size = new System.Drawing.Size(75, 23);
             this.buttonFinish.TabIndex = 2;
@@ -67,12 +66,13 @@ namespace Scalemate
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.labelScore, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonFinish, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 96);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 120);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // FormResult
@@ -81,7 +81,6 @@ namespace Scalemate
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 120);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = new System.Drawing.Icon(@"assets\Logo.ico");
             this.Name = "FormResult";
             this.Text = "Resultado";
             this.tableLayoutPanel1.ResumeLayout(false);

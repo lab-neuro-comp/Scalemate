@@ -49,48 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAcessLayer.cs" />
-    <Compile Include="DataParser.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Controller\Tester.cs" />
+    <Compile Include="Model\DataAccessLayer.cs" />
+    <Compile Include="Model\DataParser.cs" />
+    <Compile Include="View\FormInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\FormInventory.Designer.cs">
+      <DependentUpon>FormInventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormData.cs">
+    <Compile Include="View\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormData.Designer.cs">
+    <Compile Include="View\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormData.Designer.cs">
       <DependentUpon>FormData.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInstructions.cs">
+    <Compile Include="View\FormInstructions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInstructions.Designer.cs">
+    <Compile Include="View\FormInstructions.Designer.cs">
       <DependentUpon>FormInstructions.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInventory.Designer.cs" />
-    <Compile Include="FormResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResult.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\FormResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormResult.Designer.cs">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormInventory.resx">
+      <DependentUpon>FormInventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormData.resx">
+    <EmbeddedResource Include="View\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormData.resx">
       <DependentUpon>FormData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInstructions.resx">
+    <EmbeddedResource Include="View\FormInstructions.resx">
       <DependentUpon>FormInstructions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInventory.resx">
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormResult.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,6 +106,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\FormResult.resx">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,6 +125,7 @@
   <ItemGroup>
     <None Include="bin\Debug\assets\icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
