@@ -13,7 +13,6 @@ namespace Scalemate.View
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
 
-            // SET TESTS
             var lines = Tester.LoadKinds();
             Tests = new string[lines.Length];
             int i = 0;
@@ -33,6 +32,12 @@ namespace Scalemate.View
             listKind.SetSelected(0, true);
         }
 
+        /// <summary>
+        /// Begins the test as selected by the user. Before this, the application will 
+        /// check for the presence of the survey and the instructions commands.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void buttonStart_Click(object sender, EventArgs e)
         {
             Tester mate = new Tester(Tests[listKind.SelectedIndex], textPatient.Text);

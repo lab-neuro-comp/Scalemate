@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Scalemate.View;
 
@@ -10,7 +7,8 @@ namespace Scalemate
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// The application begins by calling the Main Form,
+        /// the class for the main screen
         /// </summary>
         [STAThread]
         static void Main()

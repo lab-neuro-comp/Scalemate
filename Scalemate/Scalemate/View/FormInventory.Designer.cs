@@ -152,7 +152,7 @@ namespace Scalemate.View
                 form.Show();
                 while (!form.Ended)
                     await Task.Delay(10);
-                this.Survey = form.Survey;
+                Mate.Survey = form.Survey;
             }
 
             form.Close();

@@ -26,6 +26,12 @@ namespace Scalemate.Controller
             
         }
 
+        /// <summary>
+        /// Create a new test assistant. Will be responsible for controlling the
+        /// question flow and for calculating the results after the test completion.
+        /// </summary>
+        /// <param name="test">The test code</param>
+        /// <param name="patient">The patient code</param>
         public Tester(string test, string patient) : this()
         {
             SetTest(test);
@@ -84,6 +90,9 @@ namespace Scalemate.Controller
         /******************
         * INVENTORY LOGIC *
         ******************/
+        /// <summary>
+        /// Creates the queues for the questions and the options.
+        /// </summary>
         public void Setup()
         {
             int howMany = 0;
@@ -132,10 +141,19 @@ namespace Scalemate.Controller
             return GetQuestions().Length / GetNoOptions();
         }
 
+        /// <summary>
+        /// Sets the state for the next question. That is, sets the new question and 
+        /// if this question must reverse the scoring.
+        /// </summary>
         public void Continue()
         {
+            // TODO There is an inconsistency here. Question and ReverseScore are 
+            // part of the tester state, but the current options not. Therefore,
+            // make the options part of the state.
+
             Question = Questions.Dequeue();
 
+            // Checking if it must reverse the score for this question
             try
             {
                 if (Question[0] == '*')
@@ -157,6 +175,11 @@ namespace Scalemate.Controller
         /****************
         * RESULTS LOGIC *
         ****************/
+        /// <summary>
+        /// Calculates the score for the current test based on the answers given
+        /// by the patient; and saves the results on a file as coded by the spec.
+        /// </summary>
+        /// <param name="answers">The answers given by the patient</param>
         public void CalculateScore(int[] answers)
         {
             Answers = answers;
@@ -169,7 +192,7 @@ namespace Scalemate.Controller
             string[] results = DataAccessLayer.Load(DataAccessLayer.GetResultsPath(Test));
             string result = "";
 
-            /* Obtain result */
+            // Obtaining result
             foreach (var line in results)
             {
                 DP = new DataParser(line);
@@ -184,12 +207,12 @@ namespace Scalemate.Controller
                 }
             }
 
-            /* Write answers */
+            // Writing answers
+            // TODO The results must be part of the tester state too. The form must
+            // have it saved, not the tester. Therefore, separate this.
             string[] parts = { Test, Patient, string.Format("{0}", score), result };
             DataAccessLayer.Save(DataAccessLayer.GenerateResultsPath(Patient, Test), GenerateCSV(parts));
         }
-
-
 
         private string GenerateTXT(string[] parts)
         {
