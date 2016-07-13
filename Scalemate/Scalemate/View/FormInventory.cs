@@ -13,7 +13,6 @@ namespace Scalemate.View
         private int NoOptions { get; set; }
         private int CurrentQuestion { get; set; }
         private int[] Answers { get; set; }
-        private int Score { get; set; }
         private bool ReverseScore { get; set; }
         public string[] Survey { get; set; }
 
@@ -30,7 +29,7 @@ namespace Scalemate.View
             WindowState = FormWindowState.Maximized;
             NoOptions = Mate.GetNoOptions();
             Answers = new int[Mate.GetNoQuestions()];
-            Score = CurrentQuestion = 0;
+            CurrentQuestion = 0;
 
             CreateRows();
             SetQuestions();
@@ -47,7 +46,7 @@ namespace Scalemate.View
 
         private void buttonContinue_Click(object sender, EventArgs e)
         {
-            Score += ExtractScore();
+            ExtractScore();
 
             if (Mate.Ended)
                 ShowResults();
@@ -78,12 +77,10 @@ namespace Scalemate.View
         private void ShowResults()
         {
             var form = new FormResult();
+            Mate.Survey = Survey;
+            Mate.CalculateScore(Answers);
             form.Mother = Mother;
-            form.Test = Mate.Test;
-            form.Patient = Mate.Patient;
-            form.Answers = Answers;
-            form.Survey = Survey;
-            form.CalculateScore(Score);
+            form.Mate = Mate;
             form.Show();
             this.Close();
         }
