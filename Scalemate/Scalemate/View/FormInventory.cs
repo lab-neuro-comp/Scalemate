@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using Scalemate.Controller;
-using Scalemate.Model;
 
 namespace Scalemate.View
 {
@@ -11,9 +10,8 @@ namespace Scalemate.View
     {
         public Form Mother { get; set; }
         public Tester Mate { get; private set; }
-        private int NoQuestions { get; set; }
+        private int NoOptions { get; set; }
         private int CurrentQuestion { get; set; }
-        private Queue<string> Questions { get; set; }
         private int[] Answers { get; set; }
         private int Score { get; set; }
         private bool ReverseScore { get; set; }
@@ -29,11 +27,9 @@ namespace Scalemate.View
 
         public void Start()
         {
-            string[] raw = DataAccessLayer.Load(DataAccessLayer.GetInventoryPath(Mate.Test));
             WindowState = FormWindowState.Maximized;
-            NoQuestions = int.Parse(raw[0]);
-            Questions = new Queue<string>(Rest(raw));
-            Answers = new int[Questions.Count / (NoQuestions + 1)];
+            NoOptions = Mate.GetNoOptions();
+            Answers = new int[Mate.GetNoQuestions()];
             Score = CurrentQuestion = 0;
 
             CreateRows();
@@ -44,35 +40,22 @@ namespace Scalemate.View
 
         private void SetQuestions()
         {
-            labelQuestion.Text = Questions.Dequeue();
-            Radios.ToList().ForEach(radio => radio.Text = Questions.Dequeue());
-
-            try
-            {
-                if (labelQuestion.Text[0] == '*')
-                {
-                    labelQuestion.Text = labelQuestion.Text.Substring(1);
-                    ReverseScore = true;
-                }
-                else
-                {
-                    ReverseScore = false;
-                }
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                ReverseScore = false;
-            }
+            labelQuestion.Text = Mate.Question;
+            Radios.ToList().ForEach(radio => radio.Text = Mate.NextOption());
+            ReverseScore = Mate.ReverseScore;
         }
 
         private void buttonContinue_Click(object sender, EventArgs e)
         {
             Score += ExtractScore();
 
-            if (Questions.Count == 0)
+            if (Mate.Ended)
                 ShowResults();
             else
+            {
+                Mate.Continue();
                 SetQuestions();
+            }
         }
 
         private int ExtractScore()

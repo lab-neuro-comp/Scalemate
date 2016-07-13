@@ -11,8 +11,9 @@ namespace Scalemate.View
         public FormMain()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
 
-            /// SET TESTS
+            // SET TESTS
             var lines = Tester.LoadKinds();
             Tests = new string[lines.Length];
             int i = 0;
@@ -34,11 +35,10 @@ namespace Scalemate.View
 
         private async void buttonStart_Click(object sender, EventArgs e)
         {
-            FormInventory form = new FormInventory(new Tester());
+            Tester mate = new Tester(Tests[listKind.SelectedIndex], textPatient.Text);
+            FormInventory form = new FormInventory(mate);
             form.Mother = this;
 
-            form.Mate.SetTest(Tests[listKind.SelectedIndex]);
-            form.Mate.SetPatient(textPatient.Text);
             await form.CollectInformation();
             await form.Instruct();
             form.Start();

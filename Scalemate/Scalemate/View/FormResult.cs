@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Scalemate.Model;
 using Scalemate.Controller;
+using Scalemate.Model;
 
 namespace Scalemate.View
 {

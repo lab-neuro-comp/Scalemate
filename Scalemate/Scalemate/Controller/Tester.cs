@@ -9,13 +9,25 @@ namespace Scalemate.Controller
 {
     public class Tester
     {
-        public string Test { get; private set; }
-        public string Patient { get; private set; }
+        public string Test { get; private set; } = null;
+        public string Patient { get; private set; } = null;
+        public string[] RawData { get; private set; } = null;
+        public int NoOptions { get; private set; } = 0;
+        public Queue<string> Questions { get; private set; } = null;
+        public Queue<string> Options { get; private set; } = null;
+        public string Question { get; private set; } = null;
+        public bool ReverseScore { get; private set; } = false;
+        public bool Ended { get; private set; } = false;
 
         public Tester()
         {
-            Test = null;
-            Patient = null;
+            
+        }
+
+        public Tester(string test, string patient) : this()
+        {
+            SetTest(test);
+            SetPatient(patient);
         }
 
         /* To Model */
@@ -28,7 +40,12 @@ namespace Scalemate.Controller
         public string SetTest(string test)
         {
             if (Test == null)
+            {
                 Test = test;
+                RawData = DataAccessLayer.Load(DataAccessLayer.GetInventoryPath(Test));
+                Setup();
+            }
+            
             return Test;
         }
 
@@ -61,5 +78,77 @@ namespace Scalemate.Controller
         {
             return DataAccessLayer.Load(DataAccessLayer.GetInformationPath(Test));
         }
+
+        /* Inventory logic */
+        public void Setup()
+        {
+            int howMany = 0;
+            Questions = new Queue<string>();
+            Options = new Queue<string>();
+            GetNoOptions();
+
+            foreach (var item in GetQuestions())
+            {
+                if (howMany % (NoOptions + 1) == 0)
+                    Questions.Enqueue(item);
+                else
+                    Options.Enqueue(item);
+                howMany++;
+            }
+                
+        }
+
+        public string NextOption()
+        {
+            string outlet = Options.Dequeue();
+            Ended = (Options.Count == 0) ? true : false;
+            return outlet;
+        }
+
+        public int GetNoOptions()
+        {
+            NoOptions = int.Parse(RawData[0]);
+            return NoOptions;
+        }
+
+        public string[] GetQuestions()
+        {
+            int limit = RawData.Length - 1;
+            string[] outlet = new string[limit];
+
+            for (int i = 1; i < RawData.Length; i++)
+                outlet[i - 1] = RawData[i];
+
+            return outlet;
+        }
+
+        public int GetNoQuestions()
+        {
+            return GetQuestions().Length / GetNoOptions();
+        }
+
+        public void Continue()
+        {
+            Question = Questions.Dequeue();
+
+            try
+            {
+                if (Question[0] == '*')
+                {
+                    ReverseScore = true;
+                    Question = Question.Substring(1);
+                }
+                else
+                {
+                    ReverseScore = false;
+                }
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                ReverseScore = false;
+            }
+        }
+
+        /* Results logic */
     }
 }

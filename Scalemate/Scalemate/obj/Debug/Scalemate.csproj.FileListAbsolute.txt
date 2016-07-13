@@ -4,13 +4,8 @@ C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.P
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.csproj.GenerateResource.Cache
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.exe
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.pdb
-C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormInventory.resources
-C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormResult.resources
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.exe
 C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.pdb
-C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormInstructions.resources
-C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.Form1.resources
-C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormData.resources
 C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\Scalemate\Scalemate\Scalemate\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.Form1.resources
 C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormData.resources
@@ -22,3 +17,8 @@ C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\S
 C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.exe
 C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.pdb
 C:\Documents and Settings\Laboratorio.LABORATO-6A7377\Meus documentos\software\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.FormResult.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.View.FormInventory.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.View.FormMain.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.View.FormData.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.View.FormInstructions.resources
+C:\Users\cris\Documents\work\scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.View.FormResult.resources

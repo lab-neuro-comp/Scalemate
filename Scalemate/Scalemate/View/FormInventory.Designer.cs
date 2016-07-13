@@ -26,7 +26,7 @@ namespace Scalemate.View
             }
             base.Dispose(disposing);
 
-            if (Questions.Count > 0) Mother.Show();
+            if (!Mate.Ended) Mother.Show();
         }
 
         #region Windows Form Designer generated code
@@ -164,27 +164,14 @@ namespace Scalemate.View
         #region Ambient setup
         private RadioButton[] Radios { get; set; }
 
-        private string[] Rest(string[] array)
-        {
-            int limit = array.Length - 1;
-            string[] outlet = new string[limit];
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                outlet[i - 1] = array[i];
-            }
-
-            return outlet;
-        }
-
         private void CreateRows()
         {
-            Table.RowCount = NoQuestions;
-            Radios = new RadioButton[NoQuestions];
+            Table.RowCount = NoOptions;
+            Radios = new RadioButton[NoOptions];
 
             Table.RowStyles.Clear();
-            Table.RowCount = NoQuestions;
-            for (int i = 0; i < NoQuestions; i++)
+            Table.RowCount = NoOptions;
+            for (int i = 0; i < NoOptions; i++)
             {
                 RadioButton radio = new RadioButton();
 
@@ -195,7 +182,7 @@ namespace Scalemate.View
 
                 Radios[i] = radio;
                 Table.Controls.Add(Radios[i], 0, i);
-                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / NoQuestions));
+                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / NoOptions));
             }
 
             Radios[0].Checked = true;
