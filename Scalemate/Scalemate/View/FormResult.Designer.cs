@@ -39,11 +39,12 @@ namespace Scalemate.View
             // 
             // labelScore
             // 
-            this.labelScore.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelScore.AutoSize = true;
-            this.labelScore.Location = new System.Drawing.Point(61, 23);
+            this.labelScore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelScore.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScore.Location = new System.Drawing.Point(3, 0);
             this.labelScore.Name = "labelScore";
-            this.labelScore.Size = new System.Drawing.Size(161, 13);
+            this.labelScore.Size = new System.Drawing.Size(278, 60);
             this.labelScore.TabIndex = 0;
             this.labelScore.Text = "Resultados salvos com sucesso!";
             this.labelScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -51,9 +52,11 @@ namespace Scalemate.View
             // buttonFinish
             // 
             this.buttonFinish.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonFinish.Location = new System.Drawing.Point(104, 78);
+            this.buttonFinish.AutoSize = true;
+            this.buttonFinish.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFinish.Location = new System.Drawing.Point(98, 76);
             this.buttonFinish.Name = "buttonFinish";
-            this.buttonFinish.Size = new System.Drawing.Size(75, 23);
+            this.buttonFinish.Size = new System.Drawing.Size(87, 28);
             this.buttonFinish.TabIndex = 2;
             this.buttonFinish.Text = "Finalizar";
             this.buttonFinish.UseVisualStyleBackColor = true;

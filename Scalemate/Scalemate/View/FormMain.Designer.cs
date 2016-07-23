@@ -40,30 +40,34 @@
             // 
             this.labelTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelTitle.Location = new System.Drawing.Point(125, 4);
+            this.labelTitle.Location = new System.Drawing.Point(75, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(85, 20);
+            this.labelTitle.Size = new System.Drawing.Size(185, 29);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Scalemate";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // listKind
             // 
-            this.listKind.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.listKind.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listKind.FormattingEnabled = true;
-            this.listKind.Location = new System.Drawing.Point(60, 104);
+            this.listKind.ItemHeight = 18;
+            this.listKind.Location = new System.Drawing.Point(60, 90);
             this.listKind.Name = "listKind";
-            this.listKind.Size = new System.Drawing.Size(214, 82);
+            this.listKind.Size = new System.Drawing.Size(214, 94);
             this.listKind.TabIndex = 2;
             // 
             // buttonStart
             // 
             this.buttonStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonStart.Location = new System.Drawing.Point(116, 236);
+            this.buttonStart.AutoSize = true;
+            this.buttonStart.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStart.Location = new System.Drawing.Point(116, 233);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(103, 23);
+            this.buttonStart.Size = new System.Drawing.Size(103, 28);
             this.buttonStart.TabIndex = 1;
             this.buttonStart.Text = "Começar";
             this.buttonStart.UseVisualStyleBackColor = true;
@@ -92,20 +96,21 @@
             // textPatient
             // 
             this.textPatient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textPatient.Location = new System.Drawing.Point(107, 48);
+            this.textPatient.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPatient.Location = new System.Drawing.Point(107, 44);
             this.textPatient.Name = "textPatient";
-            this.textPatient.Size = new System.Drawing.Size(120, 20);
+            this.textPatient.Size = new System.Drawing.Size(120, 27);
             this.textPatient.TabIndex = 3;
             this.textPatient.Text = "Nome";
             this.textPatient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 292);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

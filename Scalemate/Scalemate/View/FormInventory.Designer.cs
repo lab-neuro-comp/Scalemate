@@ -24,7 +24,9 @@ namespace Scalemate.View
             {
                 components.Dispose();
             }
-            base.Dispose(disposing);
+            try { base.Dispose(disposing); }
+            catch (ObjectDisposedException e) { /* Hiding bugs here */ }
+            
 
             if (!Mate.Ended) Mother.Show();
         }
@@ -73,17 +75,19 @@ namespace Scalemate.View
             this.Table.Name = "Table";
             this.Table.RowCount = 1;
             this.Table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 307F));
+            this.Table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 307F));
             this.Table.Size = new System.Drawing.Size(416, 307);
             this.Table.TabIndex = 0;
             // 
             // buttonContinue
             // 
             this.buttonContinue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonContinue.Location = new System.Drawing.Point(173, 360);
+            this.buttonContinue.AutoSize = true;
+            this.buttonContinue.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContinue.Location = new System.Drawing.Point(162, 358);
             this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(75, 23);
+            this.buttonContinue.Size = new System.Drawing.Size(97, 28);
             this.buttonContinue.TabIndex = 1;
             this.buttonContinue.Text = "Continuar";
             this.buttonContinue.UseVisualStyleBackColor = true;
@@ -93,7 +97,7 @@ namespace Scalemate.View
             // 
             this.labelQuestion.AutoSize = true;
             this.labelQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQuestion.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelQuestion.Location = new System.Drawing.Point(3, 0);
             this.labelQuestion.Name = "labelQuestion";
             this.labelQuestion.Size = new System.Drawing.Size(416, 39);
