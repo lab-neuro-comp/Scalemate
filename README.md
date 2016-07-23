@@ -21,6 +21,8 @@ The results file describe how to score a test. The answers in an inventory file 
 
 The presence of an `instructions.txt` in the test folder will add a window before the test with the text written in this file. Its purpose is to give instructions to the subject.
 
+There can also be a `finish.txt` to instruct the subject on how to proceed after the test is completed.
+
 ### Information file ###
 
 In case some information from the subject is required for that test, this `information.txt` will add another window before the test execution with the questions added in this file. Each line will consist of a question that must answered by the user, whose input will appear in the results file.
