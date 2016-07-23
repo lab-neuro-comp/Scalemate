@@ -87,6 +87,21 @@ namespace Scalemate.Controller
             return DataAccessLayer.Load(DataAccessLayer.GetInformationPath(Test));
         }
 
+        // Finish instructions
+        public string GetFinishInstructions()
+        {
+            string outlet = "";
+            string path = DataAccessLayer.GetFinishInstrutionsPath(Test);
+
+            if (DataAccessLayer.FileExists(path))
+            {
+                outlet = DataAccessLayer.Load(path)
+                                        .Aggregate("", (box, it) => $"{box}\n{it}");
+            }
+
+            return outlet;
+        }
+
         /******************
         * INVENTORY LOGIC *
         ******************/

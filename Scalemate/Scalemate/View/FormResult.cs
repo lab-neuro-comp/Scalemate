@@ -16,15 +16,18 @@ namespace Scalemate.View
         public Form Mother { get; set; }
         public Tester Mate { get; set; }
 
-        public FormResult()
+        public FormResult(Tester mate)
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+            Mate = mate;
+            this.UpdateInstructions();
         }
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        
     }
 }

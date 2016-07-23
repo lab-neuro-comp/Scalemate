@@ -82,7 +82,7 @@ namespace Scalemate.View
 
         private void ShowResults()
         {
-            var form = new FormResult();
+            var form = new FormResult(Mate);
             Mate.CalculateScore(Answers);
             form.Mother = Mother;
             form.Show();
