@@ -85,7 +85,7 @@ namespace Scalemate.View
             this.ClientSize = new System.Drawing.Size(284, 120);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormResult";
-            this.Text = "Resultado";
+            this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
