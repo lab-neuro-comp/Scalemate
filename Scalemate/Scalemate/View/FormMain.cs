@@ -53,5 +53,13 @@ namespace Scalemate.View
         {
             Close();
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPreferences form = new FormPreferences();
+            form.Mother = this;
+            form.Show();
+            this.Hide();
+        }
     }
 }

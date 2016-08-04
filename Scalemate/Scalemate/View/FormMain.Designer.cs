@@ -48,9 +48,9 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelTitle.Location = new System.Drawing.Point(75, 0);
+            this.labelTitle.Location = new System.Drawing.Point(79, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(185, 26);
+            this.labelTitle.Size = new System.Drawing.Size(185, 36);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Scalemate";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -61,9 +61,9 @@
             this.listKind.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listKind.FormattingEnabled = true;
             this.listKind.ItemHeight = 18;
-            this.listKind.Location = new System.Drawing.Point(60, 82);
+            this.listKind.Location = new System.Drawing.Point(65, 112);
             this.listKind.Name = "listKind";
-            this.listKind.Size = new System.Drawing.Size(214, 94);
+            this.listKind.Size = new System.Drawing.Size(214, 202);
             this.listKind.TabIndex = 2;
             // 
             // buttonStart
@@ -71,7 +71,7 @@
             this.buttonStart.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonStart.AutoSize = true;
             this.buttonStart.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStart.Location = new System.Drawing.Point(116, 213);
+            this.buttonStart.Location = new System.Drawing.Point(120, 334);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(103, 28);
             this.buttonStart.TabIndex = 1;
@@ -94,16 +94,16 @@
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(335, 268);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 367);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // textPatient
             // 
             this.textPatient.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textPatient.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPatient.Location = new System.Drawing.Point(107, 39);
+            this.textPatient.Location = new System.Drawing.Point(112, 59);
             this.textPatient.Name = "textPatient";
             this.textPatient.Size = new System.Drawing.Size(120, 27);
             this.textPatient.TabIndex = 3;
@@ -117,7 +117,7 @@
             this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(335, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(344, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,8 +127,8 @@
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.fileToolStripMenuItem.Text = "Arquivo";
             // 
             // editToolStripMenuItem
             // 
@@ -136,27 +136,28 @@
             this.preferencesToolStripMenuItem});
             this.editToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.editToolStripMenuItem.Text = "Editar";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Text = "Sair";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.Text = "Preferências";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 292);
+            this.ClientSize = new System.Drawing.Size(344, 391);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
