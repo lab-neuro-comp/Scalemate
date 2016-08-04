@@ -48,5 +48,10 @@ namespace Scalemate.View
             await form.Instruct();
             form.Start();
         }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
