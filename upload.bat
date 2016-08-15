@@ -1,3 +1,3 @@
-git add -A
+git add .
 git commit
 git push origin master
