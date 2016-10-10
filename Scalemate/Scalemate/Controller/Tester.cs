@@ -252,13 +252,13 @@ namespace Scalemate.Controller
             if (Survey == null)
             {
                 outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
-                         Answers.Aggregate("\r\n", (box, it) => box + it + "\r\n");
+                         Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
             }
             else
             {
                 outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
-                         Survey.Aggregate("\r\n", (box, it) => box + it + "\r\n") +
-                         Answers.Aggregate("", (box, it) => box + it + "\r\n");
+                         Survey.Aggregate("\r\n", (box, it) => box + it + "\t") +
+                         Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
             }
 
             return outlet;
