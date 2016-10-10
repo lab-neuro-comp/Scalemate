@@ -11,9 +11,7 @@
 \maketitle
 
 \begin{abstract}
-Let's talk about this psychological tests engine, written by me. I wrote it
-using C\#, trying to show that every test can be implemented using a queue
-and a simple sum system. Of course, that is not the real abstract.
+Let's talk about this psychological tests engine, written by me. I wrote it using C\#, trying to show that every test can be implemented using a queue and a simple sum system. Of course, that is not the real abstract.
 \end{abstract}
 
 Should there be keywords? Like, queue, free software?
@@ -24,13 +22,15 @@ The Scalemate engine was conceived based on the idea that most psychological tes
 
 Not every psychological test can be done this way: many of them follow complex algorithms that can not be simply implemented with a simple queue, but for those that can be done this way, the Scalemate engine is available for use. It was designed for a simple user interaction, so that everyone, even those that are not used to computers, can make use of it and expand it with their own tests.
 
-Maybe I could compare it to other test engines? We could read more about it before publishing.
+Most of the available tools for implementing psychological tests on the market require the researcher to know at least some concepts of computer science and algorithmics, and our experience with these tools show that, for most intended work, it is not necessary to know any of these concepts, so using this kind of software can be overwhelming to those not used to the thrills of computer programming. To fill this gap, we developed Scalemate to be a simple and smooth experience to researchers so they can proceed with their job with minimum stress.
+
+Scalemate aims to help those that perform simple question-and-answer based research on places where internet is not readily available, thus making this platform completely offline; and where power supply may be a problem, thus making an lightweight application, consuming as much as 20MB of RAM memory, depending on how big your tests are.
 
 \section{Methods}
 
 Developed for Microsoft Windows using the C\# programming language and available for free under the MIT license, Scalemate can be downloaded from GitHub, and everyone is invited to contribute to it. It was written with the Windows Forms technology from Microsoft Visual Studio.
 
-The download consists of a compressed folder which, once extracted, contains an executable, made to run on computers running Microsoft Windows Vista onwards with at least 512MB of RAM memory, and two folders: \textit{assets} and \textit{results}.
+The download consists of a compressed folder which, once extracted, contains an executable, made to run on computers running Microsoft Windows Vista onwards, and two folders: \textit{assets} and \textit{results}.
 
 The \textit{assets} folder is the place to store the tests per se. There is a file called "kinds.txt" to list every test that must be shown in the program. Each line of this file must follow the following organization:
 \begin{itemize}
@@ -39,19 +39,24 @@ The \textit{assets} folder is the place to store the tests per se. There is a fi
 \end{itemize}
 For each line in the "kinds.txt" file, there must a corresponding folder, containing the needed information for the test.
 
-For each test, there must be three files inside its folder:
-
+For each test, there must be at least two files inside its folder:
 \begin{itemize}
-\item A "inventory.txt" file containing the questions and answers for the test. The first line in this file must be the number N of possible answers in the test. The following lines must be organized in groups of N+1 lines: the first one is the question that will appear on the top of the test screen, while the following N lines are the possible answers. They must be placed according to their respective scoring: the first answer is worth 0 points, the second answer, 1 point; the third answer, 2 points; and so forth.
-\item A "results.txt" file which will describe how to score this test. Each line must contain three itens: the first one is a number, representing the lowerbound of this specific result; the second item is another another, defining the upperbound; and the rest of the line is the result to be written in the test result. These must separated by the space character. Scalemate will score an answers sheet by summing the subject's points and checking if their score is equal or greater the lowerbound and less than the upperbound. When that is the case, the engine will consider that the correct result. When designing a test, the researcher must be sure that there is no overlapping between each result boundary and that every possible score is contained in this folder.
-\item A "instructions.txt" file with a text to appear before the test actually begins to instruct the subject on how to proceed or to give whatever information the researcher considers important or useful for that procedure. It can be omitted, so the test will begin right in the first question.
+\item A "inventory.txt" file containing the questions and answers for the test. The first line in this file must be the number N of possible answers in the test. The following lines must be organized in groups of N+1 lines: the first one is the question that will appear on the top of the test screen, while the following N lines are the possible answers. They must be placed according to their respective scoring: the first answer is worth 0 points, the second answer, 1 point; the third answer, 2 points; and so forth. If the researcher intends to revert this scoring logic, they can add a '*' character before the question sentence. The application will understand this as a command and this character will not appear in the questionnaire but will influence its final result.
+\item A "results.txt" file which will describe how to score this test. Each line must contain three itens: the first one is a number, representing the lowerbound of this specific result; the second item is another number, defining the upperbound; and the rest of the line is the result to be written in the test result. These must separated by space characters. Scalemate will score a test application by summing the subject's points and checking if their score is equal or greater than the lowerbound and less than the upperbound. When that is the case, the engine will consider that as the correct result. When designing a test, the researcher must be sure that there is no overlapping between each result boundary and that every possible score is described in this file.
 \end{itemize}
 
-The \textit{results} folder on Scalemate is used to store the users' results, as saved and processed by the engine. After a test is completed, the application will generate a comma-separated values (CSV) file, unbundling the subject's information, their result on the test and each answer given. Each file is named as \textit{\{subject name\}\_\{test folder\}.csv} and is organized as follows:
+There are two other files that can appear inside the test's folder, but they are optional. They serve to make the test's application easier. These files are:
+\begin{itemize}
+\item A "information.txt" file with a list of questions to be asked for before the test begins, so the researcher can survey some other information about the subject before the assessment actually starts.
+\item A "instructions.txt" file with a text to appear before the test's beginning to instruct the subject on how to proceed or to give whatever information the researcher considers important or useful for that procedure. If omitted, Scalemate will go straight to the test's first question.
+\end{itemize}
+
+The \textit{results} folder on Scalemate is used to store the users' results, as saved and processed by the engine. After each test completion, the application will generate a tab-separated values file, unbundling the subject's information, their result on the test and each given answer. Each file is named as \textit{\{subject name\}\_\{test folder\}.csv} and is organized as follows:
 
 \begin{itemize}
-\item The first line contains the information needed to identify the subject. Separated by tab characters, it reveals the test folder name, the subject name, their score and the result given by Scalemate, in this order.
-\item The following lines are the answers to each question on the test, for later analysis. Each answer represents the index minus one of the selected item, that is, if the user chose the first option, then the number 0 will be stored to represent that answer; if they chose the second option, then the number 1 will appear, and so forth.
+\item The first line contains the information needed to identify the subject. It reveals the test's folder name, the subject name, their score and the result given by Scalemate, in this order.
+\item If the "information.txt" file is present, then the following line contain the answers to the initial survey.
+\item The following line has the answers to each question on the test, for later analysis. Each answer represents the index minus one of the selected item, that is, if the user chose the first option, then the number 0 will be stored to represent that answer; if they chose the second option, then the number 1 will appear, and so forth.
 \end{itemize}
 
 Right here, I want to talk about the logo, but I think I need to work more on it before talking about it. It was made with Adobe Illustrator for sure.
@@ -65,6 +70,10 @@ Plaid helvetica heirloom, letterpress mixtape kale chips keffiyeh sriracha affog
 Shabby chic VHS irony gastropub four dollar toast, selvage brooklyn beard swag blue bottle farm-to-table sriracha brunch. Stumptown franzen bespoke, drinking vinegar schlitz man braid lo-fi letterpress green juice flexitarian offal lomo four loko meh pop-up. Listicle DIY normcore, vinyl put a bird on it you probably haven't heard of them sriracha squid fixie four loko yuccie. Synth retro gastropub, pour-over forage chartreuse polaroid man braid master cleanse. Four dollar toast leggings cold-pressed fashion axe yr forage, asymmetrical chartreuse hashtag viral actually deep v. Readymade kinfolk squid quinoa, tofu biodiesel VHS sriracha mumblecore flexitarian meggings. Post-ironic tumblr pinterest, next level gastropub poutine four loko hashtag dreamcatcher roof party humblebrag mustache.
 
 Mumblecore bitters austin dreamcatcher man bun ugh. Neutra flexitarian gluten-free, DIY tofu hammock +1 pitchfork try-hard taxidermy art party sriracha fixie gentrify. Hoodie lumbersexual tousled asymmetrical. Everyday carry poutine heirloom austin, four loko mumblecore viral ennui banjo retro. Franzen green juice chillwave offal bitters fap, keytar mixtape. Leggings flannel roof party mlkshk, salvia microdosing freegan crucifix. Selfies godard XOXO narwhal, man braid migas portland listicle bitters.
+
+\section{Future Works}
+
+Write about adding a test editor. And images.
 
 \section{Bibliography}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.17)  21 JUN 2016 12:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.17)  10 OCT 2016 10:45
 entering extended mode
 **Scalemate.tex
 (Scalemate.tex
@@ -280,12 +280,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 {C:/Users/cris/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
  [2] [3] (Scalemate.aux) ) 
 Here is how much of TeX's memory you used:
  599 strings out of 493698
  6141 string characters out of 3147236
- 61545 words of memory out of 3000000
+ 62545 words of memory out of 3000000
  3978 multiletter control sequences out of 15000+200000
  6968 words of font info for 25 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -296,7 +296,7 @@ Program Files/tex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/te
 x/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/tex/fonts/type1/pu
 blic/amsfonts/cm/cmr17.pfb><C:/Program Files/tex/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb><C:/Program Files/tex/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Scalemate.pdf (3 pages, 100499 bytes).
+Output written on Scalemate.pdf (3 pages, 102538 bytes).
 PDF statistics:
  40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
