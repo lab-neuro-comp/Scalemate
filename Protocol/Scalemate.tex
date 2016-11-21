@@ -20,7 +20,7 @@ Should there be keywords? Like, queue, free software?
 
 The Scalemate engine was conceived based on the idea that most psychological tests can be written in the form of a queue, as understood by computer scientists. That is, each item of that queue can represent a group of question and answers. As each item is answered, the queue can move and the next items appear to the subject until there are no more questions left.
 
-Not every psychological test can be done this way: many of them follow complex algorithms that can not be simply implemented with a simple queue, but for those that can be done this way, the Scalemate engine is available for use. It was designed for a simple user interaction, so that everyone, even those that are not used to computers, can make use of it and expand it with their own tests.
+Not every psychological test can be done this way: many of them follow complex algorithms that can not be simply implemented with a simple queue, but for those that can be done this way (notably, those that follow the Likert scale model), the Scalemate engine is available for use. It was designed for a simple user interaction, so that everyone, even those that are not used to computers, can make use of it and expand it with their own tests.
 
 Most of the available tools for implementing psychological tests on the market require the researcher to know at least some concepts of computer science and algorithmics, and our experience with these tools show that, for most intended work, it is not necessary to know any of these concepts, so using this kind of software can be overwhelming to those not used to the thrills of computer programming. To fill this gap, we developed Scalemate to be a simple and smooth experience to researchers so they can proceed with their job with minimum stress.
 
@@ -59,9 +59,18 @@ The \textit{results} folder on Scalemate is used to store the users' results, as
 \item The following line has the answers to each question on the test, for later analysis. Each answer represents the index minus one of the selected item, that is, if the user chose the first option, then the number 0 will be stored to represent that answer; if they chose the second option, then the number 1 will appear, and so forth.
 \end{itemize}
 
-Right here, I want to talk about the logo, but I think I need to work more on it before talking about it. It was made with Adobe Illustrator for sure.
+% TODO Talk about the logo.
 
 \section{Results}
+
+% TODO Add citation about the paper.
+In order to demonstrate Scalemate's data collection abilities, we conducted a small research based on a paper by Clarry Lay \cite{lay86} on procastination. We applied his questionnaire using this program and developed a small MATLAB application to analyze the generated data.
+
+We applied the test to $N = \inf$ students from the University of Brasilia from many differents graduation programs and backgrounds to find a correlation between their average academic performance and their scores on Lay's scale.
+
+% TODO Talk about why Lay's scale.
+
+% TODO Talk about the actual results.
 
 Bushwick slow-carb authentic wolf. Crucifix gentrify put a bird on it kinfolk, disrupt vice artisan pinterest distillery mlkshk affogato raw denim portland seitan. Blue bottle humblebrag bitters, ugh lomo pinterest artisan pork belly post-ironic dreamcatcher. Kitsch kale chips wayfarers, chicharrones taxidermy polaroid roof party YOLO schlitz slow-carb occupy literally. Ugh irony gluten-free, scenester trust fund tousled cornhole celiac keytar dreamcatcher mumblecore ethical. Literally 90's lomo fingerstache. Taxidermy vegan selfies, hella offal portland pug biodiesel gluten-free synth four dollar toast echo park tousled.
 
@@ -77,9 +86,14 @@ Write about adding a test editor. And images.
 
 \section{Bibliography}
 
-\begin{itemize}
-	\item Nothing yet
-	\item I mean, seriously
-\end{itemize}
+\begin{thebibliography}{9}
+
+	\bibitem{lay86}
+		Clarry Lay,
+		At Last my research article on procrastination,
+		Journal of research in personality 20,
+		1986.
+
+\end{thebibliography}
 
 \end{document}
