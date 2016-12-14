@@ -134,7 +134,12 @@
   <ItemGroup>
     <None Include="bin\Debug\assets\icon.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Scalemate\Scalemate.csproj">
+      <Project>{d52bf381-2148-42c9-993f-e61da42e1216}</Project>
+      <Name>Scalemate</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

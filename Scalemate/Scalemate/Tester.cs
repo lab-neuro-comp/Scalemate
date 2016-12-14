@@ -24,7 +24,7 @@ namespace Scalemate
         /// <param name="patient">The patient identification</param>
         public Tester(IDataAccessLayer dal, string test, string patient) : this(dal)
         {
-            LoadTest(test, patient);
+            Setup(test, patient);
         }
 
         /// <summary>
@@ -46,16 +46,20 @@ namespace Scalemate
             return dal.Load(dal.GetKindsPath());
         }
 
-        public void LoadTest(string test, string patient)
+        public void Setup(string test, string patient)
         {
             this.Test = test;
             this.Patient = patient;
-            LoadTest();
+            Setup();
         }
 
-        public void LoadTest()
+        public void Setup()
         {
             // Check for possible files
+            // TODO Check for instructions, ending instructions and survey files
+
+            // Loads data
+            // TODO Load data
 
         }
         #endregion
