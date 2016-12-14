@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Scalemate.Controller;
+using ScalemateForms.Controller;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     public partial class FormResult : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Scalemate.View
+﻿namespace ScalemateForms.View
 {
     partial class FormPreferences
     {

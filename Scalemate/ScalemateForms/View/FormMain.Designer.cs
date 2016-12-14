@@ -1,4 +1,4 @@
-﻿namespace Scalemate.View
+﻿namespace ScalemateForms.View
 {
     partial class FormMain
     {
@@ -52,7 +52,7 @@
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(185, 36);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Scalemate";
+            this.labelTitle.Text = "ScalemateForms";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // listKind
@@ -162,7 +162,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "Scalemate";
+            this.Text = "ScalemateForms";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
-using Scalemate.Controller;
+using ScalemateForms.Controller;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     public partial class FormInventory : Form
     {
@@ -21,7 +21,7 @@ namespace Scalemate.View
         /// call the `Start()` method. Do not forget to call `CollectInformation()` and
         /// `Instruct()`before beginning to better interact with user.
         /// </summary>
-        /// <param name="mate">A scalemate controller to this test</param>
+        /// <param name="mate">A ScalemateForms controller to this test</param>
         public FormInventory(Tester mate)
         {
             Mate = mate;

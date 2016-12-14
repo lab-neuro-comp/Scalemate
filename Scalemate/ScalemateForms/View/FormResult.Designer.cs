@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     partial class FormResult
     {
@@ -98,7 +98,7 @@ namespace Scalemate.View
             this.ClientSize = new System.Drawing.Size(348, 295);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormResult";
-            this.Text = "Scalemate";
+            this.Text = "ScalemateForms";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

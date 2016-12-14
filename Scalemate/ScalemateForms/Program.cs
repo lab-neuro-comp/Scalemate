@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Scalemate.View;
+using ScalemateForms.View;
 
-namespace Scalemate
+namespace ScalemateForms
 {
     static class Program
     {

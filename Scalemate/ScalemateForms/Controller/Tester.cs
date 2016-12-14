@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Scalemate.Model;
+using ScalemateForms.Model;
 
-namespace Scalemate.Controller
+namespace ScalemateForms.Controller
 {
     public class Tester
     {

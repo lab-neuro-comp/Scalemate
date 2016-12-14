@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     public partial class FormInstructions : Form
     {

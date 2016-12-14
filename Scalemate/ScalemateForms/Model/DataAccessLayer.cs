@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Scalemate;
 
-namespace Scalemate.Model
+namespace ScalemateForms.Model
 {
     class DataAccessLayer
     {

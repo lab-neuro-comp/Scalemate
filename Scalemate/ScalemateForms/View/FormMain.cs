@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Scalemate.Controller;
+using ScalemateForms.Controller;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     public partial class FormMain : Form
     {

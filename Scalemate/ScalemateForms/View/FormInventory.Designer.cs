@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Scalemate.Model;
-using Scalemate.Controller;
+using ScalemateForms.Model;
+using ScalemateForms.Controller;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     partial class FormInventory
     {
@@ -111,7 +111,7 @@ namespace Scalemate.View
             this.ClientSize = new System.Drawing.Size(422, 392);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormInventory";
-            this.Text = "Scalemate";
+            this.Text = "ScalemateForms";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

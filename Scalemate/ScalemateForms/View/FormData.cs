@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Scalemate.View
+namespace ScalemateForms.View
 {
     public partial class FormData : Form
     {
