@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace ScalemateForms.View
 {
@@ -98,7 +98,7 @@ namespace ScalemateForms.View
             this.ClientSize = new System.Drawing.Size(348, 295);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormResult";
-            this.Text = "ScalemateForms";
+            this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -109,11 +109,9 @@ namespace ScalemateForms.View
         #region Ambient setup
         private void UpdateInstructions()
         {
-            string instructions = Mate.GetFinishInstructions();
-
-            if (instructions.Length > 0)
+            if (Mate.EndingInstructions != null)
             {
-                labelInstructions.Text = instructions;
+                labelInstructions.Text = Mate.EndingInstructions.Aggregate((box, it) => $"{box}\n{it}");
             }
 
         }

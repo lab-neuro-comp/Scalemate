@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Windows.Forms;
-using ScalemateForms.Controller;
+using Scalemate;
+using ScalemateForms.Model;
 
 namespace ScalemateForms.View
 {
     public partial class FormMain : Form
     {
         public string[] Tests { get; private set; }
+        public DataAccessLayer DAL { get; set; }
 
         public FormMain()
         {
+            DAL = new DataAccessLayer();
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
 
-            var lines = Tester.LoadKinds();
+            var lines = Tester.LoadKinds(DAL);
             Tests = new string[lines.Length];
             int i = 0;
 
@@ -40,7 +43,7 @@ namespace ScalemateForms.View
         /// <param name="e"></param>
         private async void buttonStart_Click(object sender, EventArgs e)
         {
-            Tester mate = new Tester(Tests[listKind.SelectedIndex], textPatient.Text);
+            Tester mate = new Tester(DAL, Tests[listKind.SelectedIndex], textPatient.Text);
             FormInventory form = new FormInventory(mate);
             form.Mother = this;
 

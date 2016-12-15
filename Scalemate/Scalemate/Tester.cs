@@ -270,7 +270,7 @@ namespace Scalemate
 		public bool Ended { get; private set; } = false;
         public int Score { get; private set; } = 0;
         public string[] SurveyQuestions { get; private set; } = null;
-        public string[] SurveyAnswers { get; private set; } = null;
+        public string[] SurveyAnswers { get; set; } = null;
         public string[] BeginningInstructions { get; private set; } = null;
         public string[] EndingInstructions { get; private set; } = null;
 		#endregion

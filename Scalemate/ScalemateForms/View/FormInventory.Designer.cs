@@ -2,8 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ScalemateForms.Model;
-using ScalemateForms.Controller;
+using Scalemate;
 
 namespace ScalemateForms.View
 {
@@ -111,7 +110,7 @@ namespace ScalemateForms.View
             this.ClientSize = new System.Drawing.Size(422, 392);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormInventory";
-            this.Text = "ScalemateForms";
+            this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -126,12 +125,11 @@ namespace ScalemateForms.View
         public async Task<bool> Instruct()
         {
             FormInstructions instructions = new FormInstructions();
-            bool areThereInstructions = Mate.AreThereInstructions();
 
-            if (areThereInstructions)
+            if (Mate.BeginningInstructions != null)
             {
-                areThereInstructions = true;
-                instructions.SetInstructions(Mate.LoadInstructions());
+                instructions.SetInstructions(Mate.BeginningInstructions
+                                                 .Aggregate("", (box, it) => $"{box}\n{it}"));
                 instructions.Show();
                 while (!instructions.Ended)
                 {
@@ -140,26 +138,24 @@ namespace ScalemateForms.View
             }
 
             instructions.Close();
-            return areThereInstructions;
+            return true;
         }
 
         public async Task<bool> CollectInformation()
         {
             var form = new FormData();
-            var isThereInformation = Mate.IsThereSurvey();
 
-            if (isThereInformation)
+            if (Mate.SurveyQuestions != null)
             {
-                isThereInformation = true;
-                form.SetQuestions(Mate.LoadSurvey());
+                form.SetQuestions(Mate.SurveyQuestions);
                 form.Show();
                 while (!form.Ended)
                     await Task.Delay(10);
-                Mate.Survey = form.Survey;
+                Mate.SurveyAnswers = form.Survey;
             }
 
             form.Close();
-            return isThereInformation;
+            return true;
         }
 
         #endregion

@@ -52,7 +52,7 @@
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(185, 36);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "ScalemateForms";
+            this.labelTitle.Text = "Scalemate";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // listKind
@@ -162,7 +162,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "ScalemateForms";
+            this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

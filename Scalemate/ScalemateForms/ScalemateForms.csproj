@@ -7,8 +7,8 @@
     <ProjectGuid>{2C913C41-B736-434A-A719-58B767E76574}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Scalemate</RootNamespace>
-    <AssemblyName>Scalemate</AssemblyName>
+    <RootNamespace>ScalemateForms</RootNamespace>
+    <AssemblyName>ScalemateForms</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,9 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Tester.cs" />
     <Compile Include="Model\DataAccessLayer.cs" />
-    <Compile Include="Model\DataParser.cs" />
     <Compile Include="View\FormInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,5 +148,8 @@
       <Project>{8E55C2EA-9992-49B0-AD00-27D4034E0A60}</Project>
       <Name>Scalemate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
   </ItemGroup>
 </Project>

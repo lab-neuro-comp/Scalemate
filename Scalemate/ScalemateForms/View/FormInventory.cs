@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
-using ScalemateForms.Controller;
+using Scalemate;
 
 namespace ScalemateForms.View
 {
@@ -12,8 +12,6 @@ namespace ScalemateForms.View
         public Tester Mate { get; private set; }
         private int NoOptions { get; set; }
         private int CurrentQuestion { get; set; }
-        private int[] Answers { get; set; }
-        private bool ReverseScore { get; set; }
         public string[] Survey { get; set; }
 
         /// <summary>
@@ -26,7 +24,6 @@ namespace ScalemateForms.View
         {
             Mate = mate;
             InitializeComponent();
-            ReverseScore = false;
             Survey = null;
         }
 
@@ -39,8 +36,7 @@ namespace ScalemateForms.View
         public void Start()
         {
             WindowState = FormWindowState.Maximized;
-            NoOptions = Mate.GetNoOptions();
-            Answers = new int[Mate.GetNoQuestions()];
+            NoOptions = Mate.NoOptions;
             CurrentQuestion = 0;
 
             CreateRows();
@@ -52,8 +48,8 @@ namespace ScalemateForms.View
         private void SetQuestions()
         {
             labelQuestion.Text = Mate.Question;
-            Radios.ToList().ForEach(radio => radio.Text = Mate.NextOption());
-            ReverseScore = Mate.ReverseScore;
+            var options = new Queue<string>(Mate.NoOptions);
+            Radios.ToList().ForEach(radio => radio.Text = options.Dequeue());
         }
 
         private void buttonContinue_Click(object sender, EventArgs e)
@@ -65,8 +61,7 @@ namespace ScalemateForms.View
                     break;
                 else
                     result++;
-            result = (ReverseScore) ? Radios.Length - (1 + result) : result;
-            Answers[CurrentQuestion++] = result;
+            Mate.Listen(result);
 
             // Update form
             if (Mate.Ended)
@@ -83,7 +78,6 @@ namespace ScalemateForms.View
         private void ShowResults()
         {
             var form = new FormResult(Mate);
-            Mate.CalculateScore(Answers);
             form.Mother = Mother;
             form.Show();
             this.Close();

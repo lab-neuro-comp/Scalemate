@@ -96,7 +96,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormData";
-            this.Text = "ScalemateForms";
+            this.Text = "Scalemate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
