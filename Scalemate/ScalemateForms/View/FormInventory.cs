@@ -24,7 +24,6 @@ namespace ScalemateForms.View
         {
             Mate = mate;
             InitializeComponent();
-            Survey = null;
         }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace ScalemateForms.View
         private void SetQuestions()
         {
             labelQuestion.Text = Mate.Question;
-            var options = new Queue<string>(Mate.NoOptions);
+            var options = new Queue<string>(Mate.Option);
             Radios.ToList().ForEach(radio => radio.Text = options.Dequeue());
         }
 
