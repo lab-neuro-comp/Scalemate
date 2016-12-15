@@ -3,3 +3,4 @@
 *.db
 *.pdb
 Production/*
+*.userprefs
