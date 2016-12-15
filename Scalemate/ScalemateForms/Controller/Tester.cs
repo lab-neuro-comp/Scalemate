@@ -165,7 +165,6 @@ namespace ScalemateForms.Controller
             // TODO There is an inconsistency here. Question and ReverseScore are 
             // part of the tester state, but the current options not. Therefore,
             // make the options part of the state.
-
             Question = Questions.Dequeue();
 
             // Checking if it must reverse the score for this question

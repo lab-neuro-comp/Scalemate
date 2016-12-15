@@ -15,3 +15,4 @@ C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scal
 C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\bin\Release\Scalemate.exe.config
 C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Release\Scalemate.exe
 C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Release\Scalemate.pdb
+C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\ScalemateForms\bin\Release\Scalemate.exe.config

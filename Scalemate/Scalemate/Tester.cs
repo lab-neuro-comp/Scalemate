@@ -30,7 +30,7 @@ namespace Scalemate
 		/// <summary>
 		/// Gets the possible tests using the registered DAL.
 		/// </summary>
-		/// <returns>An array of strings containing each a pair of test ids </returns>
+		/// <returns>An array of strings containing each a pair of test ids.</returns>
 		public string[] LoadKinds()
 		{
 			return Tester.LoadKinds(DAL);
@@ -46,6 +46,11 @@ namespace Scalemate
 			return dal.Load(dal.GetKindsPath());
 		}
 
+        /// <summary>
+        /// Prepares the object for the test's execution.
+        /// </summary>
+        /// <param name="test">The test identification code.</param>
+        /// <param name="patient">the patient's identification.</param>
 		public void Setup(string test, string patient)
 		{
 			this.Test = test;
@@ -53,24 +58,200 @@ namespace Scalemate
 			Setup();
 		}
 
+        /// <summary>
+        /// Prepares the object for the test's execution.
+        /// </summary>
 		public void Setup()
 		{
-			// Check for possible files
-			// TODO Check for instructions, ending instructions and survey files
+            // Check for possible files
+            var path = DAL.GetInstructionsPath(Test);
+            if (DAL.FileExists(path))
+            {
+                BeginningInstructions = DAL.Load(path);
+            }
 
-			// Loads data
-			// TODO Load data
+            path = DAL.GetFinishInstrutionsPath(Test);
+            if (DAL.FileExists(path))
+            {
+                EndingInstructions = DAL.Load(path);
+            }
 
-		}
-		#endregion
+            path = DAL.GetInformationPath(Test);
+            if (DAL.FileExists(path))
+            {
+                SurveyQuestions = DAL.Load(path);
+                SurveyAnswers = new string[SurveyQuestions.Length];
+            }
 
-		#region Methods
+            // Loads data
+            // TODO Load data
+            RawData = DAL.Load(DAL.GetInventoryPath(Test));
+            NoOptions = int.Parse(RawData[0]);
+            Questions = new Queue<string>();
+            Options = new Queue<string>();
+            int howMany = 0;
 
-		#endregion
+            foreach (var item in RawData.Skip(1))
+            {
+                if (howMany % (NoOptions + 1) == 0)
+                    Questions.Enqueue(item);
+                else
+                    Options.Enqueue(item);
+                howMany++;
+            }
+
+            Answers = new Queue<int>();
+            Continue();
+        }
+        #endregion
+
+        #region Methods
+
+        /* ##############
+           # TEST LOGIC #
+           ############## */
+
+        /// <summary>
+        /// Sets the state for the next question. That is, sets the new question and 
+        /// if this question must reverse the scoring.
+        /// </summary>
+        public void Continue()
+        {
+            // Setting current question and checking if it must reverse the score 
+            Question = Questions.Dequeue();
+
+            try
+            {
+                if (Question[0] == '*')
+                {
+                    ReverseScore = true;
+                    Question = Question.Substring(1);
+                }
+                else
+                {
+                    ReverseScore = false;
+                }
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                ReverseScore = false;
+            }
+
+            // TODO There is an inconsistency here. Question and ReverseScore are 
+            // part of the tester state, but the current options not. Therefore,
+            // make the options part of the state.
+            // Setting current options
+            Option = new string[NoOptions];
+            for (int i = 0; i < NoOptions; ++i)
+            {
+                Option[i] = Options.Dequeue();
+            }
+
+            Ended = (Options.Count == 0) ? true : false;
+        }
+
+        /// <summary>
+        /// Gets the answer to the current question. 
+        /// This class will handle the reverse scoring logic, so no need to try to reverse it.
+        /// Remember that the first option is worth 0 points, the second option is worth 1 points,
+        /// so on so forth.
+        /// </summary>
+        /// <param name="answer">The given answer.</param>
+        public void Listen(int answer)
+        {
+            if (ReverseScore)
+            {
+                answer = NoOptions - answer - 1;
+            }
+
+            Answers.Enqueue(answer);
+        }
+
+        /* #################
+           # SCORING LOGIC #
+           ################# */
+
+        /// <summary>
+        /// Generates the output TSV table as described on specs based on the test's result;
+        /// and saves this table into memory.
+        /// </summary>
+        /// <returns>A string containing the raw TSV table.</returns>
+        public string CalculateResults()
+        {
+            return CalculateResults(true);
+        }
+
+        /// <summary>
+        /// Generates the output TSV table as described on specs based on the test's result.
+        /// </summary>
+        /// <param name="mustSave">If set to true, will save this TSV table on the standard
+        /// name for that test's execution.</param>
+        /// <returns>A string containing the raw CSV table.</returns>
+        public string CalculateResults(bool mustSave)
+        {
+            DataParser DP;
+            string[] results = DAL.Load(DAL.GetResultsPath(Test));
+            string result = "";
+
+            // Obtaining result
+            Score = Answers.Sum();
+
+            foreach (var line in results)
+            {
+                DP = new DataParser(line);
+                int lowerbound = DP.Lowerbound;
+                int upperbound = DP.Upperbound;
+                string message = DP.Message;
+
+                if (Score >= lowerbound && Score < upperbound)
+                {
+                    result = message;
+                    break;
+                }
+            }
+
+            // Generating TSV table output
+            string[] parts = { Test, Patient, Score.ToString(), result };
+            var outlet = GenerateTSV(parts);
+
+            if (mustSave)
+            {
+                DAL.Save(DAL.GenerateResultsPath(Patient, Test), outlet);
+            }
+
+            return outlet;
+        }
+
+        /// <summary>
+        /// Generates a TSV table based on the results of the test.
+        /// </summary>
+        /// <param name="stuff">An array containing information to identify that
+        /// patient. Will contain the test's id, the patient's id, the score and the
+        /// results as calculated by Scalemate based on the test design.</param>
+        /// <returns>The raw TSV table.</returns>
+        private string GenerateTSV(string[] stuff)
+        {
+            string outlet = "";
+
+            if (SurveyAnswers == null)
+            {
+                outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
+                         Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
+            }
+            else
+            {
+                outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
+                         SurveyAnswers.Aggregate("\r\n", (box, it) => box + it + "\t") +
+                         Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
+            }
+
+            return outlet;
+        }
+        #endregion
 
 
-		#region Properties
-		private IDataAccessLayer _DAL_ { get; set; }
+        #region Properties
+        private IDataAccessLayer _DAL_ { get; set; } = null;
 		public IDataAccessLayer DAL
 		{
 			get { return _DAL_; }
@@ -83,10 +264,15 @@ namespace Scalemate
 		public Queue<string> Questions { get; private set; } = null;
 		public Queue<string> Options { get; private set; } = null;
 		public string Question { get; private set; } = null;
+        public string[] Option { get; private set; } = null;
 		public bool ReverseScore { get; private set; } = false;
-		public int[] Answers { get; set; } = null;
+		public Queue<int> Answers { get; set; } = null;
 		public bool Ended { get; private set; } = false;
-		public string[] Survey { get; private set; }
+        public int Score { get; private set; } = 0;
+        public string[] SurveyQuestions { get; private set; } = null;
+        public string[] SurveyAnswers { get; private set; } = null;
+        public string[] BeginningInstructions { get; private set; } = null;
+        public string[] EndingInstructions { get; private set; } = null;
 		#endregion
 	}
 }
