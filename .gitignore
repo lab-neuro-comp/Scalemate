@@ -2,5 +2,6 @@
 *.dll
 *.db
 *.pdb
+*.mdb
 Production/*
 *.userprefs
