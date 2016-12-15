@@ -1,0 +1,17 @@
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\bin\Release\Scalemate.exe.config
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\bin\Release\Scalemate.exe
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\bin\Release\Scalemate.pdb
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.csprojResolveAssemblyReference.cache
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.View.FormInventory.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.View.FormMain.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.View.FormData.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.View.FormInstructions.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\Scalemate.Properties.Resources.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.View.FormPreferences.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.View.FormResult.resources
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\ScalemateForms.csproj.GenerateResource.Cache
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\Scalemate.exe
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Release\Scalemate.pdb
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\bin\Release\Scalemate.exe.config
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Release\Scalemate.exe
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Release\Scalemate.pdb

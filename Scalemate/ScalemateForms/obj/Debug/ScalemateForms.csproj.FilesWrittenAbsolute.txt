@@ -1,0 +1,10 @@
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/.NETFramework,Version=v4.6.AssemblyAttribute.cs
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/ScalemateForms.View.FormInventory.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/ScalemateForms.View.FormMain.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/ScalemateForms.View.FormData.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/ScalemateForms.View.FormInstructions.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/Scalemate.Properties.Resources.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/ScalemateForms.View.FormPreferences.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/obj/Debug/ScalemateForms.View.FormResult.resources
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/bin/Debug/Scalemate.dll
+/home/cris/Documents/monodevelop/Scalemate/Scalemate/ScalemateForms/bin/Debug/Scalemate.dll.mdb
