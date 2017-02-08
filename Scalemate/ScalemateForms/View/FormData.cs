@@ -7,6 +7,7 @@ namespace ScalemateForms.View
     public partial class FormData : Form
     {
         public bool Ended { get; set; }
+        public bool Completed { get; set; }
         public string[] Survey { get; private set; }
 
         public FormData()
@@ -14,6 +15,7 @@ namespace ScalemateForms.View
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             Ended = false;
+            Completed = false;
         }
 
         private void buttonContinue_Click(object sender, EventArgs e)
@@ -25,6 +27,7 @@ namespace ScalemateForms.View
             if (everythingAnswered)
             {
                 Ended = true;
+                Completed = true;
                 Survey = answers.ToArray<string>();
             }
             else

@@ -125,6 +125,7 @@ namespace ScalemateForms.View
         public async Task<bool> Instruct()
         {
             FormInstructions instructions = new FormInstructions();
+            bool result = false;
 
             if (Mate.BeginningInstructions != null)
             {
@@ -135,15 +136,21 @@ namespace ScalemateForms.View
                 {
                     await Task.Delay(10);
                 }
+                result = instructions.Completed;
+            }
+            else
+            {
+                result = true;
             }
 
             instructions.Close();
-            return true;
+            return result;
         }
 
         public async Task<bool> CollectInformation()
         {
             var form = new FormData();
+            bool result = false;
 
             if (Mate.SurveyQuestions != null)
             {
@@ -151,11 +158,16 @@ namespace ScalemateForms.View
                 form.Show();
                 while (!form.Ended)
                     await Task.Delay(10);
+                result = form.Completed;
                 Mate.SurveyAnswers = form.Survey;
+            }
+            else
+            {
+                result = true;
             }
 
             form.Close();
-            return true;
+            return result;
         }
 
         #endregion

@@ -47,8 +47,22 @@ namespace ScalemateForms.View
             FormInventory form = new FormInventory(mate);
             form.Mother = this;
 
-            await form.CollectInformation();
-            await form.Instruct();
+            // Conduct survey
+            bool ok = await form.CollectInformation();
+            if (!ok)
+            {
+                form.Close();
+                return;
+            }
+
+            // Instructing 
+            ok = await form.Instruct();
+            if (!ok)
+            {
+                form.Close();
+                return;
+            }
+
             form.Start();
         }
 

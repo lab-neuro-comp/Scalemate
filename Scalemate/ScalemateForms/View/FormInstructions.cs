@@ -13,6 +13,7 @@ namespace ScalemateForms.View
     public partial class FormInstructions : Form
     {
         public bool Ended = false;
+        public bool Completed = false;
 
         public FormInstructions()
         {
@@ -28,6 +29,7 @@ namespace ScalemateForms.View
         private void button1_Click(object sender, EventArgs e)
         {
             this.Ended = true;
+            this.Completed = true;
         }
     }
 }
