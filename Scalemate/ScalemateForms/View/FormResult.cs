@@ -26,6 +26,7 @@ namespace ScalemateForms.View
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
+            Mother.Show();
             this.Close();
         }
         

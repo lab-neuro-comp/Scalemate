@@ -65,6 +65,7 @@ namespace ScalemateForms.View
             // Update form
             if (Mate.Ended)
             {
+                Mate.CalculateResults();
                 ShowResults();
             }
             else
