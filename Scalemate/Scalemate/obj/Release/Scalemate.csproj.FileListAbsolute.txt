@@ -2,3 +2,4 @@ C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\
 C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\Scalemate\bin\Release\Scalemate.pdb
 C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.dll
 C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.pdb
+C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\Scalemate\obj\Release\Scalemate.csprojResolveAssemblyReference.cache

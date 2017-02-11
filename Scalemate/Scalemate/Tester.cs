@@ -84,7 +84,6 @@ namespace Scalemate
             }
 
             // Loads data
-            // TODO Load data
             RawData = DAL.Load(DAL.GetInventoryPath(Test));
             NoOptions = int.Parse(RawData[0]);
             Questions = new Queue<string>();
@@ -99,6 +98,11 @@ namespace Scalemate
                     Options.Enqueue(item);
                 howMany++;
             }
+
+            // Building reverse scores
+            ReverseScores = new Queue<bool>(Questions.Select(it => (it.Length == 0)? " " : it)
+                                                     .Select(it => (it[0] == '*')? true : false));
+
 
             Answers = new Queue<int>();
             Continue();
@@ -117,25 +121,8 @@ namespace Scalemate
         /// </summary>
         public void Continue()
         {
-            // Setting current question and checking if it must reverse the score 
+            // Setting current question
             Question = Questions.Dequeue();
-
-            try
-            {
-                if (Question[0] == '*')
-                {
-                    ReverseScore = true;
-                    Question = Question.Substring(1);
-                }
-                else
-                {
-                    ReverseScore = false;
-                }
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                ReverseScore = false;
-            }
 
             // TODO There is an inconsistency here. Question and ReverseScore are 
             // part of the tester state, but the current options not. Therefore,
@@ -159,11 +146,11 @@ namespace Scalemate
         /// <param name="answer">The given answer.</param>
         public void Listen(int answer)
         {
+            ReverseScore = ReverseScores.Dequeue();
             if (ReverseScore)
             {
                 answer = NoOptions - answer - 1;
             }
-
             Answers.Enqueue(answer);
         }
 
@@ -266,6 +253,7 @@ namespace Scalemate
 		public string Question { get; private set; } = null;
         public string[] Option { get; private set; } = null;
 		public bool ReverseScore { get; private set; } = false;
+        public Queue<bool> ReverseScores { get; private set; } = null;
 		public Queue<int> Answers { get; set; } = null;
 		public bool Ended { get; private set; } = false;
         public int Score { get; private set; } = 0;
