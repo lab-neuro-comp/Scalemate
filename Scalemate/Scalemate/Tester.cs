@@ -5,64 +5,64 @@ using System.Text;
 
 namespace Scalemate
 {
-	public class Tester
-	{
-		#region Constructor
-		/// <summary>
-		/// Constructor taking only the data access layer.
-		/// </summary>
-		public Tester(IDataAccessLayer dal)
-		{
-			this.DAL = dal;
-		}
+    public class Tester
+    {
+        #region Constructor
+        /// <summary>
+        /// Constructor taking only the data access layer.
+        /// </summary>
+        public Tester(IDataAccessLayer dal)
+        {
+            this.DAL = dal;
+        }
 
-		/// <summary>
-		/// Constructor taking all the information
-		/// </summary>
-		/// <param name="dal">The data access object</param>
-		/// <param name="test">The test identification</param>
-		/// <param name="patient">The patient identification</param>
-		public Tester(IDataAccessLayer dal, string test, string patient) : this(dal)
-		{
-			Setup(test, patient);
-		}
+        /// <summary>
+        /// Constructor taking all the information
+        /// </summary>
+        /// <param name="dal">The data access object</param>
+        /// <param name="test">The test identification</param>
+        /// <param name="patient">The patient identification</param>
+        public Tester(IDataAccessLayer dal, string test, string patient) : this(dal)
+        {
+            Setup(test, patient);
+        }
 
-		/// <summary>
-		/// Gets the possible tests using the registered DAL.
-		/// </summary>
-		/// <returns>An array of strings containing each a pair of test ids.</returns>
-		public string[] LoadKinds()
-		{
-			return Tester.LoadKinds(DAL);
-		}
+        /// <summary>
+        /// Gets the possible tests using the registered DAL.
+        /// </summary>
+        /// <returns>An array of strings containing each a pair of test ids.</returns>
+        public string[] LoadKinds()
+        {
+            return Tester.LoadKinds(DAL);
+        }
 
-		/// <summary>
-		/// Gets the possible tests using the given DAL.
-		/// </summary>
-		/// <param name="dal">The data access layer designed to use.</param>
-		/// <returns>An array of strings containing each a pair of test ids.</returns>
-		public static string[] LoadKinds(IDataAccessLayer dal)
-		{
-			return dal.Load(dal.GetKindsPath());
-		}
+        /// <summary>
+        /// Gets the possible tests using the given DAL.
+        /// </summary>
+        /// <param name="dal">The data access layer designed to use.</param>
+        /// <returns>An array of strings containing each a pair of test ids.</returns>
+        public static string[] LoadKinds(IDataAccessLayer dal)
+        {
+            return dal.Load(dal.GetKindsPath());
+        }
 
         /// <summary>
         /// Prepares the object for the test's execution.
         /// </summary>
         /// <param name="test">The test identification code.</param>
         /// <param name="patient">the patient's identification.</param>
-		public void Setup(string test, string patient)
-		{
-			this.Test = test;
-			this.Patient = patient;
-			Setup();
-		}
+        public void Setup(string test, string patient)
+        {
+            this.Test = test;
+            this.Patient = patient;
+            Setup();
+        }
 
         /// <summary>
         /// Prepares the object for the test's execution.
         /// </summary>
-		public void Setup()
-		{
+        public void Setup()
+        {
             // Check for possible files
             var path = DAL.GetInstructionsPath(Test);
             if (DAL.FileExists(path))
@@ -116,7 +116,7 @@ namespace Scalemate
            ############## */
 
         /// <summary>
-        /// Sets the state for the next question. That is, sets the new question and 
+        /// Sets the state for the next question. That is, sets the new question and
         /// if this question must reverse the scoring.
         /// </summary>
         public void Continue()
@@ -124,7 +124,7 @@ namespace Scalemate
             // Setting current question
             Question = Questions.Dequeue();
 
-            // TODO There is an inconsistency here. Question and ReverseScore are 
+            // TODO There is an inconsistency here. Question and ReverseScore are
             // part of the tester state, but the current options not. Therefore,
             // make the options part of the state.
             // Setting current options
@@ -138,7 +138,7 @@ namespace Scalemate
         }
 
         /// <summary>
-        /// Gets the answer to the current question. 
+        /// Gets the answer to the current question.
         /// This class will handle the reverse scoring logic, so no need to try to reverse it.
         /// Remember that the first option is worth 0 points, the second option is worth 1 points,
         /// so on so forth.
@@ -222,14 +222,14 @@ namespace Scalemate
 
             if (SurveyAnswers == null)
             {
-                outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
-                         Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
+                outlet = stuff.Aggregate("", (box, it) => box + it + "\t")
+                       + Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
             }
             else
             {
-                outlet = stuff.Aggregate("", (box, it) => box + it + "\t") +
-                         SurveyAnswers.Aggregate("\r\n", (box, it) => box + it + "\t") +
-                         Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
+                outlet = stuff.Aggregate("", (box, it) => box + it + "\t")
+                       + SurveyAnswers.Aggregate("\r\n", (box, it) => box + it + "\t")
+                       + Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
             }
 
             return outlet;
@@ -239,28 +239,28 @@ namespace Scalemate
 
         #region Properties
         private IDataAccessLayer _DAL_ { get; set; } = null;
-		public IDataAccessLayer DAL
-		{
-			get { return _DAL_; }
-			set { _DAL_ = (_DAL_ == null) ? value : _DAL_; }
-		}
-		public string Test { get; private set; } = null;
-		public string Patient { get; private set; } = null;
-		public string[] RawData { get; private set; } = null;
-		public int NoOptions { get; private set; } = 0;
-		public Queue<string> Questions { get; private set; } = null;
-		public Queue<string> Options { get; private set; } = null;
-		public string Question { get; private set; } = null;
+        public IDataAccessLayer DAL
+        {
+            get { return _DAL_; }
+            set { _DAL_ = (_DAL_ == null) ? value : _DAL_; }
+        }
+        public string Test { get; private set; } = null;
+        public string Patient { get; private set; } = null;
+        public string[] RawData { get; private set; } = null;
+        public int NoOptions { get; private set; } = 0;
+        public Queue<string> Questions { get; private set; } = null;
+        public Queue<string> Options { get; private set; } = null;
+        public string Question { get; private set; } = null;
         public string[] Option { get; private set; } = null;
-		public bool ReverseScore { get; private set; } = false;
+        public bool ReverseScore { get; private set; } = false;
         public Queue<bool> ReverseScores { get; private set; } = null;
-		public Queue<int> Answers { get; set; } = null;
-		public bool Ended { get; private set; } = false;
+        public Queue<int> Answers { get; set; } = null;
+        public bool Ended { get; private set; } = false;
         public int Score { get; private set; } = 0;
         public string[] SurveyQuestions { get; private set; } = null;
         public string[] SurveyAnswers { get; set; } = null;
         public string[] BeginningInstructions { get; private set; } = null;
         public string[] EndingInstructions { get; private set; } = null;
-		#endregion
-	}
+        #endregion
+    }
 }
