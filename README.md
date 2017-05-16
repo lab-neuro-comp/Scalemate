@@ -1,11 +1,18 @@
 [![Scalemate](Identity/Banner.png)](https://github.com/ishiikurisu/Scalemate/releases)
 
-Scalemate is a psychological scales engine for Microsoft Windows. Any test composed of written of questions and answers can be implemented here.
+Scalemate is a psychological scales engine for C#. Any test composed of written of questions and answers can be implemented here.
+
+Scalemate Structure
+-------------------
+
+The engine is divided into a library (in the `Scalemate` project) and a graphical user interface (in the `ScalemateForms` project, implemented for Microsoft Windows).
+
+<!-- TODO Add information about how the library is implemented. -->
 
 Test structure
 --------------
 
-A test if composed of a folder containing two files: `inventory.txt` and `results.txt`. There can also be two other optional files: `instructions.txt` and `information.txt`.
+A test is composed of a folder containing two files: `inventory.txt` and `results.txt`. There can also be three other optional files: `instructions.txt`, `finish.txt`, and `information.txt`.
 
 ### Inventory File ###
 
@@ -17,7 +24,7 @@ If needed, a `*` can be added before the question to reverse its score.
 
 The results file describe how to score a test. The answers in an inventory file are worth their index minus 1. That is, the first answer is worth 0 points; the second answer is worth 1 point; the third answer is worth 2 points; and so on. The app will store the answers given by the user, and then it will sum their values, and give a result based on this results' file. Each line will contain a floor value, a ceiling value and the result corresponding to this gap. If the score is equal to or bigger than the floor, or if the score is smaller than the ceiling value, then Scalemate will select the diagnosis related to these values.
 
-### Instructions file ###
+### Instructions files ###
 
 The presence of an `instructions.txt` in the test folder will add a window before the test with the text written in this file. Its purpose is to give instructions to the subject.
 
