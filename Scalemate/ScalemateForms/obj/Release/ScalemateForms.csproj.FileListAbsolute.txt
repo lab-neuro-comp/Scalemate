@@ -14,3 +14,6 @@ C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\
 C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\ScalemateForms\obj\Release\ScalemateForms.csproj.GenerateResource.Cache
 C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\ScalemateForms\obj\Release\ScalemateForms.exe
 C:\Users\cris\Documents\work\Lab\src\github.com\ishiikurisu\scalemate\Scalemate\ScalemateForms\obj\Release\ScalemateForms.pdb
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\bin\Release\ScalemateForms.exe.config
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Release\ScalemateForms.exe
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Release\ScalemateForms.pdb

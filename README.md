@@ -1,4 +1,4 @@
-[![Scalemate](Identity/Banner.png)](https://yadi.sk/d/3sm8awtCqsoTX)
+[![Scalemate](Identity/Banner.png)](https://github.com/ishiikurisu/Scalemate/releases)
 
 Scalemate is a psychological scales engine for Microsoft Windows. Any test composed of written of questions and answers can be implemented here.
 
