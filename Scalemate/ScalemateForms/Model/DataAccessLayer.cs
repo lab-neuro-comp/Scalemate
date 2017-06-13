@@ -70,5 +70,10 @@ namespace ScalemateForms.Model
         {
             return "assets\\kinds.csv";
         }
+
+        public string GetDocsPath()
+        {
+            return @"assets\README.md";
+        }
     }
 }

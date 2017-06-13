@@ -30,3 +30,4 @@ C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scal
 C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Debug\ScalemateForms.csproj.GenerateResource.Cache
 C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Debug\ScalemateForms.exe
 C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Debug\ScalemateForms.pdb
+C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\ScalemateForms\obj\Debug\ScalemateForms.View.FormDocs.resources

@@ -19,7 +19,7 @@ namespace ScalemateForms.View
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             Mother = mother;
-            textAbout.Text = "ScalemateForms foi escrito por Cris Silva Jr. (http://crisjr.eng.br) no Laboratório de Neurociência e Comportamento da Universidade de Brasília, e foi lançado sob a licença MIT (https://opensource.org/licenses/MIT).";
+            textAbout.Text = "ScalemateForms foi escrito por Cris Silva Jr. (http://www.crisjr.eng.br) no Laboratório de Neurociência e Comportamento da Universidade de Brasília, e foi lançado sob a licença MIT (https://opensource.org/licenses/MIT).";
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -30,7 +30,6 @@ namespace ScalemateForms.View
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            Mother.Show();
             this.Close();
         }
     }

@@ -72,5 +72,11 @@ namespace ScalemateForms.View
             form.Show();
             this.Hide();
         }
+
+        private void docsStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDocs form = new FormDocs();
+            form.Show();
+        }
     }
 }
