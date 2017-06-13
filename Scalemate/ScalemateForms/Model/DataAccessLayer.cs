@@ -30,12 +30,12 @@ namespace ScalemateForms.Model
 
         public string GetInventoryPath(string test)
         {
-            return string.Format("assets\\{0}\\inventory.txt", test);
+            return string.Format("assets\\{0}\\inventory.csv", test);
         }
 
         public string GetResultsPath(string test)
         {
-            return string.Format("assets\\{0}\\results.txt", test);
+            return string.Format("assets\\{0}\\results.csv", test);
         }
 
         public string GetInstructionsPath(string test)
@@ -68,7 +68,7 @@ namespace ScalemateForms.Model
 
         public string GetKindsPath()
         {
-            return "assets\\kinds.txt";
+            return "assets\\kinds.csv";
         }
     }
 }

@@ -9,16 +9,10 @@
 
         public DataParser(string inlet)
         {
-            var stuff = inlet.Split(' ');
+            var stuff = inlet.Split('\t');
             Lowerbound = int.Parse(stuff[0]);
             Upperbound = int.Parse(stuff[1]);
             Message = stuff[2];
-
-            for (int i = 3; i < stuff.Length; ++i)
-            {
-                Message += " " + stuff[i];
-            }
         }
-
     }
 }

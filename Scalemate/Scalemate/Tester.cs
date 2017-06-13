@@ -83,20 +83,19 @@ namespace Scalemate
                 SurveyAnswers = new string[SurveyQuestions.Length];
             }
 
-            // Loads data
+            // Loading data
+            // IDEA Leave this CSV conversion to the data access class or to the Model layer
             RawData = DAL.Load(DAL.GetInventoryPath(Test));
-            NoOptions = int.Parse(RawData[0]);
+            NoOptions = RawData[0].Split('\t').Skip(1).Where(it => it.Length > 0).Count();
             Questions = new Queue<string>();
             Options = new Queue<string>();
-            int howMany = 0;
 
-            foreach (var item in RawData.Skip(1))
+            foreach (var line in RawData)
             {
-                if (howMany % (NoOptions + 1) == 0)
-                    Questions.Enqueue(item);
-                else
+                var itens = line.Split('\t');
+                Questions.Enqueue(itens[0]);
+                foreach (var item in itens.Skip(1).Where(it => it.Length > 0))
                     Options.Enqueue(item);
-                howMany++;
             }
 
             // Building reverse scores

@@ -22,14 +22,9 @@ namespace ScalemateForms.View
 
             foreach (var line in lines)
             {
-                var stuff = line.Split(' ');
-                var name = stuff[1];
-
-                for (int j = 2; j < stuff.Length; ++j)
-                    name = name + " " + stuff[j];
-
+                var stuff = line.Split('\t');
                 Tests[i++] = stuff[0];
-                listKind.Items.Add(name);
+                listKind.Items.Add(stuff[1]);
             }
 
             listKind.SetSelected(0, true);
