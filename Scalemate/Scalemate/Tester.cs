@@ -99,8 +99,9 @@ namespace Scalemate
             }
 
             // Building reverse scores
-            ReverseScores = new Queue<bool>(Questions.Select(it => (it.Length == 0)? " " : it)
-                                                     .Select(it => (it[0] == '*')? true : false));
+            var normalized = Questions.Select(it => (it.Length == 0) ? " " : it);
+            ReverseScores = new Queue<bool>(normalized.Select(it => (it[0] == '*')? true : false));
+            Questions = new Queue<string>(normalized.Select(it => ((it[0] == '*')) ? it.Substring(1) : it));
 
 
             Answers = new Queue<int>();

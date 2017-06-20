@@ -1,12 +1,25 @@
 <p><a href="https://github.com/ishiikurisu/Scalemate"><img src="assets\Banner.png" alt="Scalemate"></a></p>
 <p>Scalemate is a psychological scales engine for Microsoft Windows. Any test composed of written of questions and answers can be implemented here.</p>
+<h2>Index</h2>
+<ol>
+	<li><a href="#test-structure">Test structure</a></li>
+	<ol>
+		<li><a href="#inventory-file">Inventory file</a></li>
+		<li><a  href="#results-file">Results file</a></li>
+		<li><a  href="#instructions-file">Instructions file</a></li>
+		<li><a  href="#information-file">Information file</a></li>
+	</ol>
+	<li><a  href="#results-folder">Results folder</a></li>
+	<li><a href="#credits">Credits</a></li>
+</ol>
 <h2 id="test-structure">Test structure</h2>
-<p>A test if composed of a folder containing two files: <code>inventory.txt</code> and <code>results.txt</code>. There can also be two other optional files: <code>instructions.txt</code> and <code>information.txt</code>.</p>
+<p>A test if composed of a folder containing two files: <code>inventory.csv</code> and <code>results.csv</code>. There can also be three other optional files: <code>instructions.txt</code>, <code>information.txt</code>, and <code>finish.txt</code>.</p>
+<p>All <code>*.csv</code> files must be tab (<code>&#92;t</code> characters) seperated values files.</p>
 <h3 id="inventory-file">Inventory File</h3>
-<p>The first line of the inventory file is the number of possible answers in each question. The following lines must contain the question (or an empty line if there is no question) and the possible answers. Note there must be as many answers as indicated in this file&#39;s header.</p>
-<p>If needed, a <code>*</code> can be added before the question to reverse its score.</p>
+<p>This file describes the inventory per se, that is, what the subject will see. This file is a table whose first column is the question to be asked and the following columns are the possible answers for these columns. The answers in an inventory file are worth their index minus 1. That is, the first answer is worth 0 points; the second answer is worth 1 point; the third answer is worth 2 points; and so on. Every line must have the same number of columns.</p>
+<p> Whenever needed, an asterisk (<code>&#42;</code>) can be added to the beginning of the question to invert the scoring logic (e.g. the answers are worth the number of possible answers minus 1 minus their index).</p>
 <h3 id="results-file">Results file</h3>
-<p>The results file describe how to score a test. The answers in an inventory file are worth their index minus 1. That is, the first answer is worth 0 points; the second answer is worth 1 point; the third answer is worth 2 points; and so on. The app will store the answers given by the user, and then it will sum their values, and give a result based on this results&#39; file. Each line will contain a floor value, a ceiling value and the result corresponding to this gap. If the score is equal to or bigger than the floor, or if the score is smaller than the ceiling value, then Scalemate will select the diagnosis related to these values.</p>
+<p>The results file describe how to score a test. The application will store the answers given by the user, and then it will sum their values, and give a result based on this results&#39; file. Each line will contain a floor value on the first row, a ceiling value on the second row, and the result text corresponding to this gap. If the score is equal to or bigger than the floor and is smaller than the ceiling value, then Scalemate will select the diagnosis related to these values.</p>
 <h3 id="instructions-file">Instructions file</h3>
 <p>The presence of an <code>instructions.txt</code> in the test folder will add a window before the test with the text written in this file. Its purpose is to give instructions to the subject.</p>
 <p>There can also be a <code>finish.txt</code> to instruct the subject on how to proceed after the test is completed.</p>

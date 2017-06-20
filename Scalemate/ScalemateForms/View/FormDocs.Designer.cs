@@ -64,7 +64,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormDocs";
-            this.Text = "FormDocs";
+            this.Text = "Docs";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
