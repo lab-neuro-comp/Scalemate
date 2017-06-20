@@ -73,7 +73,7 @@ namespace ScalemateForms.Model
 
         public string GetDocsPath()
         {
-            return @"assets\README.md";
+            return @"assets\README.html";
         }
     }
 }
