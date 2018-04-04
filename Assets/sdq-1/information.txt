@@ -1,6 +1,0 @@
-Nome da criança
-Data de Nascimento
-Gênero (Masculino/Feminino)
-Nome Completo
-Data
-Mãe/Pai/Outro (especifique)
