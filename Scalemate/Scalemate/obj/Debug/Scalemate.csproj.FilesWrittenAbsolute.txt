@@ -1,5 +1,0 @@
-/home/cris/Documents/monodevelop/Scalemate/Scalemate/Scalemate/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/home/cris/Documents/monodevelop/Scalemate/Scalemate/Scalemate/bin/Debug/Scalemate.dll.mdb
-/home/cris/Documents/monodevelop/Scalemate/Scalemate/Scalemate/bin/Debug/Scalemate.dll
-/home/cris/Documents/monodevelop/Scalemate/Scalemate/Scalemate/obj/Debug/Scalemate.dll
-/home/cris/Documents/monodevelop/Scalemate/Scalemate/Scalemate/obj/Debug/Scalemate.dll.mdb

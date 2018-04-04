@@ -1,5 +1,0 @@
-C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.dll
-C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\bin\Debug\Scalemate.pdb
-C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.csprojResolveAssemblyReference.cache
-C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.dll
-C:\Users\neuro\Documents\Lab\src\github.com\ishiikurisu\Scalemate\Scalemate\Scalemate\obj\Debug\Scalemate.pdb
