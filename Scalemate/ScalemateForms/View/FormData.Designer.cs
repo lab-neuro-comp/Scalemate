@@ -75,7 +75,7 @@
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(97, 28);
             this.buttonContinue.TabIndex = 1;
-            this.buttonContinue.Text = "Continuar";
+            this.buttonContinue.Text = Translator.Get("Continuar");
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 

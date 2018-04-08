@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScalemateForms.View.Util;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,9 +10,13 @@ namespace ScalemateForms.View
         public bool Ended { get; set; }
         public bool Completed { get; set; }
         public string[] Survey { get; private set; }
+        private PreferenceManager Prefs;
+        private TranslationManager Translator;
 
         public FormData()
         {
+            Prefs = new PreferenceManager();
+            Translator = new TranslationManager(Prefs.GetLanguage());
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             Ended = false;
@@ -32,7 +37,7 @@ namespace ScalemateForms.View
             }
             else
             {
-                MessageBox.Show("Responda todas as perguntas.", "Aviso!");
+                MessageBox.Show(Translator.Get("All"), "!!!");
             }
         }
     }
