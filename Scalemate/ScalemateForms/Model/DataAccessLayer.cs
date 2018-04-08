@@ -23,8 +23,6 @@ namespace ScalemateForms.Model
                 }
             }
 
-            
-
             return data.ToArray<string>();
         }
 
@@ -56,6 +54,11 @@ namespace ScalemateForms.Model
         public string GetFinishInstrutionsPath(string test)
         {
             return string.Format(@"assets\{0}\finish.txt", test);
+        }
+
+        public string GetPreferencesPath()
+        {
+            return ".\\assets\\preferences.csv";
         }
 
 

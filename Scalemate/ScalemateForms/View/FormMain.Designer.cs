@@ -77,7 +77,7 @@
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(103, 28);
             this.buttonStart.TabIndex = 1;
-            this.buttonStart.Text = "Começar";
+            this.buttonStart.Text = Translator.Get("Start");
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
@@ -109,7 +109,7 @@
             this.textPatient.Name = "textPatient";
             this.textPatient.Size = new System.Drawing.Size(120, 27);
             this.textPatient.TabIndex = 3;
-            this.textPatient.Text = "Nome";
+            this.textPatient.Text = Translator.Get("Name");
             this.textPatient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // menuStrip1
@@ -131,13 +131,13 @@
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.fileToolStripMenuItem.Text = "Arquivo";
+            this.fileToolStripMenuItem.Text = Translator.Get("File");
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.quitToolStripMenuItem.Text = "Sair";
+            this.quitToolStripMenuItem.Text = Translator.Get("Quit");
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -147,13 +147,13 @@
             this.editToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.editToolStripMenuItem.Text = "Editar";
+            this.editToolStripMenuItem.Text = Translator.Get("Edit");
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.preferencesToolStripMenuItem.Text = "Preferências";
+            this.preferencesToolStripMenuItem.Text = Translator.Get("Preferences");
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // helpStripMenuItem
@@ -162,13 +162,13 @@
             this.docsStripMenuItem});
             this.helpStripMenuItem.Name = "helpStripMenuItem";
             this.helpStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.helpStripMenuItem.Text = "Ajuda";
+            this.helpStripMenuItem.Text = Translator.Get("Help");
             // 
             // docsStripMenuItem
             // 
             this.docsStripMenuItem.Name = "docsStripMenuItem";
             this.docsStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.docsStripMenuItem.Text = "Documentação";
+            this.docsStripMenuItem.Text = Translator.Get("Docs");
             this.docsStripMenuItem.Click += new System.EventHandler(this.docsStripMenuItem_Click);
             // 
             // FormMain

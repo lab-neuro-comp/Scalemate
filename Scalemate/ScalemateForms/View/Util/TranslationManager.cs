@@ -11,7 +11,7 @@ namespace ScalemateForms.View.Util
     /// Handles the static texts that appear all the program by providing 
     /// them in the preferred language.
     /// </summary>
-    public class Translator
+    public class TranslationManager
     {
         /// <summary>
         /// Creates a new translator. Requires the existence of a
@@ -19,14 +19,17 @@ namespace ScalemateForms.View.Util
         /// translations.
         /// </summary>
         /// <param name="code">The preferred language code.</param>
-        public Translator(string code)
+        public TranslationManager(string code)
         {
+            Translations = new Dictionary<string, Dictionary<string, string>>();
             DAL = new DataAccessLayer();
             SetPreferredLanguage(code);
 
             // Loading translation file
-            var aliens = DAL.Load("assets\\translations.csv");
+            var aliens = DAL.Load("assets\\translation.csv");
             var fields = aliens[0].Split('\t').Select(it => it.Trim()).ToArray();
+
+            Console.WriteLine($"{aliens.Length}");
 
             for (int i = 1; i < aliens.Length; ++i)
             {

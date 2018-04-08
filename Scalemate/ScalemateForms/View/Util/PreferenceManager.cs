@@ -18,8 +18,9 @@ namespace ScalemateForms.View.Util
         /// </summary>
         public PreferenceManager()
         {
+            DAL = new DataAccessLayer();
             Preferences = new Dictionary<string, string>();
-            var rawPreferences = DAL.Load(@"assets\preferences.csv");
+            var rawPreferences = DAL.Load(DAL.GetPreferencesPath());
             foreach (string rawPreference in rawPreferences)
             {
                 var fields = rawPreference.Trim().Split('\t');

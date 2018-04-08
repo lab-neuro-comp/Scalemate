@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Scalemate;
 using ScalemateForms.Model;
+using ScalemateForms.View.Util;
 
 namespace ScalemateForms.View
 {
@@ -10,14 +11,18 @@ namespace ScalemateForms.View
     {
         public string[] Tests { get; private set; }
         public DataAccessLayer DAL { get; set; }
+        public PreferenceManager Prefs { get; set; }
+        public TranslationManager Translator { get; set; }
 
         public FormMain()
         {
             int i;
 
+            DAL = new DataAccessLayer();
+            Prefs = new PreferenceManager();
+            Translator = new TranslationManager(Prefs.GetLanguage());
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            DAL = new DataAccessLayer();
 
             var lines = Tester.LoadKinds(DAL);
             if (lines.Length > 0)

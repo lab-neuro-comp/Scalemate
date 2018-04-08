@@ -97,6 +97,8 @@
     <Compile Include="View\FormResult.Designer.cs">
       <DependentUpon>FormResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Util\PreferenceManager.cs" />
+    <Compile Include="View\Util\TranslationManager.cs" />
     <EmbeddedResource Include="View\FormDocs.resx">
       <DependentUpon>FormDocs.cs</DependentUpon>
     </EmbeddedResource>
