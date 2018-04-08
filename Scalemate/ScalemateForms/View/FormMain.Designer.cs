@@ -59,13 +59,13 @@
             // 
             // listKind
             // 
-            this.listKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.listKind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listKind.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listKind.FormattingEnabled = true;
             this.listKind.ItemHeight = 18;
-            this.listKind.Location = new System.Drawing.Point(65, 112);
+            this.listKind.Location = new System.Drawing.Point(3, 112);
             this.listKind.Name = "listKind";
-            this.listKind.Size = new System.Drawing.Size(214, 202);
+            this.listKind.Size = new System.Drawing.Size(338, 214);
             this.listKind.TabIndex = 2;
             // 
             // buttonStart

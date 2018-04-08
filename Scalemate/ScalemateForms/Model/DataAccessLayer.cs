@@ -12,13 +12,18 @@ namespace ScalemateForms.Model
         {
             List<string> data = new List<string>();
 
-            using (var serial = new StreamReader(path))
+            if (FileExists(path))
             {
-                for (var line = serial.ReadLine(); line != null; line = serial.ReadLine())
+                using (var serial = new StreamReader(path))
                 {
-                    data.Add(line);
+                    for (var line = serial.ReadLine(); line != null; line = serial.ReadLine())
+                    {
+                        data.Add(line);
+                    }
                 }
             }
+
+            
 
             return data.ToArray<string>();
         }

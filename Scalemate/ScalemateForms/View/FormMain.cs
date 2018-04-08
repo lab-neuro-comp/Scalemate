@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Scalemate;
 using ScalemateForms.Model;
@@ -12,22 +13,30 @@ namespace ScalemateForms.View
 
         public FormMain()
         {
-            DAL = new DataAccessLayer();
+            int i;
+
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+            DAL = new DataAccessLayer();
 
             var lines = Tester.LoadKinds(DAL);
-            Tests = new string[lines.Length];
-            int i = 0;
-
-            foreach (var line in lines)
+            if (lines.Length > 0)
             {
-                var stuff = line.Split('\t');
-                Tests[i++] = stuff[0];
-                listKind.Items.Add(stuff[1]);
-            }
+                Tests = new string[lines.Length];
+                i = 0;
 
-            listKind.SetSelected(0, true);
+                foreach (var line in lines)
+                {
+                    var stuff = line.Split('\t');
+                    Tests[i++] = stuff[0];
+                    listKind.Items.Add(stuff[1]);
+                }
+
+                listKind.SetSelected(0, true);
+            } else
+            {
+                listKind.Items.Add("Não há arquivos de configuração disponíveis.");
+            }
         }
 
         /// <summary>
