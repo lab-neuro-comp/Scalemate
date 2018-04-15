@@ -8,16 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Scalemate;
+using ScalemateForms.View.Util;
 
 namespace ScalemateForms.View
 {
     public partial class FormResult : Form
     {
-        public Form Mother { get; set; }
+        public IParent Mother { get; set; }
         public Tester Mate { get; set; }
 
-        public FormResult(Tester mate)
+        public FormResult(IParent mother, Tester mate)
         {
+            Mother = mother;
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             Mate = mate;

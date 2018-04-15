@@ -7,7 +7,7 @@ using ScalemateForms.View.Util;
 
 namespace ScalemateForms.View
 {
-    public partial class FormMain : Form
+    public partial class FormMain : Form, IParent
     {
         public string[] Tests { get; private set; }
         public DataAccessLayer DAL { get; set; }
@@ -53,8 +53,7 @@ namespace ScalemateForms.View
         private async void buttonStart_Click(object sender, EventArgs e)
         {
             Tester mate = new Tester(DAL, Tests[listKind.SelectedIndex], textPatient.Text);
-            FormInventory form = new FormInventory(mate);
-            form.Mother = this;
+            FormInventory form = new FormInventory(this, mate);
 
             // Conduct survey
             bool ok = await form.CollectInformation();
@@ -91,6 +90,11 @@ namespace ScalemateForms.View
         {
             FormDocs form = new FormDocs();
             form.Show();
+        }
+
+        public string Get(string tag)
+        {
+            return Translator.Get(tag);
         }
     }
 }

@@ -63,7 +63,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(278, 52);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Dados";
+            this.label1.Text = Mother.Get("Data");
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonContinue
@@ -75,7 +75,7 @@
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(97, 28);
             this.buttonContinue.TabIndex = 1;
-            this.buttonContinue.Text = Translator.Get("Continuar");
+            this.buttonContinue.Text = Mother.Get("Next");
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 

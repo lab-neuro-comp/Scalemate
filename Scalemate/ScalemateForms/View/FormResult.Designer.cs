@@ -47,7 +47,7 @@ namespace ScalemateForms.View
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(342, 118);
             this.labelScore.TabIndex = 0;
-            this.labelScore.Text = "Resultados salvos com sucesso!";
+            this.labelScore.Text = Mother.Get("Results");
             this.labelScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonFinish
@@ -59,7 +59,7 @@ namespace ScalemateForms.View
             this.buttonFinish.Name = "buttonFinish";
             this.buttonFinish.Size = new System.Drawing.Size(87, 28);
             this.buttonFinish.TabIndex = 2;
-            this.buttonFinish.Text = "Finalizar";
+            this.buttonFinish.Text = Mother.Get("Finish");
             this.buttonFinish.UseVisualStyleBackColor = true;
             this.buttonFinish.Click += new System.EventHandler(this.buttonFinish_Click);
             // 
@@ -88,7 +88,7 @@ namespace ScalemateForms.View
             this.labelInstructions.Name = "labelInstructions";
             this.labelInstructions.Size = new System.Drawing.Size(342, 118);
             this.labelInstructions.TabIndex = 3;
-            this.labelInstructions.Text = "Contate o aplicador do teste";
+            this.labelInstructions.Text = Mother.Get("Contact");
             this.labelInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormResult

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ScalemateForms.Model;
+using ScalemateForms.View.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +16,11 @@ namespace ScalemateForms.View
     {
         public bool Ended = false;
         public bool Completed = false;
+        public IParent Mother;
 
-        public FormInstructions()
+        public FormInstructions(IParent mother)
         {
+            Mother = mother;
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
         }

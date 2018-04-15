@@ -10,13 +10,11 @@ namespace ScalemateForms.View
         public bool Ended { get; set; }
         public bool Completed { get; set; }
         public string[] Survey { get; private set; }
-        private PreferenceManager Prefs;
-        private TranslationManager Translator;
+        private IParent Mother;
 
-        public FormData()
+        public FormData(IParent mother)
         {
-            Prefs = new PreferenceManager();
-            Translator = new TranslationManager(Prefs.GetLanguage());
+            Mother = mother;
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             Ended = false;
@@ -37,7 +35,7 @@ namespace ScalemateForms.View
             }
             else
             {
-                MessageBox.Show(Translator.Get("All"), "!!!");
+                MessageBox.Show(Mother.Get("All"), "!!!");
             }
         }
     }

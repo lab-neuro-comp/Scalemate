@@ -61,7 +61,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(278, 182);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Aperte o botão abaixo para continuar";
+            this.label1.Text = Mother.Get("Instruct");
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
@@ -73,7 +73,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 28);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Continuar";
+            this.button1.Text = Mother.Get("Next");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

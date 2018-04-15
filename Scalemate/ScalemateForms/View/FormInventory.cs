@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using Scalemate;
+using ScalemateForms.View.Util;
 
 namespace ScalemateForms.View
 {
-    public partial class FormInventory : Form
+    public partial class FormInventory : Form, IParent
     {
-        public Form Mother { get; set; }
+        public IParent Mother { get; set; }
         public Tester Mate { get; private set; }
         private int NoOptions { get; set; }
         private int CurrentQuestion { get; set; }
@@ -20,8 +21,9 @@ namespace ScalemateForms.View
         /// `Instruct()`before beginning to better interact with user.
         /// </summary>
         /// <param name="mate">A ScalemateForms controller to this test</param>
-        public FormInventory(Tester mate)
+        public FormInventory(IParent mother, Tester mate)
         {
+            Mother = mother;
             Mate = mate;
             InitializeComponent();
         }
@@ -77,8 +79,7 @@ namespace ScalemateForms.View
 
         private void ShowResults()
         {
-            var form = new FormResult(Mate);
-            form.Mother = Mother;
+            var form = new FormResult(Mother, Mate);
             form.Show();
             this.Close();
         }

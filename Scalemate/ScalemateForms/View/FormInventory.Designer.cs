@@ -88,7 +88,7 @@ namespace ScalemateForms.View
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(97, 28);
             this.buttonContinue.TabIndex = 1;
-            this.buttonContinue.Text = "Continuar";
+            this.buttonContinue.Text = Mother.Get("Next");
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
@@ -122,9 +122,14 @@ namespace ScalemateForms.View
 
         #region Procedures before testing
 
+        public string Get(string tag)
+        {
+            return Mother.Get(tag);
+        }
+
         public async Task<bool> Instruct()
         {
-            FormInstructions instructions = new FormInstructions();
+            FormInstructions instructions = new FormInstructions(this);
             bool result = false;
 
             if (Mate.BeginningInstructions != null)
@@ -149,7 +154,7 @@ namespace ScalemateForms.View
 
         public async Task<bool> CollectInformation()
         {
-            var form = new FormData();
+            var form = new FormData(this);
             bool result = false;
 
             if (Mate.SurveyQuestions != null)
