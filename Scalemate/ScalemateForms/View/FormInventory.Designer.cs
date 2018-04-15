@@ -143,6 +143,10 @@ namespace ScalemateForms.View
             return Mother.GetCodes();
         }
 
+        public void Store()
+        {
+            Mother.Store();
+        }
         #endregion
 
         #region Procedures before testing

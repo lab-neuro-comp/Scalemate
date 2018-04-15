@@ -14,5 +14,6 @@ namespace ScalemateForms.View
         string Set(string tag);
         string[] GetLanguages();
         string[] GetCodes();
+        void Store();
     }
 }

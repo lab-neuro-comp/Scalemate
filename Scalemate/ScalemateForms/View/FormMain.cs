@@ -39,10 +39,13 @@ namespace ScalemateForms.View
                 }
 
                 listKind.SetSelected(0, true);
-            } else
+            }
+            else
             {
                 listKind.Items.Add("Não há arquivos de configuração disponíveis.");
             }
+
+            Translate();
         }
 
         /// <summary>
@@ -75,6 +78,8 @@ namespace ScalemateForms.View
             form.Start();
         }
 
+        #region UI side effects
+
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -92,6 +97,21 @@ namespace ScalemateForms.View
             FormDocs form = new FormDocs();
             form.Show();
         }
+
+        private void Translate()
+        {
+            this.buttonStart.Text = Translator.Get("Start");
+            this.textPatient.Text = Translator.Get("Name");
+            this.fileToolStripMenuItem.Text = Translator.Get("File");
+            this.quitToolStripMenuItem.Text = Translator.Get("Quit");
+            this.editToolStripMenuItem.Text = Translator.Get("Edit");
+            this.preferencesToolStripMenuItem.Text = Translator.Get("Preferences");
+            this.helpStripMenuItem.Text = Translator.Get("Help");
+            this.docsStripMenuItem.Text = Translator.Get("Docs");
+        }
+
+
+        #endregion
 
         #region IParent implementation
         public string Get(string tag)
@@ -114,6 +134,13 @@ namespace ScalemateForms.View
         public string[] GetCodes()
         {
             return Translator.Translations.Keys.ToArray();
+        }
+
+        public void Store()
+        {
+            Prefs.Preferences["Language"] = Translator.Code;
+            Prefs.Store();
+            Translate();
         }
         #endregion
     }

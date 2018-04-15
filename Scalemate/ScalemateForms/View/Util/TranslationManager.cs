@@ -36,7 +36,7 @@ namespace ScalemateForms.View.Util
                 var stuff = aliens[i].Split('\t').Select(it => it.Trim()).ToArray();
                 var translation = new Dictionary<string, string>();
 
-                for (int j = 1; j < fields.Length; ++j)
+                for (int j = 0; j < fields.Length; ++j)
                 {
                     translation[fields[j]] = stuff[j];
                 }

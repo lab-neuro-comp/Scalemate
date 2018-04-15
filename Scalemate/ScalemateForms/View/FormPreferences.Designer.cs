@@ -149,6 +149,7 @@
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(270, 26);
             this.comboBoxLanguage.TabIndex = 4;
+            this.comboBoxLanguage.SelectedIndexChanged += new System.EventHandler(this.comboxBoxLanguage_SelectedIndexChanged);
             // 
             // FormPreferences
             // 
