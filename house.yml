@@ -1,0 +1,12 @@
+---
+build:
+    local: true
+    commands:
+    - rm -rf Production/*
+    - cp README.md Production
+    - cp LICENSE Production
+    - mkdir Production/assets
+    - mkdir Production/results
+    - cp -R Assets/* Production/assets
+    - cp Scalemate/ScalemateForms/bin/Release/Scalemate.dll Production
+    - cp Scalemate/ScalemateForms/bin/Release/ScalemateForms.exe Production
