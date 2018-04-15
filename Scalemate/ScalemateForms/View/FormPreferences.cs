@@ -12,14 +12,19 @@ namespace ScalemateForms.View
 {
     public partial class FormPreferences : Form
     {
-        private Form Mother { get; set; }
+        private IParent Mother { get; set; }
 
-        public FormPreferences(Form mother)
+        public FormPreferences(IParent mother)
         {
+            // Preparing form
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             Mother = mother;
-            textAbout.Text = "ScalemateForms foi escrito por Cris Silva Jr. (http://www.crisjr.eng.br) no Laboratório de Neurociência e Comportamento da Universidade de Brasília, e foi lançado sob a licença MIT (https://opensource.org/licenses/MIT).";
+            ManageLanguages();
+            Translate();
+            
+            // Setting languages for translation
+            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -31,6 +36,24 @@ namespace ScalemateForms.View
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ManageLanguages()
+        {
+            string[] languages = Mother.GetLanguages();
+            foreach (string language in languages)
+            {
+                comboBoxLanguage.Items.Add(language);
+            }
+            comboBoxLanguage.SelectedIndex = 0;
+        }
+
+        private void Translate()
+        {
+            labelAbout.Text = Mother.Get("About");
+            textAbout.Text = Mother.Get("TextAbout");
+            labelLanguage.Text = Mother.Get("Language");
+            buttonCancel.Text = Mother.Get("Cancel");
         }
     }
 }

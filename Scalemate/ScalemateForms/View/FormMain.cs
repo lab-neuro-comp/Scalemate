@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Scalemate;
 using ScalemateForms.Model;
 using ScalemateForms.View.Util;
+using System.Linq;
 
 namespace ScalemateForms.View
 {
@@ -92,9 +93,28 @@ namespace ScalemateForms.View
             form.Show();
         }
 
+        #region IParent implementation
         public string Get(string tag)
         {
             return Translator.Get(tag);
         }
+
+        public string Set(string code)
+        {
+            Translator.SetPreferredLanguage(code);
+            return code;
+        }
+
+        public string[] GetLanguages()
+        {
+            // XXX Maybe this should be on the translator? The designer can't know about this, right?
+            return GetCodes().Select(code => Translator.Translations[code]["LONG_ID"]).ToArray();
+        }
+
+        public string[] GetCodes()
+        {
+            return Translator.Translations.Keys.ToArray();
+        }
+        #endregion
     }
 }

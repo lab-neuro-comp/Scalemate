@@ -65,7 +65,7 @@ namespace ScalemateForms.View.Util
         }
 
         public string Code { get; private set; }
-        public Dictionary<string, Dictionary<string, string>> Translations;
+        public Dictionary<string, Dictionary<string, string>> Translations { get; private set; }
         private DataAccessLayer DAL;
     }
 }

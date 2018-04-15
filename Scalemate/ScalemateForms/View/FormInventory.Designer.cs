@@ -120,13 +120,32 @@ namespace ScalemateForms.View
 
         #endregion
 
-        #region Procedures before testing
+        #region IParent implementation
 
         public string Get(string tag)
         {
             return Mother.Get(tag);
         }
 
+
+        public string Set(string tag)
+        {
+            return Mother.Set(tag);
+        }
+
+        public string[] GetLanguages()
+        {
+            return Mother.GetLanguages();
+        }
+
+        public string[] GetCodes()
+        {
+            return Mother.GetCodes();
+        }
+
+        #endregion
+
+        #region Procedures before testing
         public async Task<bool> Instruct()
         {
             FormInstructions instructions = new FormInstructions(this);
