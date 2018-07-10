@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ScalemateForms.View.FormPreferences">
+    <Position X="9.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACABmAQAAgDABAACEAAIAAAAIAAEAABAACA=</HashCode>
+      <FileName>View\FormPreferences.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.Model.DataAccessLayer" BaseTypeListCollapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAoAgIAAAAAAQBAAJAAAAAAgAAAAAAAAAAGAAAAABAA=</HashCode>
+      <FileName>Model\DataAccessLayer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ScalemateForms.Program">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.Properties.Resources">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.Properties.Settings">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.View.FormData">
+    <Position X="5.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAQCAACBMAAACAAAACAAAAAAAkQACAAQAAACA=</HashCode>
+      <FileName>View\FormData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.View.FormDocs">
+    <Position X="4" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIACAAAAACAAAACAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>View\FormDocs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.View.FormInstructions">
+    <Position X="11" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACBMAAACAAAACAAAIAAAAAEAAACAAACA=</HashCode>
+      <FileName>View\FormInstructions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.View.FormInventory" BaseTypeListCollapsed="true">
+    <Position X="2" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABBAAACAIDABAEACAUAACAAAAACEgAgCAAQYAgCA=</HashCode>
+      <FileName>View\FormInventory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ScalemateForms.View.FormResult">
+    <Position X="7.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAAgAACAAAACAAAAAAQAAAgIAAoAACA=</HashCode>
+      <FileName>View\FormResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.View.Util.PreferenceManager">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAGA=</HashCode>
+      <FileName>View\Util\PreferenceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScalemateForms.View.Util.TranslationManager">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAABCAAAgAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Util\TranslationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ScalemateForms.View.IParent">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAEAAAAAAAAAAEAAEAAAAAAQAAACA=</HashCode>
+      <FileName>View\IParent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
