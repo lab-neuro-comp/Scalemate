@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
-        <!-- DataTemplate (View) for Product Model -->
+        <!-- DataTemplate (View) for ScaleTest Model -->
         <DataTemplate DataType="{x:Type models:Test}">
             <Border BorderBrush="Black" BorderThickness="1" Padding="20">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -92,7 +92,7 @@
     <Compile Include="Views\Helpers\ObservableObject.cs" />
     <Compile Include="Views\Helpers\RelayCommand.cs" />
     <Compile Include="Views\Helpers\TextBoxVm.cs" />
-    <Compile Include="Views\MainWindow\MainWindoViewModel.cs" />
+    <Compile Include="Views\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="Views\MainWindow\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
     </Compile>

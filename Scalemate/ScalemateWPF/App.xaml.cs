@@ -21,10 +21,14 @@ namespace ScalemateWPF
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Startup(object sender, StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            // TODO: Parse commandline arguments and other startup work 
-            new MainWindowView().Show();
+            base.OnStartup(e);
+
+            MainWindowView app = new MainWindowView();
+            MainWindowViewModel context = new MainWindowViewModel();
+            app.DataContext = context;
+            app.Show();
         }
     }
 }

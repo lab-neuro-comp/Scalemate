@@ -4,8 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScalemateWPF.Views.MainWindow"
+        xmlns:createScale="clr-namespace:ScalemateWPF.Views.CreateScale"
+        xmlns:executeScale="clr-namespace:ScalemateWPF.Views.ExecuteScale"
         mc:Ignorable="d"
          Title="Scalemate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Icon="/ScalemateWPF;component/Resources/App.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized" FontWeight="Bold" FontStyle="Italic" Topmost="True">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type createScale:CreateScaleViewModel}">
+            <createScale:CreateScaleView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type executeScale:ExecuteScaleViewModel}">
+            <executeScale:ExecuteScaleView />
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="Sidebar" ToolTip="sidebar" Width="15*"/>
@@ -24,71 +35,23 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
-            <Button 
-                Grid.Row="0" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                FontStyle="Normal" FontWeight="ExtraLight" 
-                TextOptions.TextFormattingMode="Display" 
-                Background="White" BorderBrush="White" 
-                ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                Criar uma nova escala comportamental
-                </TextBlock>
-            </Button>
-            <Button 
-                Grid.Row="1" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                FontStyle="Normal" FontWeight="ExtraLight" 
-                TextOptions.TextFormattingMode="Display" 
-                Background="White" BorderBrush="White" 
-                ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                Atualizar uma escala comportamental
-                </TextBlock>
-            </Button>
-            <Button 
-                Grid.Row="2" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                FontStyle="Normal" FontWeight="ExtraLight" 
-                TextOptions.TextFormattingMode="Display" 
-                Background="White" BorderBrush="White" 
-                ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                Executar uma escala comportamental
-                </TextBlock>
-            </Button>
-            <Button 
-                Grid.Row="3" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                FontStyle="Normal" FontWeight="ExtraLight" 
-                TextOptions.TextFormattingMode="Display" 
-                Background="White" BorderBrush="White" 
-                ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                Analisar resultados
-                </TextBlock>
-            </Button>
-            <Button 
-                Grid.Row="5" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                FontStyle="Normal" FontWeight="ExtraLight" 
-                TextOptions.TextFormattingMode="Display" 
-                Background="White" BorderBrush="White" 
-                ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                Precisa de ajuda? Clique aqui
-                </TextBlock>
-            </Button>
+            <ItemsControl Grid.Column="0" ItemsSource="{Binding PageViewModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Grid.Row="{Binding Row}"
+                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding }"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                FontStyle="Normal" FontWeight="ExtraLight" 
+                                TextOptions.TextFormattingMode="Display" 
+                                Background="White" BorderBrush="White">
+                            <TextBlock Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
         <Rectangle Grid.Column="1" Grid.RowSpan="1000">
             <Rectangle.Fill>
@@ -98,6 +61,6 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <ContentControl x:Name="contentControl" Grid.Column="1" Content="ContentControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" />
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPageViewModel}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"/>
     </Grid>
 </Window>

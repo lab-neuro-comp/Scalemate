@@ -9,6 +9,6 @@ namespace ScalemateWPF.Views.Helpers
     public interface IPageViewModel
     {
         string Name { get; }
-        int Column { get; }
+        string Row { get; }
     }
 }

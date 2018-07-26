@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace ScalemateWPF.Views.MainWindow
 {
-    class MainWindoViewModel : ObservableObject
+    class MainWindowViewModel : ObservableObject
     {
         #region Fields
 
@@ -18,11 +18,11 @@ namespace ScalemateWPF.Views.MainWindow
 
         #endregion
 
-        public MainWindoViewModel()
+        public MainWindowViewModel()
         {
             // Add available pages
-            PageViewModels.Add(new ExecuteScaleViewModel());
             PageViewModels.Add(new CreateScaleViewModel());
+            PageViewModels.Add(new ExecuteScaleViewModel());
 
             // Set starting page
             CurrentPageViewModel = PageViewModels[0];

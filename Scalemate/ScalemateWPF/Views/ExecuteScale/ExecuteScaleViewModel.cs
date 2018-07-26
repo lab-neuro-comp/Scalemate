@@ -6,6 +6,6 @@ namespace ScalemateWPF.Views.ExecuteScale
     {
         public string Name => "Executar teste";
 
-        public int Column => 1;
+        public string Row => "1";
     }
 }
