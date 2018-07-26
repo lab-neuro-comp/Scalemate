@@ -1,17 +1,19 @@
-﻿﻿using System;
+﻿using ScalemateWPF.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Scalemate
+namespace ScalemateWPF.Models
 {
-    public class Tester
+    class Tester
     {
         #region Constructor
         /// <summary>
         /// Constructor taking only the data access layer.
         /// </summary>
-        public Tester(IDataAccessLayer dal)
+        public Tester(DataAccessLayer dal)
         {
             this.DAL = dal;
         }
@@ -22,7 +24,7 @@ namespace Scalemate
         /// <param name="dal">The data access object</param>
         /// <param name="test">The test identification</param>
         /// <param name="patient">The patient identification</param>
-        public Tester(IDataAccessLayer dal, string test, string patient) : this(dal)
+        public Tester(DataAccessLayer dal, string test, string patient) : this(dal)
         {
             Setup(test, patient);
         }
@@ -41,7 +43,7 @@ namespace Scalemate
         /// </summary>
         /// <param name="dal">The data access layer designed to use.</param>
         /// <returns>An array of strings containing each a pair of test ids.</returns>
-        public static string[] LoadKinds(IDataAccessLayer dal)
+        public static string[] LoadKinds(DataAccessLayer dal)
         {
             return dal.Load(dal.GetKindsPath());
         }
@@ -100,7 +102,7 @@ namespace Scalemate
 
             // Building reverse scores
             var normalized = Questions.Select(it => (it.Length == 0) ? " " : it);
-            ReverseScores = new Queue<bool>(normalized.Select(it => (it[0] == '*')? true : false));
+            ReverseScores = new Queue<bool>(normalized.Select(it => (it[0] == '*') ? true : false));
             Questions = new Queue<string>(normalized.Select(it => ((it[0] == '*')) ? it.Substring(1) : it));
 
 
@@ -238,8 +240,8 @@ namespace Scalemate
 
 
         #region Properties
-        private IDataAccessLayer _DAL_ { get; set; } = null;
-        public IDataAccessLayer DAL
+        private DataAccessLayer _DAL_ { get; set; } = null;
+        public DataAccessLayer DAL
         {
             get { return _DAL_; }
             set { _DAL_ = (_DAL_ == null) ? value : _DAL_; }
