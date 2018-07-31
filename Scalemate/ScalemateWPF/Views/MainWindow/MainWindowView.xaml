@@ -1,4 +1,5 @@
-﻿<Window x:Class="ScalemateWPF.Views.MainWindow.MainWindowView"
+﻿<controls:MetroWindow
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ScalemateWPF.Views.MainWindow.MainWindowView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,14 +9,14 @@
         xmlns:executeScale="clr-namespace:ScalemateWPF.Views.ExecuteScale"
         mc:Ignorable="d"
          Title="Scalemate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Icon="/ScalemateWPF;component/Resources/App.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized" FontWeight="Bold" FontStyle="Italic" Topmost="True">
-    <Window.Resources>
+    <controls:MetroWindow.Resources>
         <DataTemplate DataType="{x:Type createScale:CreateScaleViewModel}">
             <createScale:CreateScaleView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type executeScale:ExecuteScaleViewModel}">
             <executeScale:ExecuteScaleView />
         </DataTemplate>
-    </Window.Resources>
+    </controls:MetroWindow.Resources>
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
@@ -63,4 +64,4 @@
         </Rectangle>
         <ContentControl Grid.Column="1" Content="{Binding CurrentPageViewModel}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"/>
     </Grid>
-</Window>
+</controls:MetroWindow>
