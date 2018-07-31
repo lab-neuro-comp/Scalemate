@@ -24,5 +24,10 @@ namespace ScalemateWPF.Views.CreateScale
         {
             InitializeComponent();
         }
+
+        private void btnAddmore_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
