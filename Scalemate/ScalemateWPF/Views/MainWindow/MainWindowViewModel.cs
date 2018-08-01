@@ -1,6 +1,9 @@
-﻿using ScalemateWPF.Views.CreateScale;
+﻿using Newtonsoft.Json;
+using ScalemateWPF.Models;
+using ScalemateWPF.Views.CreateScale;
 using ScalemateWPF.Views.ExecuteScale;
 using ScalemateWPF.Views.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
@@ -20,6 +23,15 @@ namespace ScalemateWPF.Views.MainWindow
 
         public MainWindowViewModel()
         {
+            Queue<Question> _questions = new Queue<Question>();
+            List<String> alternatives = new List<String>();
+            alternatives.Add("a1");
+            alternatives.Add("a2");
+            Question q = new Question("asdf", alternatives);
+            String json = JsonConvert.SerializeObject(q);
+            Console.WriteLine(json);
+            Question q2 = Question.createQuestionFromJson(json);
+
             // Add available pages
             PageViewModels.Add(new CreateScaleViewModel());
             PageViewModels.Add(new ExecuteScaleViewModel());

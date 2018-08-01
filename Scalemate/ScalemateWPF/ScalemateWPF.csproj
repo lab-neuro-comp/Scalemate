@@ -79,6 +79,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Views\CreateScale\CreateScaleView.xaml.cs">
       <DependentUpon>CreateScaleView.xaml</DependentUpon>

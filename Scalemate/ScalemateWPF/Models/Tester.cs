@@ -88,22 +88,23 @@ namespace ScalemateWPF.Models
             // Loading data
             // IDEA Leave this CSV conversion to the data access class or to the Model layer
             RawData = DAL.Load(DAL.GetInventoryPath(Test));
-            NoOptions = RawData[0].Split('\t').Skip(1).Where(it => it.Length > 0).Count();
-            Questions = new Queue<string>();
-            Options = new Queue<string>();
+            questions = new Queue<Question>();
 
             foreach (var line in RawData)
             {
+                Question question = new Question();
                 var itens = line.Split('\t');
-                Questions.Enqueue(itens[0]);
+                question.question = itens[0];
                 foreach (var item in itens.Skip(1).Where(it => it.Length > 0))
-                    Options.Enqueue(item);
+                    question.addOneAlternative(item);
+                questions.Enqueue(question);
             }
+            test = new Test(questions);
 
             // Building reverse scores
-            var normalized = Questions.Select(it => (it.Length == 0) ? " " : it);
-            ReverseScores = new Queue<bool>(normalized.Select(it => (it[0] == '*') ? true : false));
-            Questions = new Queue<string>(normalized.Select(it => ((it[0] == '*')) ? it.Substring(1) : it));
+            //var normalized = Questions.Select(it => (it.Length == 0) ? " " : it);
+            //ReverseScores = new Queue<bool>(normalized.Select(it => (it[0] == '*') ? true : false));
+            //Questions = new Queue<string>(normalized.Select(it => ((it[0] == '*')) ? it.Substring(1) : it));
 
 
             Answers = new Queue<int>();
@@ -124,19 +125,9 @@ namespace ScalemateWPF.Models
         public void Continue()
         {
             // Setting current question
-            Question = Questions.Dequeue();
+            question = test.getNextQuestion();
 
-            // TODO There is an inconsistency here. Question and ReverseScore are
-            // part of the tester state, but the current options not. Therefore,
-            // make the options part of the state.
-            // Setting current options
-            Option = new string[NoOptions];
-            for (int i = 0; i < NoOptions; ++i)
-            {
-                Option[i] = Options.Dequeue();
-            }
-
-            Ended = (Options.Count == 0) ? true : false;
+            Ended = (question.alternatives.Count == 0) ? true : false;
         }
 
         /// <summary>
@@ -151,7 +142,7 @@ namespace ScalemateWPF.Models
             ReverseScore = ReverseScores.Dequeue();
             if (ReverseScore)
             {
-                answer = NoOptions - answer - 1;
+                //answer = NoOptions - answer - 1;
             }
             Answers.Enqueue(answer);
         }
@@ -237,7 +228,7 @@ namespace ScalemateWPF.Models
             return outlet;
         }
         #endregion
-
+            
 
         #region Properties
         private DataAccessLayer _DAL_ { get; set; } = null;
@@ -249,11 +240,9 @@ namespace ScalemateWPF.Models
         public string Test { get; private set; } = null;
         public string Patient { get; private set; } = null;
         public string[] RawData { get; private set; } = null;
-        public int NoOptions { get; private set; } = 0;
-        public Queue<string> Questions { get; private set; } = null;
-        public Queue<string> Options { get; private set; } = null;
-        public string Question { get; private set; } = null;
-        public string[] Option { get; private set; } = null;
+        public Queue<Question> questions { get; private set; } = null;
+        public Question question { get; private set; } = null;
+        public Test test { get; private set; } = null;
         public bool ReverseScore { get; private set; } = false;
         public Queue<bool> ReverseScores { get; private set; } = null;
         public Queue<int> Answers { get; set; } = null;
