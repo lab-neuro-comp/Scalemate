@@ -9,7 +9,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:createScale="clr-namespace:ScalemateWPF.Views.CreateScale"
         xmlns:executeScale="clr-namespace:ScalemateWPF.Views.ExecuteScale"
-        mc:Ignorable="d"
+    
+xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+    mc:Ignorable="d"
          Title="Scalemate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Icon="/ScalemateWPF;component/Resources/App.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized" FontWeight="Bold" FontStyle="Italic" Topmost="True">
     <controls:MetroWindow.Resources>
         <DataTemplate DataType="{x:Type createScale:CreateScaleViewModel}">
@@ -19,8 +22,37 @@
             <executeScale:ExecuteScaleView />
         </DataTemplate>
     </controls:MetroWindow.Resources>
-
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <materialDesign:DrawerHost Margin="-4,1,-1,-1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}">
+        <materialDesign:DrawerHost.LeftDrawerContent>
+            <StackPanel Margin="16">
+                <ItemsControl Grid.Column="0" ItemsSource="{Binding PageViewModels}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Grid.Row="{Binding Row}"
+                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding }"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                TextOptions.TextFormattingMode="Display">
+                                <TextBlock Text="{Binding Name}"/>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Margin="4" HorizontalAlignment="Center">LEFT FIELD</TextBlock>
+                <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Left}"
+                        Margin="4" HorizontalAlignment="Center"
+                        Style="{DynamicResource MaterialDesignFlatButton}">
+                    CLOSE THIS
+                </Button>
+                <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                        Margin="4" HorizontalAlignment="Center"
+                        Style="{DynamicResource MaterialDesignFlatButton}">
+                    CLOSE ALL
+                </Button>
+            </StackPanel>
+        </materialDesign:DrawerHost.LeftDrawerContent>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="Sidebar" ToolTip="sidebar" Width="15*"/>
             <ColumnDefinition x:Name="Content" Width="85*" ToolTip="{DynamicResource {x:Static SystemParameters.BorderKey}}"/>
@@ -38,6 +70,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
+
+                <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Left}"
+                        Grid.Row="3" Grid.Column="0"  Margin="4">
+                    <materialDesign:PackIcon Kind="ArrowLeft" />
+                </Button>
+    
+            
             <ItemsControl Grid.Column="0" ItemsSource="{Binding PageViewModels}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -64,4 +104,6 @@
         </Rectangle>
         <ContentControl Grid.Column="1" Content="{Binding CurrentPageViewModel}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"/>
     </Grid>
+    </materialDesign:DrawerHost>
+
 </controls:MetroWindow>
