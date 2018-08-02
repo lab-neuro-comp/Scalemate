@@ -10,7 +10,7 @@ namespace ScalemateWPF.Models
     public class Test
     {
         private Queue<Question> _questions;
-        private string _testName;
+        private string _name;
 
         public Test()
         {
@@ -51,6 +51,8 @@ namespace ScalemateWPF.Models
                 this._questions = value;
             }
         }
+
+        public string Name { get => _name; set => _name = value; }
 
         public static Test createTestFromJson(String json)
         {

@@ -66,6 +66,9 @@ namespace ScalemateWPF.Models
             }
         }
 
+        public string Name { get => _question; set => _question = value; }
+        public Queue<string> Alternatives { get => _alternatives; set => _alternatives = value; }
+
         public static Question createQuestionFromJson(String json)
         {
             Question question = JsonConvert.DeserializeObject<Question>(json);

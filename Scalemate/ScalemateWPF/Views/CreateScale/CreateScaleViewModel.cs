@@ -14,13 +14,22 @@ namespace ScalemateWPF.Views.CreateScale
     {
         #region Fields
 
-        private string _testName;
-        private Tester _currentTest;
-        private ICommand _getTestCommand;
-        private ICommand _saveTestCommand;
+        private string _scaleName;
+        private Test _scale;
+        private ICommand _getScaleCommand;
+        private ICommand _saveScaleCommand;
         private ICommand _addQuestionCommand;
-        private ObservableCollection<TextBoxVm> _items = new ObservableCollection<TextBoxVm>();
-        internal ObservableCollection<TextBoxVm> Items { get => _items; }
+
+        public ObservableCollection<Question> Questions { get; set; }
+
+        public CreateScaleViewModel()
+        {
+            Questions = new ObservableCollection<Question>();
+            AddQuestion();
+            AddQuestion();
+            AddQuestion();
+        }
+
         #endregion
 
         #region Properties/Commands
@@ -35,27 +44,27 @@ namespace ScalemateWPF.Views.CreateScale
             get { return "0"; }
         }
 
-        public string TestName
+        public string ScaleName
         {
-            get { return _testName; }
+            get { return _scaleName; }
             set
             {
-                if (value != _testName)
+                if (value != _scaleName)
                 {
-                    _testName = value;
+                    _scaleName = value;
                     OnPropertyChanged("TestName");
                 }
             }
         }
 
-        public Tester CurrentTest
+        public Test Scale
         {
-            get { return _currentTest; }
+            get { return _scale; }
             set
             {
-                if (value != _currentTest)
+                if (value != _scale)
                 {
-                    _currentTest = value;
+                    _scale = value;
                     OnPropertyChanged("CurrentTest");
                 }
             }
@@ -65,14 +74,14 @@ namespace ScalemateWPF.Views.CreateScale
         {
             get
             {
-                if (_getTestCommand == null)
+                if (_getScaleCommand == null)
                 {
-                    _getTestCommand = new RelayCommand(
+                    _getScaleCommand = new RelayCommand(
                         param => GetTest(),
-                        param => TestName != null
+                        param => ScaleName != null
                     );
                 }
-                return _getTestCommand;
+                return _getScaleCommand;
             }
         }
 
@@ -80,14 +89,14 @@ namespace ScalemateWPF.Views.CreateScale
         {
             get
             {
-                if (_saveTestCommand == null)
+                if (_saveScaleCommand == null)
                 {
-                    _saveTestCommand = new RelayCommand(
+                    _saveScaleCommand = new RelayCommand(
                         param => SaveTest(),
-                        param => (CurrentTest != null)
+                        param => (Scale != null)
                     );
                 }
-                return _saveTestCommand;
+                return _saveScaleCommand;
             }
         }
 
@@ -99,7 +108,7 @@ namespace ScalemateWPF.Views.CreateScale
                 {
                     _addQuestionCommand = new RelayCommand(
                         param => AddQuestion(),
-                        param => (CurrentTest != null)
+                        param => (Scale != null)
                         );
                 }
                 return _addQuestionCommand;
@@ -115,8 +124,8 @@ namespace ScalemateWPF.Views.CreateScale
         {
             // Usually you'd get your Product from your datastore,
             // but for now we'll just return a new object
-            Tester p = new Tester(null);
-            CurrentTest = p;
+            Test p = new Test();
+            Scale = p;
         }
 
         private void SaveTest()
@@ -126,10 +135,7 @@ namespace ScalemateWPF.Views.CreateScale
 
         private void AddQuestion()
         {
-            Items.Add(new TextBoxVm
-            {
-                TitleText = string.Format("Pergunta Número {0}:", Items.Count + 1)
-            });
+            Questions.Add(new Question());
         }
 
         #endregion
