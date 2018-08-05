@@ -55,8 +55,10 @@ namespace ScalemateWPF.Models
         /// <param name="patient">the patient's identification.</param>
         public void Setup(string test, string patient)
         {
-            this.Test = test;
-            this.Patient = patient;
+            this.participant = new Participant();
+            this.test = new Scale();
+            this.test.name = test;
+            this.participant.name = patient;
             Setup();
         }
 
@@ -66,19 +68,19 @@ namespace ScalemateWPF.Models
         public void Setup()
         {
             // Check for possible files
-            var path = DAL.GetInstructionsPath(Test);
+            var path = DAL.GetInstructionsPath(test.name);
             if (DAL.FileExists(path))
             {
                 BeginningInstructions = DAL.Load(path);
             }
 
-            path = DAL.GetFinishInstrutionsPath(Test);
+            path = DAL.GetFinishInstrutionsPath(test.name);
             if (DAL.FileExists(path))
             {
                 EndingInstructions = DAL.Load(path);
             }
 
-            path = DAL.GetInformationPath(Test);
+            path = DAL.GetInformationPath(test.name);
             if (DAL.FileExists(path))
             {
                 SurveyQuestions = DAL.Load(path);
@@ -87,8 +89,8 @@ namespace ScalemateWPF.Models
 
             // Loading data
             // IDEA Leave this CSV conversion to the data access class or to the Model layer
-            RawData = DAL.Load(DAL.GetInventoryPath(Test));
-            questions = new Queue<Question>();
+            RawData = DAL.Load(DAL.GetInventoryPath(test.name));
+
 
             foreach (var line in RawData)
             {
@@ -97,17 +99,16 @@ namespace ScalemateWPF.Models
                 question.question = itens[0];
                 foreach (var item in itens.Skip(1).Where(it => it.Length > 0))
                     question.addOneAlternative(item);
-                questions.Enqueue(question);
+                this.test.questions.Enqueue(question);
             }
-            test = new Test(questions);
 
+            //TODO: CHECK IF THIS IS NECESSARY AND WHEN IT IS USED
             // Building reverse scores
             //var normalized = Questions.Select(it => (it.Length == 0) ? " " : it);
             //ReverseScores = new Queue<bool>(normalized.Select(it => (it[0] == '*') ? true : false));
             //Questions = new Queue<string>(normalized.Select(it => ((it[0] == '*')) ? it.Substring(1) : it));
 
 
-            Answers = new Queue<int>();
             Continue();
         }
         #endregion
@@ -142,9 +143,10 @@ namespace ScalemateWPF.Models
             ReverseScore = ReverseScores.Dequeue();
             if (ReverseScore)
             {
-                //answer = NoOptions - answer - 1;
+                int noOptions = this.test.questions.ElementAt(this.result.answers.Count - 1).alternatives.Count;
+                answer = noOptions - answer - 1;
             }
-            Answers.Enqueue(answer);
+            this.result.addSingleAnswer(answer);
         }
 
         /* #################
@@ -170,11 +172,11 @@ namespace ScalemateWPF.Models
         public string CalculateResults(bool mustSave)
         {
             DataParser DP;
-            string[] results = DAL.Load(DAL.GetResultsPath(Test));
+            string[] results = DAL.Load(DAL.GetResultsPath(test.name));
             string result = "";
 
             // Obtaining result
-            Score = Answers.Sum();
+            Score = this.result.answers.Sum();
 
             foreach (var line in results)
             {
@@ -191,12 +193,12 @@ namespace ScalemateWPF.Models
             }
 
             // Generating TSV table output
-            string[] parts = { Test, Patient, Score.ToString(), result };
+            string[] parts = { test.name, participant.name, result };
             var outlet = GenerateTSV(parts);
 
             if (mustSave)
             {
-                DAL.Save(DAL.GenerateResultsPath(Patient, Test), outlet);
+                DAL.Save(DAL.GenerateResultsPath(participant.name, test.name), outlet);
             }
 
             return outlet;
@@ -216,13 +218,13 @@ namespace ScalemateWPF.Models
             if (SurveyAnswers == null)
             {
                 outlet = stuff.Aggregate("", (box, it) => box + it + "\t")
-                       + Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
+                       + this.result.answers.Aggregate("\r\n", (box, it) => box + it + "\t");
             }
             else
             {
                 outlet = stuff.Aggregate("", (box, it) => box + it + "\t")
                        + SurveyAnswers.Aggregate("\r\n", (box, it) => box + it + "\t")
-                       + Answers.Aggregate("\r\n", (box, it) => box + it + "\t");
+                       + this.result.answers.Aggregate("\r\n", (box, it) => box + it + "\t");
             }
 
             return outlet;
@@ -237,17 +239,17 @@ namespace ScalemateWPF.Models
             get { return _DAL_; }
             set { _DAL_ = (_DAL_ == null) ? value : _DAL_; }
         }
-        public string Test { get; private set; } = null;
-        public string Patient { get; private set; } = null;
+        public Participant participant { get; private set; } = null;
         public string[] RawData { get; private set; } = null;
-        public Queue<Question> questions { get; private set; } = null;
         public Question question { get; private set; } = null;
-        public Test test { get; private set; } = null;
+        public Scale test { get; private set; } = null;
         public bool ReverseScore { get; private set; } = false;
         public Queue<bool> ReverseScores { get; private set; } = null;
-        public Queue<int> Answers { get; set; } = null;
+        public Result result { get; set; } = null;
         public bool Ended { get; private set; } = false;
         public int Score { get; private set; } = 0;
+
+
         public string[] SurveyQuestions { get; private set; } = null;
         public string[] SurveyAnswers { get; set; } = null;
         public string[] BeginningInstructions { get; private set; } = null;

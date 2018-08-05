@@ -15,7 +15,7 @@ namespace ScalemateWPF.Views.CreateScale
         #region Fields
 
         private string _scaleName;
-        private Test _scale;
+        private Scale _scale;
         private ICommand _getScaleCommand;
         private ICommand _saveScaleCommand;
         private ICommand _addQuestionCommand;
@@ -57,7 +57,7 @@ namespace ScalemateWPF.Views.CreateScale
             }
         }
 
-        public Test Scale
+        public Scale Scale
         {
             get { return _scale; }
             set
@@ -124,7 +124,7 @@ namespace ScalemateWPF.Views.CreateScale
         {
             // Usually you'd get your Product from your datastore,
             // but for now we'll just return a new object
-            Test p = new Test();
+            Scale p = new Scale();
             Scale = p;
         }
 

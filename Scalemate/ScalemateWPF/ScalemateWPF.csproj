@@ -97,8 +97,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\Scale.cs" />
     <Compile Include="Views\CreateScale\CreateScaleView.xaml.cs">
       <DependentUpon>CreateScaleView.xaml</DependentUpon>
     </Compile>
@@ -123,7 +126,7 @@
   <ItemGroup>
     <Compile Include="Data\DataAccessLayer.cs" />
     <Compile Include="Data\DataParser.cs" />
-    <Compile Include="Models\Tester.cs" />
+    <Compile Include="Controllers\Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

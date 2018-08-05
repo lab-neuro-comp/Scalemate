@@ -7,22 +7,24 @@ using System.Threading.Tasks;
 
 namespace ScalemateWPF.Models
 {
-    public class Test
+    public class Scale
     {
         private Queue<Question> _questions;
         private string _name;
+        private string _description;
+        private List<Group> _groups;
 
-        public Test()
+        public Scale()
         {
             this.questions = new Queue<Question>();
         }
 
-        public Test(Queue<Question> questions)
+        public Scale(Queue<Question> questions)
         {
             this.questions = questions;
         }
 
-        public Test(List<Question> questions) {
+        public Scale(List<Question> questions) {
             this.questions = new Queue<Question>();
             foreach(Question question in questions)
             {
@@ -52,11 +54,45 @@ namespace ScalemateWPF.Models
             }
         }
 
-        public string Name { get => _name; set => _name = value; }
-
-        public static Test createTestFromJson(String json)
+        public string name
         {
-            Test test = JsonConvert.DeserializeObject<Test>(json);
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+
+        public string description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                _description = value;
+            }
+        }
+
+        public List<Group> groups
+        {
+            get
+            {
+                return _groups;
+            }
+            set
+            {
+                _groups = value;
+            }
+        }
+
+        public static Scale createTestFromJson(String json)
+        {
+            Scale test = JsonConvert.DeserializeObject<Scale>(json);
 
             return test;
         }
