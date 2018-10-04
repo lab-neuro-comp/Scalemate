@@ -39,6 +39,12 @@
             <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchBrush.Win10" Color="{DynamicResource Primary500}" />
             <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchMouseOverBrush.Win10" Color="{DynamicResource Primary400}" />
             <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.ThumbIndicatorCheckedBrush.Win10" Color="{DynamicResource Primary500Foreground}" />
+            <!-- Paleta de Cores do APP-->
+            <!-- Primarias -->
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#5D0B0B"/>
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#ED1C24"/>
+            <!-- Accent -->
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#D97D10"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

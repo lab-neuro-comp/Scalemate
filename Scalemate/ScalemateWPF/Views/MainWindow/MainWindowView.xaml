@@ -24,86 +24,53 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     </controls:MetroWindow.Resources>
     <materialDesign:DrawerHost Margin="-4,1,-1,-1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}">
         <materialDesign:DrawerHost.LeftDrawerContent>
-            <StackPanel Margin="16">
-                <ItemsControl Grid.Column="0" ItemsSource="{Binding PageViewModels}">
+            <StackPanel Background="{DynamicResource PrimaryHueDarkBrush}">
+                <Border BorderThickness="0 0 0 1" BorderBrush="White">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="programName" ToolTip="sidebar" Width="80*" MinWidth="60"/>
+                            <ColumnDefinition x:Name="closeIcon" Width="20*"  MinWidth="60" ToolTip="{DynamicResource {x:Static SystemParameters.BorderKey}}"/>
+                        </Grid.ColumnDefinitions>
+                        <Label  Grid.Column="0" Content="SCALEMATE" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" />
+                        <Button Grid.Column="1" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Left}" ToolTip="Fechar Menu" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" MinWidth="40" MinHeight="28">
+                            <materialDesign:PackIcon Kind="Menu" Width="Auto" Height="Auto" />
+                        </Button>
+                    </Grid>
+                </Border>
+                <ItemsControl Grid.Column="0" ItemsSource="{Binding PageViewModels}" MinWidth="300">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Button Grid.Row="{Binding Row}"
                                 Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                CommandParameter="{Binding }"
-                                Style="{DynamicResource MaterialDesignFlatButton}"
-                                TextOptions.TextFormattingMode="Display">
+                                CommandParameter="{Binding}"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                TextOptions.TextFormattingMode="Display" Foreground="White" BorderThickness="0 0 0 1" BorderBrush="White">
                                 <TextBlock Text="{Binding Name}"/>
                             </Button>
+
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                <TextBlock Margin="4" HorizontalAlignment="Center">LEFT FIELD</TextBlock>
-                <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        CommandParameter="{x:Static Dock.Left}"
-                        Margin="4" HorizontalAlignment="Center"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
-                    CLOSE THIS
-                </Button>
-                <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        Margin="4" HorizontalAlignment="Center"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
-                    CLOSE ALL
-                </Button>
             </StackPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="Sidebar" ToolTip="sidebar" Width="15*"/>
-            <ColumnDefinition x:Name="Content" Width="85*" ToolTip="{DynamicResource {x:Static SystemParameters.BorderKey}}"/>
-        </Grid.ColumnDefinitions>
-        <Grid Margin="0,0,0.4,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="60*"/>
-                <RowDefinition Height="8*"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition x:Name="Sidebar" ToolTip="sidebar" Width="5*" MinWidth="60"/>
+                <ColumnDefinition x:Name="Content" Width="95*" ToolTip="{DynamicResource {x:Static SystemParameters.BorderKey}}"/>
             </Grid.ColumnDefinitions>
-
-                <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                        CommandParameter="{x:Static Dock.Left}"
-                        Grid.Row="3" Grid.Column="0"  Margin="4">
-                    <materialDesign:PackIcon Kind="ArrowLeft" />
-                </Button>
-    
             
-            <ItemsControl Grid.Column="0" ItemsSource="{Binding PageViewModels}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Grid.Row="{Binding Row}"
-                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                CommandParameter="{Binding }"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                TextOptions.TextFormattingMode="Display">
-                            <TextBlock Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <Rectangle Grid.Column="0" Fill="{DynamicResource PrimaryHueDarkBrush}" />
+            <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Left}" ToolTip="Menu" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" MinWidth="40" MinHeight="28">
+                <materialDesign:PackIcon Kind="Menu" Width="Auto" Height="Auto" />
+            </Button>
+            <Grid Grid.Column="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/ScalemateWPF;component/Resources/Images/scalemate.png"></ImageBrush>
+                </Grid.Background>
+            </Grid>
         </Grid>
-        <Rectangle Grid.Column="1" Grid.RowSpan="1000">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFF3F3F3" Offset="0" />
-                    <GradientStop Color="#FFF3F3F3" Offset="1" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <ContentControl Grid.Column="1" Content="{Binding CurrentPageViewModel}"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0"/>
-    </Grid>
     </materialDesign:DrawerHost>
 
 </controls:MetroWindow>

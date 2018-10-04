@@ -36,7 +36,7 @@ namespace ScalemateWPF.Views.CreateScale
 
         public string Name
         {
-            get { return "Criar nova escala comportamental"; }
+            get { return "Criar teste"; }
         }
 
         public string Row
