@@ -32,15 +32,7 @@
                 <DataTemplate>
                     <WrapPanel>
                         <TextBox materialDesign:TextFieldAssist.Hint="Pergunta" Text="{Binding Name}"/>
-                        <ItemsControl ItemsSource="{Binding Alternatives}" Grid.Row="1">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <WrapPanel>
-                                        <TextBox materialDesign:TextFieldAssist.Hint="Pergunta" Text="{Binding}"/>
-                                    </WrapPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        <TextBox materialDesign:TextFieldAssist.Hint="Alternativa" Text="{Binding Alternatives}"/>
                     </WrapPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
