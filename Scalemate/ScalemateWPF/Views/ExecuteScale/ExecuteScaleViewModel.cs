@@ -4,8 +4,8 @@ namespace ScalemateWPF.Views.ExecuteScale
 {
     class ExecuteScaleViewModel : ObservableObject, IPageViewModel
     {
-        public string Name => "Executar teste";
+        public string Name => "EXECUTAR TESTE";
 
-        public string Row => "1";
+        public string Row => "2";
     }
 }

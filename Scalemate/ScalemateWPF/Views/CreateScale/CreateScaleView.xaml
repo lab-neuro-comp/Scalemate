@@ -22,47 +22,31 @@
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="93*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition x:Name="scalerow" Height="15*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Grid.RowDefinitions>
-                <RowDefinition x:Name="scalerow" Height="25*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="25*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <ContentControl  Content="{Binding Test}" Grid.Row="0">
-                <ContentControl.ContentTemplate>
-                    <DataTemplate DataType="models:Test" >
-                        <StackPanel Orientation="Horizontal" Width="{Binding ElementName=scalerow, Path=ActualWidth}">
-                            <Border x:Name="b" Grid.Column="1" Margin="5"/>
-                            <TextBox Grid.Column="2" materialDesign:TextFieldAssist.Hint="Scale Name"   Text="{Binding Name}" Margin="0 0 0 0" VerticalAlignment="Top"  TextWrapping="Wrap"/>
-                            <TextBox Margin="32,0,0,0" VerticalAlignment="Top" Height="50" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
-                                materialDesign:TextFieldAssist.Hint="Scale description" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ContentControl.ContentTemplate>
-            </ContentControl>
-            <ItemsControl ItemsSource="{Binding Questions}" Grid.Row="1">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock  TextWrapping="Wrap"  Text="Question"/>
-                            <TextBox materialDesign:TextFieldAssist.Hint="Name" Text="{Binding Name}"/>
-                            <TextBlock  TextWrapping="Wrap"  Text="Alternatives"/>
-                            <TextBox Text="{Binding Alternatives}"/>
-                        </WrapPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+        <TextBox Grid.Column="2" materialDesign:TextFieldAssist.Hint="Nome do Programa" Text="{Binding Scale.Name}" Margin="20,30" VerticalAlignment="Top"  TextWrapping="Wrap"/>
+        <ItemsControl ItemsSource="{Binding Questions}" Grid.Row="1">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBox materialDesign:TextFieldAssist.Hint="Pergunta" Text="{Binding Name}"/>
+                        <ItemsControl ItemsSource="{Binding Alternatives}" Grid.Row="1">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <WrapPanel>
+                                        <TextBox materialDesign:TextFieldAssist.Hint="Pergunta" Text="{Binding}"/>
+                                    </WrapPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </WrapPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-            <Button Content="Add question" Height="Auto" HorizontalAlignment="Right" Margin="0,1.8,10,0.6" VerticalAlignment="Stretch" Width="99" Grid.Row="2" FontSize="12" Command="{Binding AddQuestionCommand}"/>
-        </Grid>
+        <Button Content="Add question" Height="Auto" HorizontalAlignment="Right" Margin="0,1.8,10,0.6" VerticalAlignment="Stretch" Width="99" Grid.Row="2" FontSize="12" Command="{Binding AddQuestionCommand}"/>
         <Button Content="Create Scale" Height="Auto" HorizontalAlignment="Right" Margin="0,1.8,10,0.6" Name="btnAddmore" VerticalAlignment="Stretch" Width="99" Grid.Row="1" FontSize="12" />
-
     </Grid>
 </UserControl>

@@ -57,7 +57,7 @@ namespace ScalemateWPF.Models
         {
             this.participant = new Participant();
             this.test = new Scale();
-            this.test.name = test;
+            this.test.Name = test;
             this.participant.name = patient;
             Setup();
         }
@@ -68,19 +68,19 @@ namespace ScalemateWPF.Models
         public void Setup()
         {
             // Check for possible files
-            var path = DAL.GetInstructionsPath(test.name);
+            var path = DAL.GetInstructionsPath(test.Name);
             if (DAL.FileExists(path))
             {
                 BeginningInstructions = DAL.Load(path);
             }
 
-            path = DAL.GetFinishInstrutionsPath(test.name);
+            path = DAL.GetFinishInstrutionsPath(test.Name);
             if (DAL.FileExists(path))
             {
                 EndingInstructions = DAL.Load(path);
             }
 
-            path = DAL.GetInformationPath(test.name);
+            path = DAL.GetInformationPath(test.Name);
             if (DAL.FileExists(path))
             {
                 SurveyQuestions = DAL.Load(path);
@@ -89,17 +89,17 @@ namespace ScalemateWPF.Models
 
             // Loading data
             // IDEA Leave this CSV conversion to the data access class or to the Model layer
-            RawData = DAL.Load(DAL.GetInventoryPath(test.name));
+            RawData = DAL.Load(DAL.GetInventoryPath(test.Name));
 
 
             foreach (var line in RawData)
             {
                 Question question = new Question();
                 var itens = line.Split('\t');
-                question.question = itens[0];
+                question.Name = itens[0];
                 foreach (var item in itens.Skip(1).Where(it => it.Length > 0))
                     question.addOneAlternative(item);
-                this.test.questions.Enqueue(question);
+                this.test.Questions.Enqueue(question);
             }
 
             //TODO: CHECK IF THIS IS NECESSARY AND WHEN IT IS USED
@@ -126,9 +126,9 @@ namespace ScalemateWPF.Models
         public void Continue()
         {
             // Setting current question
-            question = test.getNextQuestion();
+            question = test.GetNextQuestion();
 
-            Ended = (question.alternatives.Count == 0) ? true : false;
+            Ended = (question.Alternatives.Count == 0) ? true : false;
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace ScalemateWPF.Models
             ReverseScore = ReverseScores.Dequeue();
             if (ReverseScore)
             {
-                int noOptions = this.test.questions.ElementAt(this.result.answers.Count - 1).alternatives.Count;
+                int noOptions = this.test.Questions.ElementAt(this.result.answers.Count - 1).Alternatives.Count;
                 answer = noOptions - answer - 1;
             }
             this.result.addSingleAnswer(answer);
@@ -172,7 +172,7 @@ namespace ScalemateWPF.Models
         public string CalculateResults(bool mustSave)
         {
             DataParser DP;
-            string[] results = DAL.Load(DAL.GetResultsPath(test.name));
+            string[] results = DAL.Load(DAL.GetResultsPath(test.Name));
             string result = "";
 
             // Obtaining result
@@ -193,12 +193,12 @@ namespace ScalemateWPF.Models
             }
 
             // Generating TSV table output
-            string[] parts = { test.name, participant.name, result };
+            string[] parts = { test.Name, participant.name, result };
             var outlet = GenerateTSV(parts);
 
             if (mustSave)
             {
-                DAL.Save(DAL.GenerateResultsPath(participant.name, test.name), outlet);
+                DAL.Save(DAL.GenerateResultsPath(participant.name, test.Name), outlet);
             }
 
             return outlet;

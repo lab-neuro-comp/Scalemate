@@ -16,33 +16,33 @@ namespace ScalemateWPF.Models
 
         public Scale()
         {
-            this.questions = new Queue<Question>();
+            this.Questions = new Queue<Question>();
         }
 
         public Scale(Queue<Question> questions)
         {
-            this.questions = questions;
+            this.Questions = questions;
         }
 
         public Scale(List<Question> questions) {
-            this.questions = new Queue<Question>();
+            this.Questions = new Queue<Question>();
             foreach(Question question in questions)
             {
-                this.questions.Enqueue(question);
+                this.Questions.Enqueue(question);
             }
         }
 
-        public void addOneQuestion(Question question)
+        public void AddOneQuestion(Question question)
         {
-            this.questions.Enqueue(question);
+            this.Questions.Enqueue(question);
         }
 
-        public Question getNextQuestion()
+        public Question GetNextQuestion()
         {
-            return this.questions.Dequeue();
+            return this.Questions.Dequeue();
         }
 
-        public Queue<Question> questions
+        public Queue<Question> Questions
         {
             get
             {
@@ -54,7 +54,7 @@ namespace ScalemateWPF.Models
             }
         }
 
-        public string name
+        public string Name
         {
             get
             {
@@ -66,7 +66,7 @@ namespace ScalemateWPF.Models
             }
         }
 
-        public string description
+        public string Description
         {
             get
             {
@@ -78,7 +78,7 @@ namespace ScalemateWPF.Models
             }
         }
 
-        public List<Group> groups
+        public List<Group> Groups
         {
             get
             {
@@ -90,7 +90,7 @@ namespace ScalemateWPF.Models
             }
         }
 
-        public static Scale createTestFromJson(String json)
+        public static Scale CreateTestFromJson(String json)
         {
             Scale test = JsonConvert.DeserializeObject<Scale>(json);
 

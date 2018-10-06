@@ -114,6 +114,10 @@
     <Compile Include="Views\Helpers\ObservableObject.cs" />
     <Compile Include="Views\Helpers\RelayCommand.cs" />
     <Compile Include="Views\Helpers\TextBoxVm.cs" />
+    <Compile Include="Views\HomePage\HomePageView.xaml.cs">
+      <DependentUpon>HomePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage\HomePageViewModel.cs" />
     <Compile Include="Views\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="Views\MainWindow\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
@@ -163,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExecuteScale\ExecuteScaleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage\HomePageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

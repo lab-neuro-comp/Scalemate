@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScalemateWPF.Views.ResultsScale
+namespace ScalemateWPF.Views.HomePage
 {
-    class ResultsScaleViewModel : ObservableObject, IPageViewModel
+    class HomePageViewModel : ObservableObject, IPageViewModel
     {
         public string Name
         {
             get
             {
-                return "RESULTADOS";
+                return "INICIO";
             }
         }
 
@@ -21,7 +21,7 @@ namespace ScalemateWPF.Views.ResultsScale
         {
             get
             {
-                return "3";
+                return "0";
             }
         }
     }

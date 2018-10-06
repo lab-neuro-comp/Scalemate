@@ -8,6 +8,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:createScale="clr-namespace:ScalemateWPF.Views.CreateScale"
+        xmlns:homePage="clr-namespace:ScalemateWPF.Views.HomePage"
+        xmlns:resultsScale="clr-namespace:ScalemateWPF.Views.ResultsScale"
         xmlns:executeScale="clr-namespace:ScalemateWPF.Views.ExecuteScale"
     
 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -20,6 +22,12 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         </DataTemplate>
         <DataTemplate DataType="{x:Type executeScale:ExecuteScaleViewModel}">
             <executeScale:ExecuteScaleView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type homePage:HomePageViewModel}">
+            <homePage:HomePageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type resultsScale:ResultsScaleViewModel}">
+            <resultsScale:ResultsScaleView />
         </DataTemplate>
     </controls:MetroWindow.Resources>
     <materialDesign:DrawerHost Margin="-4,1,-1,-1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}">
@@ -34,7 +42,7 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                         <Label  Grid.Column="0" Content="SCALEMATE" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" />
                         <Button Grid.Column="1" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}" ToolTip="Fechar Menu" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" MinWidth="40" MinHeight="28">
-                            <materialDesign:PackIcon Kind="Menu" Width="Auto" Height="Auto" />
+                            <materialDesign:PackIcon Kind="Close" Width="Auto" Height="Auto" />
                         </Button>
                     </Grid>
                 </Border>
@@ -45,10 +53,9 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                                 Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 CommandParameter="{Binding}"
                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                TextOptions.TextFormattingMode="Display" Foreground="White" BorderThickness="0 0 0 1" BorderBrush="White">
-                                <TextBlock Text="{Binding Name}"/>
+                                TextOptions.TextFormattingMode="Display" Foreground="White" BorderThickness="0 0 0 1" BorderBrush="White" FontFamily="Calibri">
+                                <TextBlock Text="{Binding Name}" FontFamily="Calibri"/>
                             </Button>
-
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -56,8 +63,8 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         </materialDesign:DrawerHost.LeftDrawerContent>
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="Sidebar" ToolTip="sidebar" Width="5*" MinWidth="60"/>
-                <ColumnDefinition x:Name="Content" Width="95*" ToolTip="{DynamicResource {x:Static SystemParameters.BorderKey}}"/>
+                <ColumnDefinition x:Name="Sidebar" ToolTip="sidebar" Width="5*" MinWidth="64"/>
+                <ColumnDefinition x:Name="mainContent" Width="95*" MinWidth="448" ToolTip="{DynamicResource {x:Static SystemParameters.BorderKey}}"/>
             </Grid.ColumnDefinitions>
             
             <Rectangle Grid.Column="0" Fill="{DynamicResource PrimaryHueDarkBrush}" />
@@ -66,9 +73,14 @@ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                 <materialDesign:PackIcon Kind="Menu" Width="Auto" Height="Auto" />
             </Button>
             <Grid Grid.Column="1">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/ScalemateWPF;component/Resources/Images/scalemate.png"></ImageBrush>
-                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="Header" ToolTip = "header" Height="3*" MinHeight="50"/>
+                    <RowDefinition x:Name="Content" ToolTip="content" Height="97*" MinHeight="462"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row ="0" Fill="{DynamicResource PrimaryHueLightBrush}"></Rectangle>
+                <Label  Grid.Row="0" Content="{Binding CurrentPageViewModel.Name}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Calibri" FontStyle="Normal" FontSize="24" />
+
+                <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel}"/>
             </Grid>
         </Grid>
     </materialDesign:DrawerHost>

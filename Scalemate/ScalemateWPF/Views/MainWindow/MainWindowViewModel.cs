@@ -3,6 +3,8 @@ using ScalemateWPF.Models;
 using ScalemateWPF.Views.CreateScale;
 using ScalemateWPF.Views.ExecuteScale;
 using ScalemateWPF.Views.Helpers;
+using ScalemateWPF.Views.HomePage;
+using ScalemateWPF.Views.ResultsScale;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace ScalemateWPF.Views.MainWindow
 
         public MainWindowViewModel()
         {
+            /*
             Queue<Question> _questions = new Queue<Question>();
             List<String> alternatives = new List<String>();
             alternatives.Add("a1");
@@ -31,10 +34,13 @@ namespace ScalemateWPF.Views.MainWindow
             String json = JsonConvert.SerializeObject(q);
             Console.WriteLine(json);
             Question q2 = Question.createQuestionFromJson(json);
+            */
 
             // Add available pages
+            PageViewModels.Add(new HomePageViewModel());
             PageViewModels.Add(new CreateScaleViewModel());
             PageViewModels.Add(new ExecuteScaleViewModel());
+            PageViewModels.Add(new ResultsScaleViewModel());
 
             // Set starting page
             CurrentPageViewModel = PageViewModels[0];
@@ -96,6 +102,7 @@ namespace ScalemateWPF.Views.MainWindow
             CurrentPageViewModel = PageViewModels
                 .FirstOrDefault(vm => vm == viewModel);
         }
+        
 
         #endregion
     }

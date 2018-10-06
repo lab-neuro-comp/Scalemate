@@ -13,8 +13,7 @@ namespace ScalemateWPF.Views.CreateScale
     class CreateScaleViewModel : ObservableObject, IPageViewModel
     {
         #region Fields
-
-        private string _scaleName;
+        
         private Scale _scale;
         private ICommand _getScaleCommand;
         private ICommand _saveScaleCommand;
@@ -25,6 +24,8 @@ namespace ScalemateWPF.Views.CreateScale
         public CreateScaleViewModel()
         {
             Questions = new ObservableCollection<Question>();
+            Scale = new Scale();
+            Scale.Name = "af";
             AddQuestion();
             AddQuestion();
             AddQuestion();
@@ -36,25 +37,12 @@ namespace ScalemateWPF.Views.CreateScale
 
         public string Name
         {
-            get { return "Criar teste"; }
+            get { return "CRIAR TESTE"; }
         }
 
         public string Row
         {
-            get { return "0"; }
-        }
-
-        public string ScaleName
-        {
-            get { return _scaleName; }
-            set
-            {
-                if (value != _scaleName)
-                {
-                    _scaleName = value;
-                    OnPropertyChanged("TestName");
-                }
-            }
+            get { return "1"; }
         }
 
         public Scale Scale
@@ -65,7 +53,7 @@ namespace ScalemateWPF.Views.CreateScale
                 if (value != _scale)
                 {
                     _scale = value;
-                    OnPropertyChanged("CurrentTest");
+                    //OnPropertyChanged("CurrentTest");
                 }
             }
         }
@@ -78,7 +66,7 @@ namespace ScalemateWPF.Views.CreateScale
                 {
                     _getScaleCommand = new RelayCommand(
                         param => GetTest(),
-                        param => ScaleName != null
+                        param => Scale.Name != null
                     );
                 }
                 return _getScaleCommand;
@@ -135,7 +123,12 @@ namespace ScalemateWPF.Views.CreateScale
 
         private void AddQuestion()
         {
-            Questions.Add(new Question());
+            List<String> alternatives = new List<String>
+            {
+                "a",
+                "b"
+            };
+            Questions.Add(new Question("teste", alternatives));
         }
 
         #endregion
