@@ -97,6 +97,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Alternative.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Question.cs" />

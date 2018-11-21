@@ -98,7 +98,7 @@ namespace ScalemateWPF.Models
                 var itens = line.Split('\t');
                 question.Name = itens[0];
                 foreach (var item in itens.Skip(1).Where(it => it.Length > 0))
-                    question.addOneAlternative(item);
+                    question.addOneAlternative(new Alternative(item, 0));
                 this.test.Questions.Enqueue(question);
             }
 

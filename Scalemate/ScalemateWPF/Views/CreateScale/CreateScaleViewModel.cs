@@ -1,4 +1,5 @@
-﻿using ScalemateWPF.Models;
+﻿using Newtonsoft.Json;
+using ScalemateWPF.Models;
 using ScalemateWPF.Views.Helpers;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,7 @@ namespace ScalemateWPF.Views.CreateScale
         {
             get
             {
+
                 if (_addQuestionCommand == null)
                 {
                     _addQuestionCommand = new RelayCommand(
@@ -103,6 +105,7 @@ namespace ScalemateWPF.Views.CreateScale
             }
 
         }
+
 
         #endregion
 
@@ -123,10 +126,9 @@ namespace ScalemateWPF.Views.CreateScale
 
         private void AddQuestion()
         {
-            List<String> alternatives = new List<String>
+            List<Alternative> alternatives = new List<Alternative>
             {
-                "a",
-                "b"
+                new Alternative("", 0)
             };
             Questions.Add(new Question("teste", alternatives));
         }

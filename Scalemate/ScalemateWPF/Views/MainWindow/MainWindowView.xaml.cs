@@ -24,6 +24,7 @@ namespace ScalemateWPF.Views.MainWindow
         {
             MainWindowViewModel context = new MainWindowViewModel();
             this.DataContext = context;
+            this.Topmost = false;
             InitializeComponent();
         }
     }

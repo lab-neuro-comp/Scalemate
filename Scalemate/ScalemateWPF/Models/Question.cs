@@ -10,35 +10,35 @@ namespace ScalemateWPF.Models
     public class Question
     {
         private String _question;
-        private Queue<String> _alternatives;
+        private Queue<Alternative> _alternatives;
 
         public Question()
         {
-            this.Alternatives = new Queue<string>();
+            this.Alternatives = new Queue<Alternative>();
         }
 
-        public Question(String question, Queue<String> alternatives)
+        public Question(String question, Queue<Alternative> alternatives)
         {
             this.Name = question;
             this.Alternatives = alternatives;
         }
 
-        public Question(String question, List<String> alternatives)
+        public Question(String question, List<Alternative> alternatives)
         {
             this.Name = question;
-            this.Alternatives = new Queue<String>();
-            foreach (String alternative in alternatives)
+            this.Alternatives = new Queue<Alternative>();
+            foreach (Alternative alternative in alternatives)
             {
                 this.Alternatives.Enqueue(alternative);
             }
         }
 
-        public void addOneAlternative(string alternative)
+        public void addOneAlternative(Alternative alternative)
         {
             this.Alternatives.Enqueue(alternative);
         }
 
-        public string getNextAlternative()
+        public Alternative getNextAlternative()
         {
             return this.Alternatives.Dequeue();
         }
@@ -54,7 +54,7 @@ namespace ScalemateWPF.Models
             }
         }
 
-        public Queue<String> Alternatives
+        public Queue<Alternative> Alternatives
         {
             get
             {

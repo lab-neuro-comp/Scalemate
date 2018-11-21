@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScalemateWPF", "ScalemateWPF\ScalemateWPF.csproj", "{A497C641-F321-4F78-B84C-033873A6D71D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScalemateProject", "ScalemateProject\ScalemateProject.csproj", "{C3DBF992-432B-4767-8E5B-9CCA576A4273}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A497C641-F321-4F78-B84C-033873A6D71D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A497C641-F321-4F78-B84C-033873A6D71D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A497C641-F321-4F78-B84C-033873A6D71D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A497C641-F321-4F78-B84C-033873A6D71D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DBF992-432B-4767-8E5B-9CCA576A4273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DBF992-432B-4767-8E5B-9CCA576A4273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DBF992-432B-4767-8E5B-9CCA576A4273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DBF992-432B-4767-8E5B-9CCA576A4273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

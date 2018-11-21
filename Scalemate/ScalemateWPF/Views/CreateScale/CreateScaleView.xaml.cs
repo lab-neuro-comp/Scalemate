@@ -24,5 +24,10 @@ namespace ScalemateWPF.Views.CreateScale
         {
             InitializeComponent();
         }
+
+        private void TextBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
