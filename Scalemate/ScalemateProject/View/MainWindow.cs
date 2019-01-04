@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScalemateProject.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +38,8 @@ namespace ScalemateProject
         private void createScaleBtn_Click(object sender, EventArgs e)
         {
             applyClickedStyleAndRemoveControls((Control)sender);
-
+            CreateScaleFirstPage userControl = new CreateScaleFirstPage();
+            this.mainPanel.Controls.Add(userControl);
         }
 
         private void editScaleBtn_Click(object sender, EventArgs e)

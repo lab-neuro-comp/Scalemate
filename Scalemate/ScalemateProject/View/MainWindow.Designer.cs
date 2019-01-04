@@ -30,13 +30,13 @@
         {
             this.mainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.executeScaleBtn = new MaterialSkin.Controls.MaterialLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.createScaleBtn = new MaterialSkin.Controls.MaterialLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.resultsBtn = new MaterialSkin.Controls.MaterialLabel();
             this.editScaleBtn = new MaterialSkin.Controls.MaterialLabel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.resultsBtn = new MaterialSkin.Controls.MaterialLabel();
+            this.createScaleBtn = new MaterialSkin.Controls.MaterialLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.executeScaleBtn = new MaterialSkin.Controls.MaterialLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,7 @@
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.AutoScroll = true;
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.BackColor = System.Drawing.Color.White;
             this.mainPanel.ColumnCount = 1;
@@ -83,57 +84,23 @@
             this.panel1.Size = new System.Drawing.Size(800, 40);
             this.panel1.TabIndex = 0;
             // 
-            // executeScaleBtn
+            // resultsBtn
             // 
-            this.executeScaleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.executeScaleBtn.Depth = 0;
-            this.executeScaleBtn.Font = new System.Drawing.Font("Roboto", 11F);
-            this.executeScaleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.executeScaleBtn.Location = new System.Drawing.Point(0, 5);
-            this.executeScaleBtn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.executeScaleBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.executeScaleBtn.Name = "executeScaleBtn";
-            this.executeScaleBtn.Padding = new System.Windows.Forms.Padding(16, 6, 16, 0);
-            this.executeScaleBtn.Size = new System.Drawing.Size(147, 30);
-            this.executeScaleBtn.TabIndex = 0;
-            this.executeScaleBtn.Text = "Executar Escala";
-            this.executeScaleBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.executeScaleBtn.Click += new System.EventHandler(this.executeScaleBtn_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(147, 9);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 22);
-            this.panel2.TabIndex = 1;
-            // 
-            // createScaleBtn
-            // 
-            this.createScaleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.createScaleBtn.Depth = 0;
-            this.createScaleBtn.Font = new System.Drawing.Font("Roboto", 11F);
-            this.createScaleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.createScaleBtn.Location = new System.Drawing.Point(148, 5);
-            this.createScaleBtn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.createScaleBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.createScaleBtn.Name = "createScaleBtn";
-            this.createScaleBtn.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
-            this.createScaleBtn.Size = new System.Drawing.Size(147, 30);
-            this.createScaleBtn.TabIndex = 2;
-            this.createScaleBtn.Text = "Criar Escala";
-            this.createScaleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.createScaleBtn.Click += new System.EventHandler(this.createScaleBtn_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(295, 9);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1, 22);
-            this.panel3.TabIndex = 3;
+            this.resultsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resultsBtn.Depth = 0;
+            this.resultsBtn.Font = new System.Drawing.Font("Roboto", 11F);
+            this.resultsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.resultsBtn.Location = new System.Drawing.Point(444, 5);
+            this.resultsBtn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.resultsBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.resultsBtn.Name = "resultsBtn";
+            this.resultsBtn.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
+            this.resultsBtn.Size = new System.Drawing.Size(147, 30);
+            this.resultsBtn.TabIndex = 6;
+            this.resultsBtn.Tag = "ScaleResults";
+            this.resultsBtn.Text = "Resultados";
+            this.resultsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.resultsBtn.Click += new System.EventHandler(this.resultsBtn_Click);
             // 
             // editScaleBtn
             // 
@@ -161,22 +128,59 @@
             this.panel4.Size = new System.Drawing.Size(1, 22);
             this.panel4.TabIndex = 5;
             // 
-            // resultsBtn
+            // createScaleBtn
             // 
-            this.resultsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.resultsBtn.Depth = 0;
-            this.resultsBtn.Font = new System.Drawing.Font("Roboto", 11F);
-            this.resultsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.resultsBtn.Location = new System.Drawing.Point(444, 5);
-            this.resultsBtn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.resultsBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.resultsBtn.Name = "resultsBtn";
-            this.resultsBtn.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
-            this.resultsBtn.Size = new System.Drawing.Size(147, 30);
-            this.resultsBtn.TabIndex = 6;
-            this.resultsBtn.Text = "Resultados";
-            this.resultsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.resultsBtn.Click += new System.EventHandler(this.resultsBtn_Click);
+            this.createScaleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.createScaleBtn.Depth = 0;
+            this.createScaleBtn.Font = new System.Drawing.Font("Roboto", 11F);
+            this.createScaleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.createScaleBtn.Location = new System.Drawing.Point(148, 5);
+            this.createScaleBtn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.createScaleBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.createScaleBtn.Name = "createScaleBtn";
+            this.createScaleBtn.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
+            this.createScaleBtn.Size = new System.Drawing.Size(147, 30);
+            this.createScaleBtn.TabIndex = 2;
+            this.createScaleBtn.Tag = "CreateScale";
+            this.createScaleBtn.Text = "Criar Escala";
+            this.createScaleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.createScaleBtn.Click += new System.EventHandler(this.createScaleBtn_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(295, 9);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1, 22);
+            this.panel3.TabIndex = 3;
+            // 
+            // executeScaleBtn
+            // 
+            this.executeScaleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.executeScaleBtn.Depth = 0;
+            this.executeScaleBtn.Font = new System.Drawing.Font("Roboto", 11F);
+            this.executeScaleBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.executeScaleBtn.Location = new System.Drawing.Point(0, 5);
+            this.executeScaleBtn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.executeScaleBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.executeScaleBtn.Name = "executeScaleBtn";
+            this.executeScaleBtn.Padding = new System.Windows.Forms.Padding(16, 6, 16, 0);
+            this.executeScaleBtn.Size = new System.Drawing.Size(147, 30);
+            this.executeScaleBtn.TabIndex = 0;
+            this.executeScaleBtn.Tag = "ExeculteScale";
+            this.executeScaleBtn.Text = "Executar Escala";
+            this.executeScaleBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.executeScaleBtn.Click += new System.EventHandler(this.executeScaleBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(147, 9);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1, 22);
+            this.panel2.TabIndex = 1;
             // 
             // MainWindow
             // 
